@@ -64,24 +64,36 @@ public class JDBC {
 	}
           
           public void insertData(
-                            String userID, String first, 
-                            String last, String pass, String email, 
-                            String phNo, String gender
+                             String userID, String password, String firstName, String lastName, String gender, String phoneNo, String email,
+                             String address, String cnic, String role, String country, String city, String zipcode, String accountStatus
                     )
                             throws Exception{
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+table+"" 
-                              + "(userID, first, last ,password, email, phno, gender)"
-			+"VALUES (?, ?, ?, ?, ?, ?, ?)");
+                              + "(userID, password, first, last, gender, phno, email,"
+                              + " address, cnic, role, country, city, zipcode, accountstatus"
+                              + ")"
+			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			stmt.setString(1, userID);
-			stmt.setString(2, first);
-			stmt.setString(3, last);
-			stmt.setString(4, pass);
-			stmt.setString(5, email);
-			stmt.setString(6, phNo);
-			stmt.setString(7, gender);
+			stmt.setString(2, password);
+			stmt.setString(3, firstName);
+			stmt.setString(4, lastName);
+			stmt.setString(5, gender);
+			stmt.setString(6, phoneNo);
+			stmt.setString(7, email);
+                        stmt.setString(8, address);
+                        stmt.setString(9, cnic);
+                        stmt.setString(10, role);
+                        stmt.setString(11, country);
+                        stmt.setString(12, city);
+                        stmt.setString(13, zipcode);
+                        stmt.setString(14, accountStatus);
+                              
+                              
+                              
+                              
 			stmt.executeUpdate();
 			
 			//JOptionPane.showMessageDialog(null, "Information Udated!");
@@ -101,13 +113,21 @@ public class JDBC {
 			Connection conn = get_Connection();
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableName+""
-                                        + "(userID varchar(32) NOT NULL,"
-				+ "first varchar(32) NOT NULL,"
-                                        + "last varchar(32) NOT NULL,"
-                                        + "password varchar(32) NOT NULL,"
-                                        + "email varchar(32) NOT NULL,"
-                                        + " phno varchar(32) NOT NULL,"
-                                        + "gender varchar(6) NOT NULL )";
+                                      + "(userID varchar(32) NOT NULL,"
+                                      + "password varchar(32) NOT NULL,"
+                                      + "first varchar(32) NOT NULL,"
+                                      + "last varchar(32) NOT NULL,"
+                                      + "gender varchar(6) NOT NULL,"
+                                      + "phno varchar(32) NOT NULL,"
+                                      + "email varchar(32) NOT NULL,"
+                                      + "address varchar(64),"
+                                      + "cnic varchar(32) NOT NULL,"
+                                      + "role varchar(32),"
+                                      + "country varchar(16),"
+                                      + "city varchar(32),"
+                                      + "zipcode varchar(16),"
+                                      + "accountstatus varchar(16),"
+                                      + "PRIMARY KEY ( userID ))"; 
 			stmt.executeUpdate(sql);
 			System.out.println("Table Created!");
 		}catch(Exception e){
