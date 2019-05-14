@@ -21,9 +21,9 @@ public class Runner {
         
         JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
         
-        myDB.insertData(
-                "F2017266455", 
-                "MyPass",
+        myDB.insertAdminData(
+                "adminSTP", 
+                "adminPass",
                 "Muhammad",
                 "Shahrukh", 
                 "Male",

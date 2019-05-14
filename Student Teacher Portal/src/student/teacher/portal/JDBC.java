@@ -49,9 +49,6 @@ public class JDBC {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+table);
 			while(rs.next()){
 				if(rs.getString("userID").equals(username) && rs.getString("password").equals(password)){
-					//user = new User(rs.getString("first"), rs.getString("last"), rs.getString("username"),
-					//		rs.getString("password"), rs.getString("email"), rs.getString("phno"), rs.getString("gender"));
-					
 					
 					return true;
 				}
@@ -63,7 +60,7 @@ public class JDBC {
 		return false;
 	}
           
-          public void insertData(
+          public void insertAdminData(
                              String userID, String password, String firstName, String lastName, String gender, String phoneNo, String email,
                              String address, String cnic, String role, String country, String city, String zipcode, String accountStatus
                     )
@@ -76,20 +73,21 @@ public class JDBC {
                               + " address, cnic, role, country, city, zipcode, accountstatus"
                               + ")"
 			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			stmt.setString(1, userID);
-			stmt.setString(2, password);
-			stmt.setString(3, firstName);
-			stmt.setString(4, lastName);
-			stmt.setString(5, gender);
-			stmt.setString(6, phoneNo);
-			stmt.setString(7, email);
-                        stmt.setString(8, address);
-                        stmt.setString(9, cnic);
-                        stmt.setString(10, role);
-                        stmt.setString(11, country);
-                        stmt.setString(12, city);
-                        stmt.setString(13, zipcode);
-                        stmt.setString(14, accountStatus);
+                              
+                                stmt.setString(1, userID);
+                                stmt.setString(2, password);
+                                stmt.setString(3, firstName);
+                                stmt.setString(4, lastName);
+                                stmt.setString(5, gender);
+                                stmt.setString(6, phoneNo);
+                                stmt.setString(7, email);
+                                stmt.setString(8, address);
+                                stmt.setString(9, cnic);
+                                stmt.setString(10, role);
+                                stmt.setString(11, country);
+                                stmt.setString(12, city);
+                                stmt.setString(13, zipcode);
+                                stmt.setString(14, accountStatus);
                               
                               
                               

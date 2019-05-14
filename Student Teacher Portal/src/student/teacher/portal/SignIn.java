@@ -219,9 +219,9 @@ public class SignIn extends javax.swing.JFrame {
         String password=new String (Passwordfield_Password.getPassword());
         
         if(new JDBC("StudentTeacherPortal", "Admin").isUser(username, password)){
-           JOptionPane.showMessageDialog(null, "Loged In Successfully!");
+           JOptionPane.showMessageDialog(null, "Logged In Successfully!");
        }else{
-           JOptionPane.showMessageDialog(null, "Not Successfull!");
+           JOptionPane.showMessageDialog(null, "Login Error !");
        }
         
     }//GEN-LAST:event_Button_SignInActionPerformed
