@@ -19,17 +19,25 @@ public class Runner {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        /*JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
+        JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
         
-        myDB.insertData(
-                "F2017266455", 
+        myDB.insertAdminData(
+                "adminSTP", 
+                "adminPass",
                 "Muhammad",
                 "Shahrukh", 
-                "MyPass",
-                "myemail@gmail.com",
+                "Male",
                 "03012345678", 
-                "Male"
-        );*/
+                "myemail@gmail.com",
+                "adress",
+                "000000000000",
+                "some data",
+                "some data",
+                "some data",
+                "some data",
+                "some data"
+                
+        );
         
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
