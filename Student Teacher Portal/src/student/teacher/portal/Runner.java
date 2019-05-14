@@ -22,20 +22,20 @@ public class Runner {
         JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
         
         myDB.insertAdminData(
-                "adminSTP", 
+                "abbasZah", 
                 "adminPass",
-                "Muhammad",
-                "Shahrukh", 
+                "Abbas",
+                "Zaheer", 
                 "Male",
-                "03012345678", 
+                "03334455666", 
                 "myemail@gmail.com",
-                "adress",
-                "000000000000",
-                "some data",
-                "some data",
-                "some data",
-                "some data",
-                "some data"
+                "Address 123, M Town, Lahore",
+                "3322299665552",
+                "Administrator",
+                "Pakistan",
+                "Lahore",
+                "54700",
+                "Active"
                 
         );
         
