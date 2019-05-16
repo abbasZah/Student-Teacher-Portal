@@ -6,6 +6,7 @@
 package student.teacher.portal;
 
 import java.awt.Toolkit;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -220,6 +221,15 @@ public class SignIn extends javax.swing.JFrame {
         
         if(new JDBC("StudentTeacherPortal", "Admin").isUser(username, password)){
            JOptionPane.showMessageDialog(null, "Logged In Successfully!");
+           
+           
+        AdminWindow admin = new AdminWindow();
+        admin.setVisible(true);
+        admin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        admin.setResizable(false);
+        admin.setLocation(150, 50);
+        admin.setTitle("Student Teacher Portal");
+           
        }else{
            JOptionPane.showMessageDialog(null, "Login Error !");
        }

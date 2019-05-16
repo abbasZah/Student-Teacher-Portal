@@ -20,6 +20,8 @@ public class JDBC {
 	private static final String PASS = "";
 	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
           private final String ser_URL = "jdbc:mysql://localhost/";
+          
+          private static Admin admin;
 
 
           private String dbNAme;
@@ -38,6 +40,7 @@ public class JDBC {
               } catch (Exception ex) {
                   ex.printStackTrace();
               }
+              admin = new Admin();
           }
           
           //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,13 +52,19 @@ public class JDBC {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+table);
 			while(rs.next()){
 				if(rs.getString("userID").equals(username) && rs.getString("password").equals(password)){
-					
+                                            admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
+                                                    ,  rs.getString("last"), rs.getString("gender"), rs.getString("phno"), 
+                                                     rs.getString("email"),  rs.getString("address"),  rs.getString("cnic"),  rs.getString("role"),
+                                                     rs.getString("country"),  rs.getString("city"),  rs.getString("zipcode"),
+                                                    rs.getString("accountstatus"));
+                                            
+                                            
 					return true;
 				}
 			}
 			
 		}catch(Exception e){
-                        System.out.println(e);
+                        e.printStackTrace();
 		}
 		return false;
 	}
@@ -183,5 +192,8 @@ public class JDBC {
     }
     public String getSer_URL() {
         return ser_URL;
+    }
+    public static Admin getAdmin() {
+        return admin;
     }
 }

@@ -17,6 +17,9 @@ public class Course {
     private String category;
     
     
+    public Course(){}
+    
+    
     public Course(String title, int creditHours, String type, String category) {
         this.title = title;
         this.creditHours = creditHours;

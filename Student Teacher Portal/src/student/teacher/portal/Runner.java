@@ -19,7 +19,7 @@ public class Runner {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
+        /*JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
         
         myDB.insertAdminData(
                 "adminSTP", 
@@ -37,7 +37,7 @@ public class Runner {
                 "some data",
                 "some data"
                 
-        );
+        );*/
         
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
