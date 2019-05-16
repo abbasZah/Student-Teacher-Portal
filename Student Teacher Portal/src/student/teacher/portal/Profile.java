@@ -5,6 +5,8 @@
  */
 package student.teacher.portal;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author F2017266455
@@ -19,6 +21,10 @@ public class Profile extends javax.swing.JFrame {
     
     public Profile() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocation(200, 100);
+        setTitle("Student Teacher Portal");
         
         admin = JDBC.getAdmin();
         

@@ -41,10 +41,7 @@ public class Runner {
         
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
-        signIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        signIn.setResizable(false);
-        signIn.setLocation(200, 100);
-        signIn.setTitle("Student Teacher Portal");
+        
         
     }
     

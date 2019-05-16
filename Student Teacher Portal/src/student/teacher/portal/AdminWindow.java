@@ -20,6 +20,10 @@ public class AdminWindow extends javax.swing.JFrame {
     public AdminWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocation(150, 50);
+        setTitle("Student Teacher Portal");
     }
 
     /**
@@ -466,16 +470,13 @@ public class AdminWindow extends javax.swing.JFrame {
 
     private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
         this.dispose();
-        
+        new SignIn().setVisible(true);
     }//GEN-LAST:event_Button_SignInActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Profile adminProfile = new Profile();
         adminProfile.setVisible(true);
-        adminProfile.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        adminProfile.setResizable(false);
-        adminProfile.setLocation(200, 100);
-        adminProfile.setTitle("Student Teacher Portal");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -21,6 +21,10 @@ public class SignIn extends javax.swing.JFrame {
     public SignIn() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocation(200, 100);
+        setTitle("Student Teacher Portal");
     }
 
     /**
@@ -224,11 +228,9 @@ public class SignIn extends javax.swing.JFrame {
            
            
         AdminWindow admin = new AdminWindow();
+        this.dispose();
         admin.setVisible(true);
-        admin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        admin.setResizable(false);
-        admin.setLocation(150, 50);
-        admin.setTitle("Student Teacher Portal");
+        
            
        }else{
            JOptionPane.showMessageDialog(null, "Login Error !");
