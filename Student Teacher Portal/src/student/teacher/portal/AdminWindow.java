@@ -24,7 +24,7 @@ public class AdminWindow extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-        setLocation(50, 50);
+        setLocation(150, 10);
         setTitle("Student Teacher Portal");
     }
     
@@ -103,7 +103,7 @@ public class AdminWindow extends javax.swing.JFrame {
                 .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(838, Short.MAX_VALUE))
+                .addContainerGap(733, Short.MAX_VALUE))
         );
         PNL_HeaderLayout.setVerticalGroup(
             PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +140,7 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_FooterLayout.setHorizontalGroup(
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
-                .addContainerGap(1007, Short.MAX_VALUE)
+                .addContainerGap(902, Short.MAX_VALUE)
                 .addComponent(Button_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -164,7 +164,7 @@ public class AdminWindow extends javax.swing.JFrame {
         );
         PNL_LeftPaneLayout.setVerticalGroup(
             PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
@@ -179,7 +179,7 @@ public class AdminWindow extends javax.swing.JFrame {
         );
         PNL_RightPaneLayout.setVerticalGroup(
             PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
@@ -193,7 +193,7 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
         PNL_BodyTopLayout.setHorizontalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGap(0, 816, Short.MAX_VALUE)
         );
         PNL_BodyTopLayout.setVerticalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +204,10 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
         PNL_BodyBelow.setLayout(new java.awt.GridLayout(2, 4, 9, 9));
+
+        PNL_Profile.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel11.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -246,24 +250,23 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_Profile.setLayout(PNL_ProfileLayout);
         PNL_ProfileLayout.setHorizontalGroup(
             PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_ProfileLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PNL_ProfileLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         PNL_ProfileLayout.setVerticalGroup(
             PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_ProfileLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_ProfileLayout.createSequentialGroup()
+                .addGap(0, 23, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PNL_BodyBelow.add(PNL_Profile);
+
+        PNL_Student.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel12.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -287,43 +290,43 @@ public class AdminWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addComponent(BTN_Student)
-                .addGap(52, 52, 52))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(BTN_Student, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout PNL_StudentLayout = new javax.swing.GroupLayout(PNL_Student);
         PNL_Student.setLayout(PNL_StudentLayout);
         PNL_StudentLayout.setHorizontalGroup(
             PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_StudentLayout.createSequentialGroup()
-                    .addGap(0, 70, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 70, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_StudentLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         PNL_StudentLayout.setVerticalGroup(
             PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_StudentLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_StudentLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_Student);
+
+        PNL_Teacher.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel14.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -345,45 +348,45 @@ public class AdminWindow extends javax.swing.JFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
                 .addComponent(BTN_Teacher)
-                .addGap(52, 52, 52))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(BTN_Teacher)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout PNL_TeacherLayout = new javax.swing.GroupLayout(PNL_Teacher);
         PNL_Teacher.setLayout(PNL_TeacherLayout);
         PNL_TeacherLayout.setHorizontalGroup(
             PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_TeacherLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PNL_TeacherLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         PNL_TeacherLayout.setVerticalGroup(
             PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_TeacherLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_TeacherLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_Teacher);
+
+        PNL_DegreeProgram.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel15.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -415,18 +418,18 @@ public class AdminWindow extends javax.swing.JFrame {
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(BTN_DegreeProgram)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout PNL_DegreeProgramLayout = new javax.swing.GroupLayout(PNL_DegreeProgram);
         PNL_DegreeProgram.setLayout(PNL_DegreeProgramLayout);
         PNL_DegreeProgramLayout.setHorizontalGroup(
             PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 266, Short.MAX_VALUE)
             .addGroup(PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_DegreeProgramLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -435,7 +438,7 @@ public class AdminWindow extends javax.swing.JFrame {
         );
         PNL_DegreeProgramLayout.setVerticalGroup(
             PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGap(0, 142, Short.MAX_VALUE)
             .addGroup(PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_DegreeProgramLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -445,6 +448,10 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_BodyBelow.add(PNL_DegreeProgram);
 
+        PNL_AssignCourses.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel16.setBackground(new java.awt.Color(220, 220, 220));
+
         jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Assign Courses");
@@ -453,6 +460,11 @@ public class AdminWindow extends javax.swing.JFrame {
         BTN_AssignCourses.setForeground(new java.awt.Color(13, 56, 247));
         BTN_AssignCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Life Cycle_52px.png"))); // NOI18N
         BTN_AssignCourses.setBorder(null);
+        BTN_AssignCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_AssignCoursesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -481,16 +493,16 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_AssignCourses.setLayout(PNL_AssignCoursesLayout);
         PNL_AssignCoursesLayout.setHorizontalGroup(
             PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 266, Short.MAX_VALUE)
             .addGroup(PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_AssignCoursesLayout.createSequentialGroup()
-                    .addGap(0, 62, Short.MAX_VALUE)
+                    .addGap(0, 45, Short.MAX_VALUE)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 62, Short.MAX_VALUE)))
+                    .addGap(0, 44, Short.MAX_VALUE)))
         );
         PNL_AssignCoursesLayout.setVerticalGroup(
             PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGap(0, 142, Short.MAX_VALUE)
             .addGroup(PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_AssignCoursesLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -499,6 +511,10 @@ public class AdminWindow extends javax.swing.JFrame {
         );
 
         PNL_BodyBelow.add(PNL_AssignCourses);
+
+        PNL_Requests.setBackground(new java.awt.Color(220, 220, 220));
+
+        jPanel17.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -518,16 +534,16 @@ public class AdminWindow extends javax.swing.JFrame {
                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(62, 62, 62)
                 .addComponent(BTN_Requests)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(BTN_Requests)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -536,16 +552,16 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_Requests.setLayout(PNL_RequestsLayout);
         PNL_RequestsLayout.setHorizontalGroup(
             PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 266, Short.MAX_VALUE)
             .addGroup(PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_RequestsLayout.createSequentialGroup()
-                    .addGap(0, 62, Short.MAX_VALUE)
+                    .addGap(0, 45, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 62, Short.MAX_VALUE)))
+                    .addGap(0, 44, Short.MAX_VALUE)))
         );
         PNL_RequestsLayout.setVerticalGroup(
             PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGap(0, 142, Short.MAX_VALUE)
             .addGroup(PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_RequestsLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -573,11 +589,6 @@ public class AdminWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
-        this.dispose();
-        new SignIn().setVisible(true);
-    }//GEN-LAST:event_Button_SignInActionPerformed
-
     private void BTN_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_StudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_StudentActionPerformed
@@ -594,6 +605,15 @@ public class AdminWindow extends javax.swing.JFrame {
     private void BTN_DegreeProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_DegreeProgramActionPerformed
+
+    private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
+        this.dispose();
+        new SignIn().setVisible(true);
+    }//GEN-LAST:event_Button_SignInActionPerformed
+
+    private void BTN_AssignCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_AssignCoursesActionPerformed
 
     /**
      * @param args the command line arguments

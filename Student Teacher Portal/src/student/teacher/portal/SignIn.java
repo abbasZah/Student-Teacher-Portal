@@ -224,7 +224,7 @@ public class SignIn extends javax.swing.JFrame {
         String password=new String (PF_Password.getPassword());
         
         if(new JDBC("StudentTeacherPortal", "Admin").isUser(username, password)){
-           JOptionPane.showMessageDialog(null, "Logged In Successfully!");
+           //JOptionPane.showMessageDialog(null, "Logged In Successfully!");
            
            
         AdminWindow admin = new AdminWindow();
