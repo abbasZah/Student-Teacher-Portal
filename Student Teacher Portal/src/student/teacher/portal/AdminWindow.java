@@ -18,6 +18,10 @@ public class AdminWindow extends javax.swing.JFrame {
     /**
      * Creates new form AdminWindow
      */
+    
+    Admin admin;
+    
+    
    Color OnEnteredColor;
    Color OnExitedColor;
         
@@ -32,6 +36,8 @@ public class AdminWindow extends javax.swing.JFrame {
         
          OnEnteredColor= new Color(190,190,190);
          OnExitedColor = new Color(220,220,220);
+         admin = SignIn.getAdmin();
+        
     }
     
 
@@ -48,7 +54,7 @@ public class AdminWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         PNL_Footer = new javax.swing.JPanel();
-        Button_SignIn = new javax.swing.JButton();
+        BTN_LogOut = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -126,14 +132,14 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_Footer.setBackground(new java.awt.Color(255, 255, 255));
 
-        Button_SignIn.setBackground(new java.awt.Color(13, 56, 247));
-        Button_SignIn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Button_SignIn.setForeground(new java.awt.Color(255, 255, 255));
-        Button_SignIn.setText("Log Out");
-        Button_SignIn.setBorder(null);
-        Button_SignIn.addActionListener(new java.awt.event.ActionListener() {
+        BTN_LogOut.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_LogOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_LogOut.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_LogOut.setText("Log Out");
+        BTN_LogOut.setBorder(null);
+        BTN_LogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button_SignInActionPerformed(evt);
+                BTN_LogOutActionPerformed(evt);
             }
         });
 
@@ -143,14 +149,14 @@ public class AdminWindow extends javax.swing.JFrame {
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
                 .addContainerGap(909, Short.MAX_VALUE)
-                .addComponent(Button_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_LogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PNL_FooterLayout.setVerticalGroup(
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_FooterLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(Button_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_LogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -501,17 +507,18 @@ public class AdminWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_DegreeProgramActionPerformed
 
-    private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
+    private void BTN_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_LogOutActionPerformed
         this.dispose();
         new SignIn().setVisible(true);
-    }//GEN-LAST:event_Button_SignInActionPerformed
+    }//GEN-LAST:event_BTN_LogOutActionPerformed
 
     private void BTN_AssignCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_BTN_AssignCoursesActionPerformed
 
     private void BTN_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProfileActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new Profile().setVisible(true);
     }//GEN-LAST:event_BTN_ProfileActionPerformed
 
     private void BTN_RequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RequestsActionPerformed
@@ -639,11 +646,11 @@ public class AdminWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_AssignCourses;
     private javax.swing.JButton BTN_DegreeProgram;
+    private javax.swing.JButton BTN_LogOut;
     private javax.swing.JButton BTN_Profile;
     private javax.swing.JButton BTN_Requests;
     private javax.swing.JButton BTN_Student;
     private javax.swing.JButton BTN_Teacher;
-    private javax.swing.JButton Button_SignIn;
     private javax.swing.JPanel PNL_AssignCourses;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;

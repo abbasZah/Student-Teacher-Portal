@@ -148,7 +148,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="909" max="32767" attributes="0"/>
-                      <Component id="Button_SignIn" min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="BTN_LogOut" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -157,14 +157,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="Button_SignIn" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="BTN_LogOut" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace pref="34" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="Button_SignIn">
+            <Component class="javax.swing.JButton" name="BTN_LogOut">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f7" green="38" red="d" type="rgb"/>
@@ -181,7 +181,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Button_SignInActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_LogOutActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

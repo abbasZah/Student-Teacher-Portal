@@ -44,7 +44,7 @@ public class Person {
     
     
     public Person(String userId, String password, String firstName, String lastName, String gender, String phoneNo, 
-            String address, String cnic, String role, String email, String country, String city, String zipcode, 
+             String email, String address, String cnic, String role, String country, String city, String zipcode, 
             String accountStatus) {
         this.userId = userId;
         this.password = password;

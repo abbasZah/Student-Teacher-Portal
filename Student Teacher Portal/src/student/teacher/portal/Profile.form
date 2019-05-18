@@ -521,20 +521,19 @@
                               <Component id="jLabel7" min="-2" pref="118" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator16" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_LastName" max="32767" attributes="0"/>
+                                  <Component id="TF_LastName" pref="277" max="32767" attributes="0"/>
+                                  <Component id="jSeparator15" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel7" pref="37" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel7" min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="TF_LastName" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator16" min="-2" pref="2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jSeparator15" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -574,7 +573,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_LastNameActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JSeparator" name="jSeparator16">
+                    <Component class="javax.swing.JSeparator" name="jSeparator15">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f7" green="38" red="d" type="rgb"/>

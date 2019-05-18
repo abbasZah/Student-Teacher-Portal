@@ -6,7 +6,10 @@
 package student.teacher.portal;
 
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,11 +36,12 @@ public class Profile extends javax.swing.JFrame {
         
         
         
-        admin = JDBC.getAdmin();
+        
+        
         
         TF_FirstName.setText(admin.getFirstName());
-        TF_LastName.setText(admin.getFirstName());
-        TF_Gender.setText(admin.getFirstName());
+        TF_LastName.setText(admin.getLastName());
+        TF_Gender.setText(admin.getGender());
         TF_Role.setText(admin.getRole());
         TF_AccountStatus.setText(admin.getAccountStatus());
         TF_Username.setText(admin.getUserId());
@@ -49,6 +53,8 @@ public class Profile extends javax.swing.JFrame {
         TF_Country.setText(admin.getCountry());
         TF_City.setText(admin.getCity());
         TF_ZipCode.setText(admin.getZipcode());
+        
+        System.out.println(admin.getFirstName());
         
         
         
@@ -88,7 +94,7 @@ public class Profile extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         TF_LastName = new javax.swing.JTextField();
-        jSeparator16 = new javax.swing.JSeparator();
+        jSeparator15 = new javax.swing.JSeparator();
         jPanel17 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -407,7 +413,7 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        jSeparator16.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator15.setBackground(new java.awt.Color(13, 56, 247));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -418,17 +424,16 @@ public class Profile extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator16, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_LastName)))
+                    .addComponent(TF_LastName, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(jSeparator15)))
         );
         jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addComponent(TF_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PNL_BodyBelow.add(jPanel16);
@@ -936,7 +941,48 @@ public class Profile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
+        admin.setFirstName(TF_FirstName.getText());
+        admin.setLastName(TF_LastName.getText());
+        admin.setGender(TF_Gender.getText());
+        admin.setRole(TF_Role.getText());
+        admin.setAccountStatus(TF_AccountStatus.getText());
+        admin.setUserId(TF_Username.getText());
+        admin.setPassword(TF_Password.getText());
+        admin.setPhoneNo(TF_PhoneNo.getText());
+        admin.setEmail(TF_Email.getText());
+        admin.setCnic(TF_CNIC.getText());
+        admin.setAddress(TF_Address.getText());
+        admin.setCountry(TF_Country.getText());
+        admin.setCity(TF_City.getText());
+        admin.setZipcode(TF_ZipCode.getText());
+        
+        BTN_Update.setVisible(false);
+        
+        try {
+            JDBC.updateData(SignIn.getAdmin());
+        } catch (Exception ex) {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       JOptionPane.showMessageDialog(null, "Profile Updated !");
        
+        TF_FirstName.setEditable(false);
+        TF_LastName.setEditable(false);
+        TF_Gender.setEditable(false);
+        TF_Role.setEditable(false);
+        TF_AccountStatus.setEditable(false);
+        TF_Username.setEditable(false);
+        TF_Password.setEditable(false);
+        TF_PhoneNo.setEditable(false);
+        TF_Email.setEditable(false);
+        TF_CNIC.setEditable(false);
+        TF_Address.setEditable(false);
+        TF_Country.setEditable(false);
+        TF_City.setEditable(false);
+        TF_ZipCode.setEditable(false);
+        
+        
+        
     }//GEN-LAST:event_BTN_UpdateActionPerformed
 
     private void TF_PhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PhoneNoActionPerformed
@@ -985,6 +1031,7 @@ public class Profile extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
         this.dispose();
+        new AdminWindow().setVisible(true);
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void TF_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_GenderActionPerformed
@@ -999,8 +1046,8 @@ public class Profile extends javax.swing.JFrame {
         TF_Gender.setEditable(true);
         TF_Role.setEditable(true);
         TF_AccountStatus.setEditable(true);
-        TF_Username.setEditable(true);
-        TF_Password.setEditable(true);
+        //TF_Username.setEditable(true);
+        //TF_Password.setEditable(true);
         TF_PhoneNo.setEditable(true);
         TF_Email.setEditable(true);
         TF_CNIC.setEditable(true);
@@ -1010,13 +1057,13 @@ public class Profile extends javax.swing.JFrame {
         TF_ZipCode.setEditable(true);
     }//GEN-LAST:event_BTN_EditActionPerformed
 
-    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastNameActionPerformed
-
     private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_FirstNameActionPerformed
+
+    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_LastNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1115,7 +1162,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
