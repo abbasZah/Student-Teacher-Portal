@@ -5,6 +5,7 @@
  */
 package student.teacher.portal;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
@@ -17,15 +18,20 @@ public class AdminWindow extends javax.swing.JFrame {
     /**
      * Creates new form AdminWindow
      */
-   
+   Color OnEnteredColor;
+   Color OnExitedColor;
         
         public AdminWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-        setLocation(50, 50);
+        setLocation(150, 10);
         setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        
+         OnEnteredColor= new Color(190,190,190);
+         OnExitedColor = new Color(220,220,220);
     }
     
 
@@ -49,31 +55,26 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_BodyTop = new javax.swing.JPanel();
         PNL_BodyBelow = new javax.swing.JPanel();
         PNL_Profile = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         BTN_Profile = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         PNL_Student = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BTN_Student = new javax.swing.JButton();
         PNL_Teacher = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         BTN_Teacher = new javax.swing.JButton();
         PNL_DegreeProgram = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         BTN_DegreeProgram = new javax.swing.JButton();
         PNL_AssignCourses = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         BTN_AssignCourses = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         PNL_Requests = new javax.swing.JPanel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         BTN_Requests = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 500));
 
         PNL_Wrapper.setBackground(new java.awt.Color(255, 255, 255));
         PNL_Wrapper.setLayout(new java.awt.BorderLayout());
@@ -103,7 +104,7 @@ public class AdminWindow extends javax.swing.JFrame {
                 .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(838, Short.MAX_VALUE))
+                .addContainerGap(740, Short.MAX_VALUE))
         );
         PNL_HeaderLayout.setVerticalGroup(
             PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,6 +130,7 @@ public class AdminWindow extends javax.swing.JFrame {
         Button_SignIn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         Button_SignIn.setForeground(new java.awt.Color(255, 255, 255));
         Button_SignIn.setText("Log Out");
+        Button_SignIn.setBorder(null);
         Button_SignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_SignInActionPerformed(evt);
@@ -140,7 +142,7 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_FooterLayout.setHorizontalGroup(
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
-                .addContainerGap(1007, Short.MAX_VALUE)
+                .addContainerGap(909, Short.MAX_VALUE)
                 .addComponent(Button_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -164,7 +166,7 @@ public class AdminWindow extends javax.swing.JFrame {
         );
         PNL_LeftPaneLayout.setVerticalGroup(
             PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
@@ -179,7 +181,7 @@ public class AdminWindow extends javax.swing.JFrame {
         );
         PNL_RightPaneLayout.setVerticalGroup(
             PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
@@ -193,7 +195,7 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
         PNL_BodyTopLayout.setHorizontalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGap(0, 823, Short.MAX_VALUE)
         );
         PNL_BodyTopLayout.setVerticalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,65 +207,57 @@ public class AdminWindow extends javax.swing.JFrame {
         PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
         PNL_BodyBelow.setLayout(new java.awt.GridLayout(2, 4, 9, 9));
 
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Profile");
+        PNL_Profile.setBackground(new java.awt.Color(220, 220, 220));
 
         BTN_Profile.setBackground(new java.awt.Color(220, 220, 220));
         BTN_Profile.setForeground(new java.awt.Color(13, 56, 247));
         BTN_Profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Male User_60px.png"))); // NOI18N
         BTN_Profile.setBorder(null);
+        BTN_Profile.setBorderPainted(false);
+        BTN_Profile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BTN_Profile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BTN_ProfileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_ProfileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_ProfileMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                BTN_ProfileMouseReleased(evt);
+            }
+        });
         BTN_Profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_ProfileActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(BTN_Profile)
-                .addGap(52, 52, 52))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Profile)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Profile");
 
         javax.swing.GroupLayout PNL_ProfileLayout = new javax.swing.GroupLayout(PNL_Profile);
         PNL_Profile.setLayout(PNL_ProfileLayout);
         PNL_ProfileLayout.setHorizontalGroup(
             PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_ProfileLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BTN_Profile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
         );
         PNL_ProfileLayout.setVerticalGroup(
             PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_ProfileLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_ProfileLayout.createSequentialGroup()
+                .addComponent(BTN_Profile, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_Profile);
+
+        PNL_Student.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -273,57 +267,39 @@ public class AdminWindow extends javax.swing.JFrame {
         BTN_Student.setForeground(new java.awt.Color(13, 56, 247));
         BTN_Student.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Student Male_50px.png"))); // NOI18N
         BTN_Student.setBorder(null);
+        BTN_Student.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_StudentMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_StudentMouseExited(evt);
+            }
+        });
         BTN_Student.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_StudentActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Student)
-                .addGap(52, 52, 52))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BTN_Student, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout PNL_StudentLayout = new javax.swing.GroupLayout(PNL_Student);
         PNL_Student.setLayout(PNL_StudentLayout);
         PNL_StudentLayout.setHorizontalGroup(
             PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_StudentLayout.createSequentialGroup()
-                    .addGap(0, 70, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 70, Short.MAX_VALUE)))
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+            .addComponent(BTN_Student, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PNL_StudentLayout.setVerticalGroup(
             PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_StudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_StudentLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_StudentLayout.createSequentialGroup()
+                .addComponent(BTN_Student, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_Student);
+
+        PNL_Teacher.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -333,57 +309,39 @@ public class AdminWindow extends javax.swing.JFrame {
         BTN_Teacher.setForeground(new java.awt.Color(13, 56, 247));
         BTN_Teacher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Training_50px.png"))); // NOI18N
         BTN_Teacher.setBorder(null);
+        BTN_Teacher.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_TeacherMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_TeacherMouseExited(evt);
+            }
+        });
         BTN_Teacher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_TeacherActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(BTN_Teacher)
-                .addGap(52, 52, 52))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Teacher)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout PNL_TeacherLayout = new javax.swing.GroupLayout(PNL_Teacher);
         PNL_Teacher.setLayout(PNL_TeacherLayout);
         PNL_TeacherLayout.setHorizontalGroup(
             PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_TeacherLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(BTN_Teacher, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PNL_TeacherLayout.setVerticalGroup(
             PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_TeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_TeacherLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PNL_TeacherLayout.createSequentialGroup()
+                .addComponent(BTN_Teacher, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_Teacher);
+
+        PNL_DegreeProgram.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -393,164 +351,122 @@ public class AdminWindow extends javax.swing.JFrame {
         BTN_DegreeProgram.setForeground(new java.awt.Color(13, 56, 247));
         BTN_DegreeProgram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Contract_52px.png"))); // NOI18N
         BTN_DegreeProgram.setBorder(null);
+        BTN_DegreeProgram.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_DegreeProgramMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_DegreeProgramMouseExited(evt);
+            }
+        });
         BTN_DegreeProgram.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN_DegreeProgramActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(BTN_DegreeProgram)
-                .addGap(52, 52, 52))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_DegreeProgram)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout PNL_DegreeProgramLayout = new javax.swing.GroupLayout(PNL_DegreeProgram);
         PNL_DegreeProgram.setLayout(PNL_DegreeProgramLayout);
         PNL_DegreeProgramLayout.setHorizontalGroup(
             PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_DegreeProgramLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(BTN_DegreeProgram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
         );
         PNL_DegreeProgramLayout.setVerticalGroup(
             PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_DegreeProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_DegreeProgramLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PNL_DegreeProgramLayout.createSequentialGroup()
+                .addComponent(BTN_DegreeProgram, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_DegreeProgram);
 
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Assign Courses");
+        PNL_AssignCourses.setBackground(new java.awt.Color(220, 220, 220));
 
         BTN_AssignCourses.setBackground(new java.awt.Color(220, 220, 220));
         BTN_AssignCourses.setForeground(new java.awt.Color(13, 56, 247));
         BTN_AssignCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Life Cycle_52px.png"))); // NOI18N
         BTN_AssignCourses.setBorder(null);
+        BTN_AssignCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_AssignCoursesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_AssignCoursesMouseExited(evt);
+            }
+        });
+        BTN_AssignCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_AssignCoursesActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_AssignCourses)
-                .addGap(60, 60, 60))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(BTN_AssignCourses)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Assign Courses");
 
         javax.swing.GroupLayout PNL_AssignCoursesLayout = new javax.swing.GroupLayout(PNL_AssignCourses);
         PNL_AssignCourses.setLayout(PNL_AssignCoursesLayout);
         PNL_AssignCoursesLayout.setHorizontalGroup(
             PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
-            .addGroup(PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_AssignCoursesLayout.createSequentialGroup()
-                    .addGap(0, 62, Short.MAX_VALUE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 62, Short.MAX_VALUE)))
+            .addComponent(BTN_AssignCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
         );
         PNL_AssignCoursesLayout.setVerticalGroup(
             PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-            .addGroup(PNL_AssignCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_AssignCoursesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(PNL_AssignCoursesLayout.createSequentialGroup()
+                .addComponent(BTN_AssignCourses, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PNL_BodyBelow.add(PNL_AssignCourses);
 
-        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Requests");
+        PNL_Requests.setBackground(new java.awt.Color(220, 220, 220));
 
         BTN_Requests.setBackground(new java.awt.Color(220, 220, 220));
         BTN_Requests.setForeground(new java.awt.Color(13, 56, 247));
         BTN_Requests.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Pull Request_50px.png"))); // NOI18N
         BTN_Requests.setBorder(null);
+        BTN_Requests.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BTN_RequestsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BTN_RequestsMouseExited(evt);
+            }
+        });
+        BTN_Requests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_RequestsActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(BTN_Requests)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(BTN_Requests)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Requests");
 
         javax.swing.GroupLayout PNL_RequestsLayout = new javax.swing.GroupLayout(PNL_Requests);
         PNL_Requests.setLayout(PNL_RequestsLayout);
         PNL_RequestsLayout.setHorizontalGroup(
             PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
             .addGroup(PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PNL_RequestsLayout.createSequentialGroup()
-                    .addGap(0, 62, Short.MAX_VALUE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 62, Short.MAX_VALUE)))
+                .addComponent(BTN_Requests, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
         );
         PNL_RequestsLayout.setVerticalGroup(
             PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_RequestsLayout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(PNL_RequestsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PNL_RequestsLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(BTN_Requests, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addGap(41, 41, 41)))
         );
 
         PNL_BodyBelow.add(PNL_Requests);
@@ -573,11 +489,6 @@ public class AdminWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
-        this.dispose();
-        new SignIn().setVisible(true);
-    }//GEN-LAST:event_Button_SignInActionPerformed
-
     private void BTN_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_StudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_StudentActionPerformed
@@ -586,14 +497,108 @@ public class AdminWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_TeacherActionPerformed
 
-    private void BTN_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProfileActionPerformed
-        Profile adminProfile = new Profile();
-        adminProfile.setVisible(true);
-    }//GEN-LAST:event_BTN_ProfileActionPerformed
-
     private void BTN_DegreeProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_DegreeProgramActionPerformed
+
+    private void Button_SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SignInActionPerformed
+        this.dispose();
+        new SignIn().setVisible(true);
+    }//GEN-LAST:event_Button_SignInActionPerformed
+
+    private void BTN_AssignCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_AssignCoursesActionPerformed
+
+    private void BTN_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_ProfileActionPerformed
+
+    private void BTN_RequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RequestsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_RequestsActionPerformed
+
+    private void BTN_ProfileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ProfileMouseEntered
+       
+       BTN_Profile.setBackground(OnEnteredColor);
+       PNL_Profile.setBackground(OnEnteredColor);
+        
+    }//GEN-LAST:event_BTN_ProfileMouseEntered
+
+    private void BTN_ProfileMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ProfileMouseReleased
+        
+    }//GEN-LAST:event_BTN_ProfileMouseReleased
+
+    private void BTN_ProfileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ProfileMouseExited
+       
+       BTN_Profile.setBackground(OnExitedColor);
+       PNL_Profile.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_ProfileMouseExited
+
+    private void BTN_StudentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_StudentMouseEntered
+       
+       BTN_Student.setBackground(OnEnteredColor);
+       PNL_Student.setBackground(OnEnteredColor);
+    }//GEN-LAST:event_BTN_StudentMouseEntered
+
+    private void BTN_StudentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_StudentMouseExited
+        
+      BTN_Student.setBackground(OnExitedColor);
+       PNL_Student.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_StudentMouseExited
+
+    private void BTN_TeacherMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_TeacherMouseEntered
+       
+       BTN_Teacher.setBackground(OnEnteredColor);
+       PNL_Teacher.setBackground(OnEnteredColor);
+    }//GEN-LAST:event_BTN_TeacherMouseEntered
+
+    private void BTN_TeacherMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_TeacherMouseExited
+        
+        BTN_Teacher.setBackground(OnExitedColor);
+        PNL_Teacher.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_TeacherMouseExited
+
+    private void BTN_DegreeProgramMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramMouseEntered
+       
+       BTN_DegreeProgram.setBackground(OnEnteredColor);
+       PNL_DegreeProgram.setBackground(OnEnteredColor);
+    }//GEN-LAST:event_BTN_DegreeProgramMouseEntered
+
+    private void BTN_DegreeProgramMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramMouseExited
+        
+       BTN_DegreeProgram.setBackground(OnExitedColor);
+       PNL_DegreeProgram.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_DegreeProgramMouseExited
+
+    private void BTN_AssignCoursesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesMouseEntered
+       
+       BTN_AssignCourses.setBackground(OnEnteredColor);
+       PNL_AssignCourses.setBackground(OnEnteredColor);
+    }//GEN-LAST:event_BTN_AssignCoursesMouseEntered
+
+    private void BTN_AssignCoursesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesMouseExited
+        
+       BTN_AssignCourses.setBackground(OnExitedColor);
+       PNL_AssignCourses.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_AssignCoursesMouseExited
+
+    private void BTN_RequestsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_RequestsMouseEntered
+       
+       BTN_Requests.setBackground(OnEnteredColor);
+       PNL_Requests.setBackground(OnEnteredColor);
+    }//GEN-LAST:event_BTN_RequestsMouseEntered
+
+    private void BTN_RequestsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_RequestsMouseExited
+       
+       BTN_Requests.setBackground(OnExitedColor);
+       PNL_Requests.setBackground(OnExitedColor);
+    }//GEN-LAST:event_BTN_RequestsMouseExited
+
+    private void BTN_ProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ProfileMouseClicked
+        Profile adminProfile = new Profile();
+        adminProfile.setVisible(true);
+    }//GEN-LAST:event_BTN_ProfileMouseClicked
 
     /**
      * @param args the command line arguments
@@ -658,15 +663,9 @@ public class AdminWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
     // End of variables declaration//GEN-END:variables
 }
