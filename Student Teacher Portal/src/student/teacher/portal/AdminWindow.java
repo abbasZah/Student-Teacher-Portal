@@ -28,7 +28,7 @@ public class AdminWindow extends javax.swing.JFrame {
         setResizable(true);
         setLocation(150, 10);
         setTitle("Student Teacher Portal");
-        
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
          OnEnteredColor= new Color(190,190,190);
          OnExitedColor = new Color(220,220,220);
