@@ -19,65 +19,52 @@ public class JDBC {
           private static final String USER = "root";
 	private static final String PASS = "";
 	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-          private final String ser_URL = "jdbc:mysql://localhost/";
+          private static final String ser_URL = "jdbc:mysql://localhost/";
           
-          private static Admin admin;
+        
 
-
-          private String dbNAme;
-          private String table;
-          private String db_URL;
+          private static final String dbNAme = "studentteacherportal";
+          private static final String tableAdmin = "Admin";
+          private static final String db_URL = ser_URL+dbNAme;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
-          public JDBC(String dbName, String table) {
-                this.dbNAme =dbName;
-                this.table = table;
-                db_URL = ser_URL+dbName;
-              
-              try {
-                  createDataBaseIfNotExists(dbName);
-                  createTableIfNotExists(table);
-              } catch (Exception ex) {
-                  ex.printStackTrace();
-              }
-              admin = new Admin();
-          }
           
           //////////////////////////////////////////////////////////////////////////////////////////////////
           
-          public boolean isUser(String username, String password){
+          public static Admin isUser(String username, String password){
 		try{
 			Connection conn = get_Connection();
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM "+table);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableAdmin);
 			while(rs.next()){
 				if(rs.getString("userID").equals(username) && rs.getString("password").equals(password)){
-                                            admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
+                                            Admin admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
                                                     ,  rs.getString("last"), rs.getString("gender"), rs.getString("phno"), 
                                                      rs.getString("email"),  rs.getString("address"),  rs.getString("cnic"),  rs.getString("role"),
                                                      rs.getString("country"),  rs.getString("city"),  rs.getString("zipcode"),
                                                     rs.getString("accountstatus"));
                                             
                                             
-					return true;
+					return admin;
 				}
 			}
 			
 		}catch(Exception e){
                         e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
           
-          public void insertAdminData(
+          public static void insertData(
                              String userID, String password, String firstName, String lastName, String gender, String phoneNo, String email,
                              String address, String cnic, String role, String country, String city, String zipcode, String accountStatus
                     )
                             throws Exception{
 		try{
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			
 			Connection conn = get_Connection();
-			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+table+"" 
+                              createTableIfNotExists(tableAdmin);
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableAdmin+"" 
                               + "(userID, password, first, last, gender, phno, email,"
                               + " address, cnic, role, country, city, zipcode, accountstatus"
                               + ")"
@@ -111,13 +98,64 @@ public class JDBC {
 		}
 	}
           
+                   public static void updateData(Admin p)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableAdmin+" SET first = ?, last = ?,"
+                                      + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
+                                      + "city = ?, zipcode = ?, accountstatus = ? WHERE userID = ?");
+                                stmt.setString(1, p.getFirstName());
+                                stmt.setString(2, p.getLastName());
+                                stmt.setString(3, p.getGender());
+                                stmt.setString(4, p.getPhoneNo());
+                                stmt.setString(5, p.getEmail());
+                                stmt.setString(6, p.getAddress());
+                                stmt.setString(7, p.getCnic());
+                                stmt.setString(8, p.getCountry());
+                                stmt.setString(9, p.getCity());
+                                stmt.setString(10, p.getZipcode());
+                                stmt.setString(11, p.getAccountStatus());
+                                stmt.setString(12, p.getUserId());
+                              
+                              
+                              
+                              
+			stmt.executeUpdate();
+			
+			
+                              
+			/*Statement stmte = conn.createStatement();
+			ResultSet rs = stmte.executeQuery("SELECT * FROM "+table);
+			while(rs.next()){
+				if(rs.getString("userID").equals(p.getUserId()) && rs.getString("password").equals(p.getPassword())){
+                                            admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
+                                                    ,  rs.getString("last"), rs.getString("gender"), rs.getString("phno"), 
+                                                     rs.getString("email"),  rs.getString("address"),  rs.getString("cnic"),  rs.getString("role"),
+                                                     rs.getString("country"),  rs.getString("city"),  rs.getString("zipcode"),
+                                                    rs.getString("accountstatus"));
+                                            
+                                            
+					
+				}
+			}*/
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
           
           
-          public void createTableIfNotExists(String tableName)throws Exception{
+          
+          public static void createTableIfNotExists(String tableName)throws Exception{
 		
 		try{
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			
 			Connection conn = get_Connection();
+                              createDataBaseIfNotExists(dbNAme);
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableName+""
                                       + "(userID varchar(32) NOT NULL,"
@@ -144,7 +182,7 @@ public class JDBC {
 		
 	}
           
-          public void createDataBaseIfNotExists(String dbName)throws Exception{
+          public  static void createDataBaseIfNotExists(String dbName)throws Exception{
 		try{
 			Class.forName(JDBC_DRIVER);	
 			Connection conn = DriverManager.getConnection(ser_URL, USER, PASS);
@@ -161,9 +199,10 @@ public class JDBC {
           
             
           
-          public Connection get_Connection()throws Exception{////////////////////
+          public static Connection get_Connection()throws Exception{////////////////////
 		try{
 			Class.forName(JDBC_DRIVER);
+                              createDataBaseIfNotExists(dbNAme);
 			Connection conn = DriverManager.getConnection(db_URL, USER, PASS);
 			System.out.println("Connection Established!");
 			return conn;
@@ -173,27 +212,5 @@ public class JDBC {
 		return null;
           }///////////////////////////////////////////////////////////////////////////////////////////
 
-          
-          
-    public String getTable() {
-        return table;
-    }
-
-    public void setTable(String table) {
-        this.table = table;
-    }
-
-    public String getDbNAme() {
-        return dbNAme;
-    }
-
-    public void setDbNAme(String dbNAme) {
-        this.dbNAme = dbNAme;
-    }
-    public String getSer_URL() {
-        return ser_URL;
-    }
-    public static Admin getAdmin() {
-        return admin;
-    }
+   
 }

@@ -5,7 +5,11 @@
  */
 package student.teacher.portal;
 
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,15 +25,41 @@ public class Profile extends javax.swing.JFrame {
     
     public Profile() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
-        setLocation(200, 100);
+        setResizable(true);
+        setLocation(150, 10);
         setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
-        admin = JDBC.getAdmin();
+        BTN_Update.setVisible(false);
         
-        jTextField1.setText(admin.getUserId());
-        jButton1.setVisible(false);
+        
+        
+        
+        
+        
+        TF_FirstName.setText(admin.getFirstName());
+        TF_LastName.setText(admin.getLastName());
+        TF_Gender.setText(admin.getGender());
+        TF_Role.setText(admin.getRole());
+        TF_AccountStatus.setText(admin.getAccountStatus());
+        TF_Username.setText(admin.getUserId());
+        TF_Password.setText(admin.getPassword());
+        TF_PhoneNo.setText(admin.getPhoneNo());
+        TF_Email.setText(admin.getEmail());
+        TF_CNIC.setText(admin.getCnic());
+        TF_Address.setText(admin.getAddress());
+        TF_Country.setText(admin.getCountry());
+        TF_City.setText(admin.getCity());
+        TF_ZipCode.setText(admin.getZipcode());
+        
+        System.out.println(admin.getFirstName());
+        
+        
+        
+        
+        
     }
 
     /**
@@ -39,168 +69,1001 @@ public class Profile extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PNL_Wrapper = new javax.swing.JPanel();
+        PNL_Header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        PNL_Footer = new javax.swing.JPanel();
+        BTN_Update = new javax.swing.JButton();
+        BTN_Back = new javax.swing.JButton();
+        PNL_LeftPane = new javax.swing.JPanel();
+        PNL_RightPane = new javax.swing.JPanel();
+        PNL_MainBodyPane = new javax.swing.JPanel();
+        PNL_BodyTop = new javax.swing.JPanel();
+        BTN_Edit = new javax.swing.JButton();
+        PNL_BodyBelow = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        TF_FirstName = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel15 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        TF_PhoneNo = new javax.swing.JTextField();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        TF_LastName = new javax.swing.JTextField();
+        jSeparator15 = new javax.swing.JSeparator();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        TF_Email = new javax.swing.JTextField();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        TF_Gender = new javax.swing.JTextField();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        TF_CNIC = new javax.swing.JTextField();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        TF_Role = new javax.swing.JTextField();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        TF_Address = new javax.swing.JTextField();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        TF_AccountStatus = new javax.swing.JTextField();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        TF_Country = new javax.swing.JTextField();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        TF_Username = new javax.swing.JTextField();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        TF_City = new javax.swing.JTextField();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator13 = new javax.swing.JSeparator();
+        TF_Password = new javax.swing.JTextField();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
+        TF_ZipCode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 700));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Profile");
+        PNL_Wrapper.setBackground(new java.awt.Color(255, 255, 255));
+        PNL_Wrapper.setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setText("Username");
+        PNL_Header.setBackground(new java.awt.Color(13, 56, 247));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Admin Settings Male_75px.png"))); // NOI18N
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Profile");
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Student Teacher Portal");
+
+        javax.swing.GroupLayout PNL_HeaderLayout = new javax.swing.GroupLayout(PNL_Header);
+        PNL_Header.setLayout(PNL_HeaderLayout);
+        PNL_HeaderLayout.setHorizontalGroup(
+            PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PNL_HeaderLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(34, 34, 34)
+                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addContainerGap(740, Short.MAX_VALUE))
+        );
+        PNL_HeaderLayout.setVerticalGroup(
+            PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PNL_HeaderLayout.createSequentialGroup()
+                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(PNL_HeaderLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PNL_HeaderLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        PNL_Wrapper.add(PNL_Header, java.awt.BorderLayout.PAGE_START);
+
+        PNL_Footer.setBackground(new java.awt.Color(255, 255, 255));
+
+        BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Update.setText("Update");
+        BTN_Update.setBorder(null);
+        BTN_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                BTN_UpdateActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("first Namw");
-
-        jLabel4.setText("last name");
-
-        jLabel5.setText("gender");
-
-        jLabel6.setText("phno");
-
-        jButton1.setText("update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Back.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Back.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Back.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Back.setText("Back");
+        BTN_Back.setBorder(null);
+        BTN_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BTN_BackActionPerformed(evt);
             }
         });
 
-        jButton2.setText("edit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout PNL_FooterLayout = new javax.swing.GroupLayout(PNL_Footer);
+        PNL_Footer.setLayout(PNL_FooterLayout);
+        PNL_FooterLayout.setHorizontalGroup(
+            PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 609, Short.MAX_VALUE)
+                .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
+        );
+        PNL_FooterLayout.setVerticalGroup(
+            PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PNL_FooterLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        PNL_Wrapper.add(PNL_Footer, java.awt.BorderLayout.PAGE_END);
+
+        PNL_LeftPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PNL_LeftPaneLayout = new javax.swing.GroupLayout(PNL_LeftPane);
+        PNL_LeftPane.setLayout(PNL_LeftPaneLayout);
+        PNL_LeftPaneLayout.setHorizontalGroup(
+            PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PNL_LeftPaneLayout.setVerticalGroup(
+            PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 394, Short.MAX_VALUE)
+        );
+
+        PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
+
+        PNL_RightPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PNL_RightPaneLayout = new javax.swing.GroupLayout(PNL_RightPane);
+        PNL_RightPane.setLayout(PNL_RightPaneLayout);
+        PNL_RightPaneLayout.setHorizontalGroup(
+            PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PNL_RightPaneLayout.setVerticalGroup(
+            PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 394, Short.MAX_VALUE)
+        );
+
+        PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
+
+        PNL_MainBodyPane.setBackground(new java.awt.Color(255, 255, 255));
+        PNL_MainBodyPane.setLayout(new java.awt.BorderLayout());
+
+        PNL_BodyTop.setBackground(new java.awt.Color(255, 255, 255));
+
+        BTN_Edit.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Edit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Edit.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Edit.setText("Edit");
+        BTN_Edit.setBorder(null);
+        BTN_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BTN_EditActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
+        PNL_BodyTop.setLayout(PNL_BodyTopLayout);
+        PNL_BodyTopLayout.setHorizontalGroup(
+            PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_BodyTopLayout.createSequentialGroup()
+                .addGap(0, 719, Short.MAX_VALUE)
+                .addComponent(BTN_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PNL_BodyTopLayout.setVerticalGroup(
+            PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_BodyTopLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(BTN_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        PNL_MainBodyPane.add(PNL_BodyTop, java.awt.BorderLayout.PAGE_START);
+
+        PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
+        PNL_BodyBelow.setLayout(new java.awt.GridLayout(7, 2, 5, 5));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel5.setText("First Name");
+
+        TF_FirstName.setEditable(false);
+        TF_FirstName.setBackground(new java.awt.Color(255, 255, 255));
+        TF_FirstName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_FirstName.setForeground(new java.awt.Color(51, 51, 51));
+        TF_FirstName.setBorder(null);
+        TF_FirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_FirstNameActionPerformed(evt);
+            }
+        });
+
+        jSeparator3.setBackground(new java.awt.Color(13, 56, 247));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(159, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(221, 221, 221)
-                        .addComponent(jButton2))
-                    .addComponent(jButton1))
-                .addGap(59, 59, 59))
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TF_FirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(jSeparator3)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton2)))
-                .addGap(87, 87, 87)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
+                        .addComponent(TF_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        PNL_BodyBelow.add(jPanel1);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel6.setText("Phone No");
+
+        jSeparator2.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_PhoneNo.setEditable(false);
+        TF_PhoneNo.setBackground(new java.awt.Color(255, 255, 255));
+        TF_PhoneNo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_PhoneNo.setForeground(new java.awt.Color(51, 51, 51));
+        TF_PhoneNo.setBorder(null);
+        TF_PhoneNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_PhoneNoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_PhoneNo)))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_PhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel15);
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel7.setText("Last Name");
+
+        TF_LastName.setEditable(false);
+        TF_LastName.setBackground(new java.awt.Color(255, 255, 255));
+        TF_LastName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_LastName.setForeground(new java.awt.Color(51, 51, 51));
+        TF_LastName.setBorder(null);
+        TF_LastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_LastNameActionPerformed(evt);
+            }
+        });
+
+        jSeparator15.setBackground(new java.awt.Color(13, 56, 247));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TF_LastName, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(jSeparator15)))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addComponent(TF_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel16);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel8.setText("Email");
+
+        jSeparator4.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Email.setEditable(false);
+        TF_Email.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Email.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Email.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Email.setBorder(null);
+        TF_Email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_EmailActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Email)))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel17);
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel9.setText("Gender");
+
+        jSeparator5.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Gender.setEditable(false);
+        TF_Gender.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Gender.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Gender.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Gender.setBorder(null);
+        TF_Gender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_GenderActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Gender)))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel18);
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel10.setText("CNIC");
+
+        jSeparator6.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_CNIC.setEditable(false);
+        TF_CNIC.setBackground(new java.awt.Color(255, 255, 255));
+        TF_CNIC.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_CNIC.setForeground(new java.awt.Color(51, 51, 51));
+        TF_CNIC.setBorder(null);
+        TF_CNIC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CNICActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_CNIC)))
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_CNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel19);
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel11.setText("Role");
+
+        jSeparator7.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Role.setEditable(false);
+        TF_Role.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Role.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Role.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Role.setBorder(null);
+        TF_Role.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_RoleActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Role)))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Role, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel20);
+
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel12.setText("Address");
+
+        jSeparator8.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Address.setEditable(false);
+        TF_Address.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Address.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Address.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Address.setBorder(null);
+        TF_Address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_AddressActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Address)))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel21);
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel13.setText("Account Status");
+
+        jSeparator9.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_AccountStatus.setEditable(false);
+        TF_AccountStatus.setBackground(new java.awt.Color(255, 255, 255));
+        TF_AccountStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_AccountStatus.setForeground(new java.awt.Color(51, 51, 51));
+        TF_AccountStatus.setBorder(null);
+        TF_AccountStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_AccountStatusActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_AccountStatus)))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_AccountStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel22);
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel14.setText("Country");
+
+        jSeparator10.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Country.setEditable(false);
+        TF_Country.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Country.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Country.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Country.setBorder(null);
+        TF_Country.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CountryActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Country)))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Country, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel23);
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel15.setText("Username");
+
+        jSeparator11.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Username.setEditable(false);
+        TF_Username.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Username.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Username.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Username.setBorder(null);
+        TF_Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_UsernameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator11, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Username)))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel24);
+
+        jPanel25.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel16.setText("City");
+
+        jSeparator12.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_City.setEditable(false);
+        TF_City.setBackground(new java.awt.Color(255, 255, 255));
+        TF_City.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_City.setForeground(new java.awt.Color(51, 51, 51));
+        TF_City.setBorder(null);
+        TF_City.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_CityActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator12, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_City)))
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_City, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel25);
+
+        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel17.setText("Password");
+
+        jSeparator13.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_Password.setEditable(false);
+        TF_Password.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Password.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Password.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Password.setBorder(null);
+        TF_Password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_PasswordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator13, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_Password)))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel26);
+
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel18.setText("Zip Code");
+
+        jSeparator14.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_ZipCode.setEditable(false);
+        TF_ZipCode.setBackground(new java.awt.Color(255, 255, 255));
+        TF_ZipCode.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_ZipCode.setForeground(new java.awt.Color(51, 51, 51));
+        TF_ZipCode.setBorder(null);
+        TF_ZipCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_ZipCodeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator14, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_ZipCode)))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel27);
+
+        PNL_MainBodyPane.add(PNL_BodyBelow, java.awt.BorderLayout.CENTER);
+
+        PNL_Wrapper.add(PNL_MainBodyPane, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PNL_Wrapper, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PNL_Wrapper, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
+        admin.setFirstName(TF_FirstName.getText());
+        admin.setLastName(TF_LastName.getText());
+        admin.setGender(TF_Gender.getText());
+        admin.setRole(TF_Role.getText());
+        admin.setAccountStatus(TF_AccountStatus.getText());
+        admin.setUserId(TF_Username.getText());
+        admin.setPassword(TF_Password.getText());
+        admin.setPhoneNo(TF_PhoneNo.getText());
+        admin.setEmail(TF_Email.getText());
+        admin.setCnic(TF_CNIC.getText());
+        admin.setAddress(TF_Address.getText());
+        admin.setCountry(TF_Country.getText());
+        admin.setCity(TF_City.getText());
+        admin.setZipcode(TF_ZipCode.getText());
+        
+        BTN_Update.setVisible(false);
+        
+        try {
+            JDBC.updateData(SignIn.getAdmin());
+        } catch (Exception ex) {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       JOptionPane.showMessageDialog(null, "Profile Updated !");
        
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        TF_FirstName.setEditable(false);
+        TF_LastName.setEditable(false);
+        TF_Gender.setEditable(false);
+        TF_Role.setEditable(false);
+        TF_AccountStatus.setEditable(false);
+        TF_Username.setEditable(false);
+        TF_Password.setEditable(false);
+        TF_PhoneNo.setEditable(false);
+        TF_Email.setEditable(false);
+        TF_CNIC.setEditable(false);
+        TF_Address.setEditable(false);
+        TF_Country.setEditable(false);
+        TF_City.setEditable(false);
+        TF_ZipCode.setEditable(false);
+        
+        
+        
+    }//GEN-LAST:event_BTN_UpdateActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       jButton1.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void TF_PhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PhoneNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_PhoneNoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
-        
-        ///afetr update 
-        
-        
-        
-        
-        jButton1.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void TF_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_EmailActionPerformed
+
+    private void TF_CNICActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CNICActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CNICActionPerformed
+
+    private void TF_RoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_RoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_RoleActionPerformed
+
+    private void TF_AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_AddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_AddressActionPerformed
+
+    private void TF_AccountStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_AccountStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_AccountStatusActionPerformed
+
+    private void TF_CountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CountryActionPerformed
+
+    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_UsernameActionPerformed
+
+    private void TF_CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_CityActionPerformed
+
+    private void TF_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_PasswordActionPerformed
+
+    private void TF_ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ZipCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_ZipCodeActionPerformed
+
+    private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
+        this.dispose();
+        new AdminWindow().setVisible(true);
+    }//GEN-LAST:event_BTN_BackActionPerformed
+
+    private void TF_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_GenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_GenderActionPerformed
+
+    private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
+    BTN_Update.setVisible(true);
+    
+        TF_FirstName.setEditable(true);
+        TF_LastName.setEditable(true);
+        TF_Gender.setEditable(true);
+        TF_Role.setEditable(true);
+        TF_AccountStatus.setEditable(true);
+        //TF_Username.setEditable(true);
+        //TF_Password.setEditable(true);
+        TF_PhoneNo.setEditable(true);
+        TF_Email.setEditable(true);
+        TF_CNIC.setEditable(true);
+        TF_Address.setEditable(true);
+        TF_Country.setEditable(true);
+        TF_City.setEditable(true);
+        TF_ZipCode.setEditable(true);
+    }//GEN-LAST:event_BTN_EditActionPerformed
+
+    private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_FirstNameActionPerformed
+
+    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_LastNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,19 +1101,75 @@ public class Profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton BTN_Back;
+    private javax.swing.JButton BTN_Edit;
+    private javax.swing.JButton BTN_Update;
+    private javax.swing.JPanel PNL_BodyBelow;
+    private javax.swing.JPanel PNL_BodyTop;
+    private javax.swing.JPanel PNL_Footer;
+    private javax.swing.JPanel PNL_Header;
+    private javax.swing.JPanel PNL_LeftPane;
+    private javax.swing.JPanel PNL_MainBodyPane;
+    private javax.swing.JPanel PNL_RightPane;
+    private javax.swing.JPanel PNL_Wrapper;
+    private javax.swing.JTextField TF_AccountStatus;
+    private javax.swing.JTextField TF_Address;
+    private javax.swing.JTextField TF_CNIC;
+    private javax.swing.JTextField TF_City;
+    private javax.swing.JTextField TF_Country;
+    private javax.swing.JTextField TF_Email;
+    private javax.swing.JTextField TF_FirstName;
+    private javax.swing.JTextField TF_Gender;
+    private javax.swing.JTextField TF_LastName;
+    private javax.swing.JTextField TF_Password;
+    private javax.swing.JTextField TF_PhoneNo;
+    private javax.swing.JTextField TF_Role;
+    private javax.swing.JTextField TF_Username;
+    private javax.swing.JTextField TF_ZipCode;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
+    private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     // End of variables declaration//GEN-END:variables
 }
