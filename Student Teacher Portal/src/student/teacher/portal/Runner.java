@@ -21,8 +21,7 @@ public class Runner {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        
-        JDBC.insertData(
+        Admin admin = new Admin(
                 "a", 
                 "a",
                 "Muhammad",
@@ -40,7 +39,7 @@ public class Runner {
                 
         );
         
-        
+        JDBC.insertData(admin);
         
         
         SignIn signIn = new SignIn();

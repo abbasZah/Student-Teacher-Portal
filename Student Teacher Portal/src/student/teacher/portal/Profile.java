@@ -54,12 +54,6 @@ public class Profile extends javax.swing.JFrame {
         TF_City.setText(admin.getCity());
         TF_ZipCode.setText(admin.getZipcode());
         
-        System.out.println(admin.getFirstName());
-        
-        
-        
-        
-        
     }
 
     /**
@@ -966,22 +960,7 @@ public class Profile extends javax.swing.JFrame {
         
        JOptionPane.showMessageDialog(null, "Profile Updated !");
        
-        TF_FirstName.setEditable(false);
-        TF_LastName.setEditable(false);
-        TF_Gender.setEditable(false);
-        TF_Role.setEditable(false);
-        TF_AccountStatus.setEditable(false);
-        TF_Username.setEditable(false);
-        TF_Password.setEditable(false);
-        TF_PhoneNo.setEditable(false);
-        TF_Email.setEditable(false);
-        TF_CNIC.setEditable(false);
-        TF_Address.setEditable(false);
-        TF_Country.setEditable(false);
-        TF_City.setEditable(false);
-        TF_ZipCode.setEditable(false);
-        
-        
+        setFeildsEditAble(false);
         
     }//GEN-LAST:event_BTN_UpdateActionPerformed
 
@@ -1041,20 +1020,7 @@ public class Profile extends javax.swing.JFrame {
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
     BTN_Update.setVisible(true);
     
-        TF_FirstName.setEditable(true);
-        TF_LastName.setEditable(true);
-        TF_Gender.setEditable(true);
-        TF_Role.setEditable(true);
-        TF_AccountStatus.setEditable(true);
-        //TF_Username.setEditable(true);
-        //TF_Password.setEditable(true);
-        TF_PhoneNo.setEditable(true);
-        TF_Email.setEditable(true);
-        TF_CNIC.setEditable(true);
-        TF_Address.setEditable(true);
-        TF_Country.setEditable(true);
-        TF_City.setEditable(true);
-        TF_ZipCode.setEditable(true);
+        setFeildsEditAble(true);
     }//GEN-LAST:event_BTN_EditActionPerformed
 
     private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
@@ -1098,6 +1064,25 @@ public class Profile extends javax.swing.JFrame {
                 new Profile().setVisible(true);
             }
         });
+    }
+    
+    void setFeildsEditAble(boolean bool){
+        
+        TF_FirstName.setEditable(bool);
+        TF_LastName.setEditable(bool);
+        TF_Gender.setEditable(bool);
+        //TF_Role.setEditable(bool);
+        TF_AccountStatus.setEditable(bool);
+        //TF_Username.setEditable(true);
+        //TF_Password.setEditable(true);
+        TF_PhoneNo.setEditable(bool);
+        TF_Email.setEditable(bool);
+        TF_CNIC.setEditable(bool);
+        TF_Address.setEditable(bool);
+        TF_Country.setEditable(bool);
+        TF_City.setEditable(bool);
+        TF_ZipCode.setEditable(bool);
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

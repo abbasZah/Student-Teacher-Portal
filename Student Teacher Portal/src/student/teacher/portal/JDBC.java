@@ -37,11 +37,13 @@ public class JDBC {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableAdmin);
 			while(rs.next()){
-				if(rs.getString("userID").equals(username) && rs.getString("password").equals(password)){
-                                            Admin admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
-                                                    ,  rs.getString("last"), rs.getString("gender"), rs.getString("phno"), 
-                                                     rs.getString("email"),  rs.getString("address"),  rs.getString("cnic"),  rs.getString("role"),
-                                                     rs.getString("country"),  rs.getString("city"),  rs.getString("zipcode"),
+				if(rs.getString("userID").equals(username) 
+                                                && rs.getString("password").equals(password)){
+                                            Admin admin = new Admin(rs.getString("userID"), rs.getString("password"), 
+                                                    rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
+                                                    rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
+                                                    rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
+                                                    rs.getString("city"), rs.getString("zipcode"), 
                                                     rs.getString("accountstatus"));
                                             
                                             
@@ -52,13 +54,11 @@ public class JDBC {
 		}catch(Exception e){
                         e.printStackTrace();
 		}
+                    
 		return null;
 	}
           
-          public static void insertData(
-                             String userID, String password, String firstName, String lastName, String gender, String phoneNo, String email,
-                             String address, String cnic, String role, String country, String city, String zipcode, String accountStatus
-                    )
+          public static void insertData(Admin admin)
                             throws Exception{
 		try{
 			
@@ -70,20 +70,20 @@ public class JDBC {
                               + ")"
 			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                               
-                                stmt.setString(1, userID);
-                                stmt.setString(2, password);
-                                stmt.setString(3, firstName);
-                                stmt.setString(4, lastName);
-                                stmt.setString(5, gender);
-                                stmt.setString(6, phoneNo);
-                                stmt.setString(7, email);
-                                stmt.setString(8, address);
-                                stmt.setString(9, cnic);
-                                stmt.setString(10, role);
-                                stmt.setString(11, country);
-                                stmt.setString(12, city);
-                                stmt.setString(13, zipcode);
-                                stmt.setString(14, accountStatus);
+                                stmt.setString(1, admin.getUserId());
+                                stmt.setString(2, admin.getPassword());
+                                stmt.setString(3, admin.getFirstName());
+                                stmt.setString(4, admin.getLastName());
+                                stmt.setString(5, admin.getGender());
+                                stmt.setString(6, admin.getPhoneNo());
+                                stmt.setString(7, admin.getEmail());
+                                stmt.setString(8, admin.getAddress());
+                                stmt.setString(9, admin.getCnic());
+                                stmt.setString(10, admin.getRole());
+                                stmt.setString(11, admin.getCountry());
+                                stmt.setString(12, admin.getCity());
+                                stmt.setString(13, admin.getZipcode());
+                                stmt.setString(14, admin.getAccountStatus());
                               
                               
                               
@@ -98,7 +98,7 @@ public class JDBC {
 		}
 	}
           
-                   public static void updateData(Admin p)
+                   public static void updateData(Admin admin)
                             throws Exception{
                        
 		try{
@@ -107,41 +107,21 @@ public class JDBC {
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableAdmin+" SET first = ?, last = ?,"
                                       + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
                                       + "city = ?, zipcode = ?, accountstatus = ? WHERE userID = ?");
-                                stmt.setString(1, p.getFirstName());
-                                stmt.setString(2, p.getLastName());
-                                stmt.setString(3, p.getGender());
-                                stmt.setString(4, p.getPhoneNo());
-                                stmt.setString(5, p.getEmail());
-                                stmt.setString(6, p.getAddress());
-                                stmt.setString(7, p.getCnic());
-                                stmt.setString(8, p.getCountry());
-                                stmt.setString(9, p.getCity());
-                                stmt.setString(10, p.getZipcode());
-                                stmt.setString(11, p.getAccountStatus());
-                                stmt.setString(12, p.getUserId());
-                              
-                              
+                                stmt.setString(1, admin.getFirstName());
+                                stmt.setString(2, admin.getLastName());
+                                stmt.setString(3, admin.getGender());
+                                stmt.setString(4, admin.getPhoneNo());
+                                stmt.setString(5, admin.getEmail());
+                                stmt.setString(6, admin.getAddress());
+                                stmt.setString(7, admin.getCnic());
+                                stmt.setString(8, admin.getCountry());
+                                stmt.setString(9, admin.getCity());
+                                stmt.setString(10, admin.getZipcode());
+                                stmt.setString(11, admin.getAccountStatus());
+                                stmt.setString(12, admin.getUserId());
                               
                               
 			stmt.executeUpdate();
-			
-			
-                              
-			/*Statement stmte = conn.createStatement();
-			ResultSet rs = stmte.executeQuery("SELECT * FROM "+table);
-			while(rs.next()){
-				if(rs.getString("userID").equals(p.getUserId()) && rs.getString("password").equals(p.getPassword())){
-                                            admin = new Admin(rs.getString("userID"), rs.getString("password"), rs.getString("first")
-                                                    ,  rs.getString("last"), rs.getString("gender"), rs.getString("phno"), 
-                                                     rs.getString("email"),  rs.getString("address"),  rs.getString("cnic"),  rs.getString("role"),
-                                                     rs.getString("country"),  rs.getString("city"),  rs.getString("zipcode"),
-                                                    rs.getString("accountstatus"));
-                                            
-                                            
-					
-				}
-			}*/
-			
 			
 		}catch(Exception e){
 			System.out.println(e);
