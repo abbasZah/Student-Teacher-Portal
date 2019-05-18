@@ -18,8 +18,10 @@ public class AdminWindow extends javax.swing.JFrame {
     /**
      * Creates new form AdminWindow
      */
+  
+
     
-    Admin admin;
+    private static Admin admin;
     
     
    Color OnEnteredColor;
@@ -36,6 +38,7 @@ public class AdminWindow extends javax.swing.JFrame {
         
          OnEnteredColor= new Color(190,190,190);
          OnExitedColor = new Color(220,220,220);
+         
          admin = SignIn.getAdmin();
         
     }
@@ -642,7 +645,9 @@ public class AdminWindow extends javax.swing.JFrame {
             }
         });
     }
-
+  public static Admin getAdmin() {
+        return admin;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_AssignCourses;
     private javax.swing.JButton BTN_DegreeProgram;

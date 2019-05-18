@@ -20,9 +20,7 @@ public class SignIn extends javax.swing.JFrame {
      */
     private static Admin admin;
 
-    public static Admin getAdmin() {
-        return admin;
-    }
+    
     public SignIn() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
@@ -282,6 +280,15 @@ public class SignIn extends javax.swing.JFrame {
         });
     }
 
+    
+    
+    
+    
+    
+    public static Admin getAdmin() {
+        return admin;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Close;
     private javax.swing.JButton BTN_SignIn;

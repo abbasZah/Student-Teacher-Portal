@@ -36,7 +36,7 @@ public class Profile extends javax.swing.JFrame {
         
         
         
-        
+        admin = AdminWindow.getAdmin();
         
         
         TF_FirstName.setText(admin.getFirstName());
