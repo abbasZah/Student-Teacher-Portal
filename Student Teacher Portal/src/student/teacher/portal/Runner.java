@@ -15,12 +15,13 @@ public class Runner {
      * @param args the command line arguments
      * @throws java.lang.Exception
      */
+    
+
+    
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        JDBC myDB = new JDBC("StudentTeacherPortal", "Admin");
-        
-        myDB.insertAdminData(
+        Admin admin = new Admin(
                 "a", 
                 "a",
                 "Muhammad",
@@ -28,17 +29,17 @@ public class Runner {
                 "Male",
                 "03012345678", 
                 "myemail@gmail.com",
-                "adress",
-                "000000000000",
-                "some data",
-                "some data",
-                "some data",
-                "some data",
-                "some data"
+                "123 home, K Town, Lahore",
+                "2233344556967",
+                "Admin",
+                "Dubai",
+                "Lahore",
+                "54000",
+                "Blocked"
                 
         );
         
-        
+        JDBC.insertData(admin);
         
         
         SignIn signIn = new SignIn();
@@ -47,4 +48,5 @@ public class Runner {
         
     }
     
+   
 }

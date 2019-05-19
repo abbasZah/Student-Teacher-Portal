@@ -18,9 +18,12 @@ public class SignIn extends javax.swing.JFrame {
     /**
      * Creates new form SignIn
      */
+    private static Admin admin;
+
+    
     public SignIn() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocation(200, 100);
@@ -222,15 +225,15 @@ public class SignIn extends javax.swing.JFrame {
      
         String username=TF_Username.getText();
         String password=new String (PF_Password.getPassword());
-        
-        if(new JDBC("StudentTeacherPortal", "Admin").isUser(username, password)){
+        admin = JDBC.isUser(username, password);
+        if(admin != null){
            //JOptionPane.showMessageDialog(null, "Logged In Successfully!");
            
            
-        AdminWindow admin = new AdminWindow();
-        this.dispose();
-        admin.setVisible(true);
-        
+       
+       
+        new AdminWindow().setVisible(true);
+         this.dispose();
            
        }else{
            JOptionPane.showMessageDialog(null, "Login Error !");
@@ -277,6 +280,15 @@ public class SignIn extends javax.swing.JFrame {
         });
     }
 
+    
+    
+    
+    
+    
+    public static Admin getAdmin() {
+        return admin;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Close;
     private javax.swing.JButton BTN_SignIn;
