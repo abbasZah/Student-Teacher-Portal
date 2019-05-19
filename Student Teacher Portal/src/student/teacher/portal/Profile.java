@@ -1017,10 +1017,13 @@ public class Profile extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
         }
+        BTN_iRole.setVisible(false);
+        BTN_iUPNote.setVisible(false);
         
        JOptionPane.showMessageDialog(null, "Profile Updated !");
        
         setFeildsEditAble(false);
+        
         
     }//GEN-LAST:event_BTN_UpdateActionPerformed
 
@@ -1170,6 +1173,7 @@ public class Profile extends javax.swing.JFrame {
         TF_Country.setEditable(bool);
         TF_City.setEditable(bool);
         TF_ZipCode.setEditable(bool);
+        
         
         /*TF_Role.setSelectedTextColor(DisbleColor);
         TF_Username.setSelectedTextColor(DisbleColor);
