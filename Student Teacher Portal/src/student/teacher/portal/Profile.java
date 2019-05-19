@@ -5,6 +5,7 @@
  */
 package student.teacher.portal;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,10 +23,13 @@ public class Profile extends javax.swing.JFrame {
      */
     
     Admin admin ;
+    Color DisbleColor= new Color(153,153,153);
+    boolean Passview;
+    
     
     public Profile() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocation(150, 10);
@@ -33,6 +37,11 @@ public class Profile extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
         BTN_Update.setVisible(false);
+        BTN_iRole.setVisible(false);
+        BTN_iUPNote.setVisible(false);
+        
+        Passview=false;
+        
         
         
         
@@ -45,7 +54,6 @@ public class Profile extends javax.swing.JFrame {
         TF_Role.setText(admin.getRole());
         TF_AccountStatus.setText(admin.getAccountStatus());
         TF_Username.setText(admin.getUserId());
-        TF_Password.setText(admin.getPassword());
         TF_PhoneNo.setText(admin.getPhoneNo());
         TF_Email.setText(admin.getEmail());
         TF_CNIC.setText(admin.getCnic());
@@ -53,7 +61,7 @@ public class Profile extends javax.swing.JFrame {
         TF_Country.setText(admin.getCountry());
         TF_City.setText(admin.getCity());
         TF_ZipCode.setText(admin.getZipcode());
-        
+        TF_Password.setText(".....");
     }
 
     /**
@@ -77,18 +85,18 @@ public class Profile extends javax.swing.JFrame {
         PNL_BodyTop = new javax.swing.JPanel();
         BTN_Edit = new javax.swing.JButton();
         PNL_BodyBelow = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jSeparator16 = new javax.swing.JSeparator();
         TF_FirstName = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jSeparator17 = new javax.swing.JSeparator();
+        TF_PhoneNo = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        TF_PhoneNo = new javax.swing.JTextField();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         TF_LastName = new javax.swing.JTextField();
-        jSeparator15 = new javax.swing.JSeparator();
         jPanel17 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -105,6 +113,7 @@ public class Profile extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         TF_Role = new javax.swing.JTextField();
+        BTN_iRole = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -117,25 +126,27 @@ public class Profile extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         TF_Country = new javax.swing.JTextField();
-        jPanel24 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jSeparator13 = new javax.swing.JSeparator();
         TF_Username = new javax.swing.JTextField();
+        BTN_iUPNote = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
         TF_City = new javax.swing.JTextField();
-        jPanel26 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jSeparator13 = new javax.swing.JSeparator();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JSeparator();
         TF_Password = new javax.swing.JTextField();
+        BTN_View = new javax.swing.JButton();
         jPanel27 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
         TF_ZipCode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(500, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
 
         PNL_Wrapper.setBackground(new java.awt.Color(255, 255, 255));
         PNL_Wrapper.setLayout(new java.awt.BorderLayout());
@@ -147,7 +158,7 @@ public class Profile extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Profile");
+        jLabel2.setText("Admin Profile");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -190,7 +201,8 @@ public class Profile extends javax.swing.JFrame {
         BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Update.setText("Update");
+        BTN_Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Ok_20px_1.png"))); // NOI18N
+        BTN_Update.setText("  Update");
         BTN_Update.setBorder(null);
         BTN_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,7 +213,8 @@ public class Profile extends javax.swing.JFrame {
         BTN_Back.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Back.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_Back.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Back.setText("Back");
+        BTN_Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Go_Back_20px.png"))); // NOI18N
+        BTN_Back.setText("  Back");
         BTN_Back.setBorder(null);
         BTN_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,7 +283,8 @@ public class Profile extends javax.swing.JFrame {
         BTN_Edit.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Edit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_Edit.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Edit.setText("Edit");
+        BTN_Edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Edit_20px_3.png"))); // NOI18N
+        BTN_Edit.setText("  Edit");
         BTN_Edit.setBorder(null);
         BTN_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,12 +313,14 @@ public class Profile extends javax.swing.JFrame {
         PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
         PNL_BodyBelow.setLayout(new java.awt.GridLayout(7, 2, 5, 5));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel5.setText("First Name");
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel19.setText("First Name");
+
+        jSeparator16.setBackground(new java.awt.Color(13, 56, 247));
 
         TF_FirstName.setEditable(false);
         TF_FirstName.setBackground(new java.awt.Color(255, 255, 255));
@@ -317,42 +333,38 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        jSeparator3.setBackground(new java.awt.Color(13, 56, 247));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TF_FirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(jSeparator3)))
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator16, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_FirstName)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(TF_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PNL_BodyBelow.add(jPanel1);
+        PNL_BodyBelow.add(jPanel28);
 
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel29.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel6.setText("Phone No");
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel20.setText("Phone No");
 
-        jSeparator2.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator17.setBackground(new java.awt.Color(13, 56, 247));
 
         TF_PhoneNo.setEditable(false);
         TF_PhoneNo.setBackground(new java.awt.Color(255, 255, 255));
@@ -362,6 +374,50 @@ public class Profile extends javax.swing.JFrame {
         TF_PhoneNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TF_PhoneNoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator17, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(TF_PhoneNo)))
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGap(0, 3, Short.MAX_VALUE)
+                .addComponent(TF_PhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PNL_BodyBelow.add(jPanel29);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel6.setText("Last Name");
+
+        jSeparator2.setBackground(new java.awt.Color(13, 56, 247));
+
+        TF_LastName.setEditable(false);
+        TF_LastName.setBackground(new java.awt.Color(255, 255, 255));
+        TF_LastName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_LastName.setForeground(new java.awt.Color(51, 51, 51));
+        TF_LastName.setBorder(null);
+        TF_LastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_LastNameActionPerformed(evt);
             }
         });
 
@@ -375,62 +431,19 @@ public class Profile extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_PhoneNo)))
+                    .addComponent(TF_LastName)))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_PhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PNL_BodyBelow.add(jPanel15);
-
-        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel7.setText("Last Name");
-
-        TF_LastName.setEditable(false);
-        TF_LastName.setBackground(new java.awt.Color(255, 255, 255));
-        TF_LastName.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_LastName.setForeground(new java.awt.Color(51, 51, 51));
-        TF_LastName.setBorder(null);
-        TF_LastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_LastNameActionPerformed(evt);
-            }
-        });
-
-        jSeparator15.setBackground(new java.awt.Color(13, 56, 247));
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TF_LastName, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(jSeparator15)))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(TF_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        PNL_BodyBelow.add(jPanel16);
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -584,6 +597,15 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
+        BTN_iRole.setBackground(new java.awt.Color(255, 255, 255));
+        BTN_iRole.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Info_17px.png"))); // NOI18N
+        BTN_iRole.setBorder(null);
+        BTN_iRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_iRoleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
@@ -594,14 +616,21 @@ public class Profile extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_Role)))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addComponent(TF_Role)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BTN_iRole, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_Role, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTN_iRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(TF_Role, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -740,14 +769,14 @@ public class Profile extends javax.swing.JFrame {
 
         PNL_BodyBelow.add(jPanel23);
 
-        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel15.setText("Username");
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel17.setText("Username");
 
-        jSeparator11.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator13.setBackground(new java.awt.Color(13, 56, 247));
 
         TF_Username.setEditable(false);
         TF_Username.setBackground(new java.awt.Color(255, 255, 255));
@@ -760,29 +789,45 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
+        BTN_iUPNote.setBackground(new java.awt.Color(255, 255, 255));
+        BTN_iUPNote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Info_17px.png"))); // NOI18N
+        BTN_iUPNote.setBorder(null);
+        BTN_iUPNote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_iUPNoteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_Username)))
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator13, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addComponent(TF_Username)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BTN_iUPNote, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTN_iUPNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PNL_BodyBelow.add(jPanel24);
+        PNL_BodyBelow.add(jPanel26);
 
         jPanel25.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -828,14 +873,14 @@ public class Profile extends javax.swing.JFrame {
 
         PNL_BodyBelow.add(jPanel25);
 
-        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel30.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel17.setText("Password");
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel21.setText("Password");
 
-        jSeparator13.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator15.setBackground(new java.awt.Color(13, 56, 247));
 
         TF_Password.setEditable(false);
         TF_Password.setBackground(new java.awt.Color(255, 255, 255));
@@ -848,29 +893,45 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
+        BTN_View.setBackground(new java.awt.Color(255, 255, 255));
+        BTN_View.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Eye_17px.png"))); // NOI18N
+        BTN_View.setBorder(null);
+        BTN_View.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_ViewActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator13, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_Password)))
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator15, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(TF_Password)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BTN_View, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTN_View, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(TF_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        PNL_BodyBelow.add(jPanel26);
+        PNL_BodyBelow.add(jPanel30);
 
         jPanel27.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -938,10 +999,7 @@ public class Profile extends javax.swing.JFrame {
         admin.setFirstName(TF_FirstName.getText());
         admin.setLastName(TF_LastName.getText());
         admin.setGender(TF_Gender.getText());
-        admin.setRole(TF_Role.getText());
         admin.setAccountStatus(TF_AccountStatus.getText());
-        admin.setUserId(TF_Username.getText());
-        admin.setPassword(TF_Password.getText());
         admin.setPhoneNo(TF_PhoneNo.getText());
         admin.setEmail(TF_Email.getText());
         admin.setCnic(TF_CNIC.getText());
@@ -949,8 +1007,10 @@ public class Profile extends javax.swing.JFrame {
         admin.setCountry(TF_Country.getText());
         admin.setCity(TF_City.getText());
         admin.setZipcode(TF_ZipCode.getText());
+        TF_Password.setText(".....");
         
         BTN_Update.setVisible(false);
+        
         
         try {
             JDBC.updateData(SignIn.getAdmin());
@@ -964,9 +1024,9 @@ public class Profile extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BTN_UpdateActionPerformed
 
-    private void TF_PhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PhoneNoActionPerformed
+    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_PhoneNoActionPerformed
+    }//GEN-LAST:event_TF_LastNameActionPerformed
 
     private void TF_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_EmailActionPerformed
         // TODO add your handling code here:
@@ -992,25 +1052,18 @@ public class Profile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_CountryActionPerformed
 
-    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_UsernameActionPerformed
-
     private void TF_CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_CityActionPerformed
-
-    private void TF_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_PasswordActionPerformed
 
     private void TF_ZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ZipCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_ZipCodeActionPerformed
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
-        this.dispose();
+        
         new AdminWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void TF_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_GenderActionPerformed
@@ -1019,6 +1072,8 @@ public class Profile extends javax.swing.JFrame {
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
     BTN_Update.setVisible(true);
+    BTN_iRole.setVisible(true);
+    BTN_iUPNote.setVisible(true);
     
         setFeildsEditAble(true);
     }//GEN-LAST:event_BTN_EditActionPerformed
@@ -1027,9 +1082,40 @@ public class Profile extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_FirstNameActionPerformed
 
-    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
+    private void TF_PhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PhoneNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastNameActionPerformed
+    }//GEN-LAST:event_TF_PhoneNoActionPerformed
+
+    private void BTN_iRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_iRoleActionPerformed
+       JOptionPane.showMessageDialog(null, "Role can't be change !");
+    }//GEN-LAST:event_BTN_iRoleActionPerformed
+
+    private void TF_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_PasswordActionPerformed
+      
+    }//GEN-LAST:event_TF_PasswordActionPerformed
+
+    private void BTN_ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ViewActionPerformed
+        if(Passview==true)
+            Passview=false;
+        else
+            Passview=true;
+        
+        
+         if(Passview==true)
+           TF_Password.setText(admin.getPassword());
+       else
+           TF_Password.setText(".....");
+        
+        
+    }//GEN-LAST:event_BTN_ViewActionPerformed
+
+    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
+        
+    }//GEN-LAST:event_TF_UsernameActionPerformed
+
+    private void BTN_iUPNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_iUPNoteActionPerformed
+        JOptionPane.showMessageDialog(null, "You can change Username and Password from Settings !");
+    }//GEN-LAST:event_BTN_iUPNoteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1068,20 +1154,26 @@ public class Profile extends javax.swing.JFrame {
     
     void setFeildsEditAble(boolean bool){
         
+        
+        
         TF_FirstName.setEditable(bool);
-        TF_LastName.setEditable(bool);
+        TF_PhoneNo.setEditable(bool);
         TF_Gender.setEditable(bool);
         //TF_Role.setEditable(bool);
         TF_AccountStatus.setEditable(bool);
         //TF_Username.setEditable(true);
         //TF_Password.setEditable(true);
-        TF_PhoneNo.setEditable(bool);
+        TF_LastName.setEditable(bool);
         TF_Email.setEditable(bool);
         TF_CNIC.setEditable(bool);
         TF_Address.setEditable(bool);
         TF_Country.setEditable(bool);
         TF_City.setEditable(bool);
         TF_ZipCode.setEditable(bool);
+        
+        /*TF_Role.setSelectedTextColor(DisbleColor);
+        TF_Username.setSelectedTextColor(DisbleColor);
+        TF_Password.setSelectedTextColor(DisbleColor);*/
     
     }
 
@@ -1089,6 +1181,9 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Edit;
     private javax.swing.JButton BTN_Update;
+    private javax.swing.JButton BTN_View;
+    private javax.swing.JButton BTN_iRole;
+    private javax.swing.JButton BTN_iUPNote;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
@@ -1117,20 +1212,18 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
@@ -1138,18 +1231,20 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
+    private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

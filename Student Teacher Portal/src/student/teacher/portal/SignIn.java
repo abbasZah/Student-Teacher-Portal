@@ -23,7 +23,7 @@ public class SignIn extends javax.swing.JFrame {
     
     public SignIn() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocation(200, 100);

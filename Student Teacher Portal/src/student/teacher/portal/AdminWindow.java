@@ -19,8 +19,6 @@ public class AdminWindow extends javax.swing.JFrame {
      * Creates new form AdminWindow
      */
   
-
-    
     private static Admin admin;
     
     
@@ -29,7 +27,7 @@ public class AdminWindow extends javax.swing.JFrame {
         
         public AdminWindow() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/Reading_20px.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocation(150, 10);
@@ -56,6 +54,8 @@ public class AdminWindow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        BTN_Settings = new javax.swing.JButton();
         PNL_Footer = new javax.swing.JPanel();
         BTN_LogOut = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
@@ -95,12 +95,39 @@ public class AdminWindow extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Admin");
+        jLabel2.setText("Administrator");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Student Teacher Portal");
+
+        jPanel1.setBackground(new java.awt.Color(13, 56, 247));
+
+        BTN_Settings.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Settings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Settings_30px.png"))); // NOI18N
+        BTN_Settings.setBorder(null);
+        BTN_Settings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_SettingsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BTN_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BTN_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+        );
 
         javax.swing.GroupLayout PNL_HeaderLayout = new javax.swing.GroupLayout(PNL_Header);
         PNL_Header.setLayout(PNL_HeaderLayout);
@@ -113,22 +140,30 @@ public class AdminWindow extends javax.swing.JFrame {
                 .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(740, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 672, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         PNL_HeaderLayout.setVerticalGroup(
             PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(5, 5, 5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PNL_HeaderLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(PNL_HeaderLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addGap(5, 5, 5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PNL_HeaderLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 26, Short.MAX_VALUE))
+                    .addGroup(PNL_HeaderLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         PNL_Wrapper.add(PNL_Header, java.awt.BorderLayout.PAGE_START);
@@ -520,8 +555,9 @@ public class AdminWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_AssignCoursesActionPerformed
 
     private void BTN_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProfileActionPerformed
-        this.dispose();
+        
         new Profile().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_ProfileActionPerformed
 
     private void BTN_RequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RequestsActionPerformed
@@ -610,6 +646,11 @@ public class AdminWindow extends javax.swing.JFrame {
         adminProfile.setVisible(true);
     }//GEN-LAST:event_BTN_ProfileMouseClicked
 
+    private void BTN_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SettingsActionPerformed
+         new Settings().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BTN_SettingsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -654,6 +695,7 @@ public class AdminWindow extends javax.swing.JFrame {
     private javax.swing.JButton BTN_LogOut;
     private javax.swing.JButton BTN_Profile;
     private javax.swing.JButton BTN_Requests;
+    private javax.swing.JButton BTN_Settings;
     private javax.swing.JButton BTN_Student;
     private javax.swing.JButton BTN_Teacher;
     private javax.swing.JPanel PNL_AssignCourses;
@@ -679,5 +721,6 @@ public class AdminWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
