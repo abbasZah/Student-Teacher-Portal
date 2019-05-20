@@ -158,7 +158,7 @@ public class Profile extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Admin Profile");
+        jLabel2.setText("Profile");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -1020,7 +1020,7 @@ public class Profile extends javax.swing.JFrame {
         BTN_iRole.setVisible(false);
         BTN_iUPNote.setVisible(false);
         
-       JOptionPane.showMessageDialog(null, "Profile Updated !");
+       JOptionPane.showMessageDialog(null, "Profile Updated Succesfully!");
        
         setFeildsEditAble(false);
         
@@ -1117,7 +1117,7 @@ public class Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_UsernameActionPerformed
 
     private void BTN_iUPNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_iUPNoteActionPerformed
-        JOptionPane.showMessageDialog(null, "You can change Username and Password from Settings !");
+        JOptionPane.showMessageDialog(null, "You can change Password from Settings !");
     }//GEN-LAST:event_BTN_iUPNoteActionPerformed
 
     /**
