@@ -128,6 +128,24 @@ public class JDBC {
 		}
 	}
           
+          public static void changeAdminPass(Admin admin)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableAdmin+" SET password = ?"
+                                      + " WHERE userID = ?");
+                                stmt.setString(1, admin.getPassword());
+                                stmt.setString(2, admin.getUserId());
+                              
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
           
           
           public static void createTableIfNotExists(String tableName)throws Exception{

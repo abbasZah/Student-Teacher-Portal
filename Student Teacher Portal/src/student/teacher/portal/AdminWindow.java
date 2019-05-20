@@ -173,7 +173,8 @@ public class AdminWindow extends javax.swing.JFrame {
         BTN_LogOut.setBackground(new java.awt.Color(13, 56, 247));
         BTN_LogOut.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_LogOut.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_LogOut.setText("Log Out");
+        BTN_LogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Logout_Rounded_Left_20px.png"))); // NOI18N
+        BTN_LogOut.setText("  Log Out");
         BTN_LogOut.setBorder(null);
         BTN_LogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
