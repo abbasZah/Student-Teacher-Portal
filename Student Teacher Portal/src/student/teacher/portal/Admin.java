@@ -5,11 +5,17 @@
  */
 package student.teacher.portal;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author f2017266427
  */
 public class Admin extends Person{
+    
+    private static ArrayList<Course> courses;
+
+    
     
     public Admin(){}
     
@@ -22,6 +28,14 @@ public class Admin extends Person{
                 userId, password, firstName, lastName, gender, phoneNo, email,
                 address, cnic, role, country, city, zipcode, accountStatus
         );
+        courses = new ArrayList<>();
+    }
+    
+    
+    
+    
+    public static ArrayList<Course> getCourses() {
+        return courses;
     }
     
 

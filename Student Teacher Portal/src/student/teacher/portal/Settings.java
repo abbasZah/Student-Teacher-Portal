@@ -522,6 +522,10 @@ public class Settings extends javax.swing.JFrame {
                                 try {
                                     JDBC.changeAdminPass(admin);
                                      JOptionPane.showMessageDialog(null, "Password Changed Succesfully!");
+                                    
+                                     TF_NewPassword.setText("");
+                                     TF_ConfirmPassword.setText("");
+                                     TF_OldPassword.setText("");
 
                                 } catch (Exception ex) {
                                     Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);

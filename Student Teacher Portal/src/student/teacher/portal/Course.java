@@ -5,29 +5,62 @@
  */
 package student.teacher.portal;
 
+import java.util.Random;
+
 /**
  *
  * @author F2017266455
  */
 public class Course {
     
+    private String id;
     private String title;
     private int creditHours;
     private String type;
     private String category;
+
+
+    private boolean assignStatus;
     
     
     public Course(){}
     
     
-    public Course(String title, int creditHours, String type, String category) {
+    public Course(String title, int creditHours, String category) {
+        
         this.title = title;
         this.creditHours = creditHours;
-        this.type = type;
         this.category = category;
+        id= idGenrator(title);
+        assignStatus = false;
     }
     
+    
+    private String idGenrator(String title){
+        String alpha = "";
+        int beta = 0;
+        int i = 0;
+        while(i < 3){
+            alpha += title.charAt(i);
+            i++;
+        }
+        alpha = alpha.toUpperCase();
+        Random rand = new Random();
+        beta = rand.nextInt(1000);
+        
+        String res = alpha + beta;
+        return res;
+    }
 
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getTitle() {
         return title;
     }
@@ -60,7 +93,13 @@ public class Course {
         this.category = category;
     }
 
-    
+    public boolean getAssignStatus() {
+        return assignStatus;
+    }
+
+    public void setAssignStatus(boolean assignStatus) {
+        this.assignStatus = assignStatus;
+    }
     
     
     

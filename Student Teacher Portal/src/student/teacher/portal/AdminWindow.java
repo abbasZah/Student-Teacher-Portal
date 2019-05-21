@@ -450,7 +450,7 @@ public class AdminWindow extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Assign Courses");
+        jLabel10.setText("Courses");
 
         javax.swing.GroupLayout PNL_AssignCoursesLayout = new javax.swing.GroupLayout(PNL_AssignCourses);
         PNL_AssignCourses.setLayout(PNL_AssignCoursesLayout);
@@ -552,12 +552,13 @@ public class AdminWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_LogOutActionPerformed
 
     private void BTN_AssignCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AssignCoursesActionPerformed
-        
+    new CoursesWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_AssignCoursesActionPerformed
 
     private void BTN_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProfileActionPerformed
         
-        new Profile().setVisible(true);
+        new ProfileWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_ProfileActionPerformed
 
@@ -643,7 +644,7 @@ public class AdminWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_RequestsMouseExited
 
     private void BTN_ProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ProfileMouseClicked
-        Profile adminProfile = new Profile();
+        ProfileWindow adminProfile = new ProfileWindow();
         adminProfile.setVisible(true);
     }//GEN-LAST:event_BTN_ProfileMouseClicked
 
