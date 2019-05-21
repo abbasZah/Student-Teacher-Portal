@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package student.teacher.portal;
 
 import java.awt.Toolkit;
@@ -11,27 +6,31 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
  * @author Abbas Zaheer
  */
-public class Settings extends javax.swing.JFrame {
+public class CreateCourseWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form Settings
+     * Creates new form CreateCourseWindow2
      */
-    Admin admin ;
-    
-    public Settings() {
+    public CreateCourseWindow() {
         initComponents();
+        
+        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocation(150, 10);
         setTitle("Student Teacher Portal");
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        
-        admin = AdminWindow.getAdmin();
     }
 
     /**
@@ -46,13 +45,9 @@ public class Settings extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         PNL_Footer = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
         BTN_Back = new javax.swing.JButton();
-        jPanel12 = new javax.swing.JPanel();
-        BTN_Change = new javax.swing.JButton();
+        BTN_Create = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -60,22 +55,22 @@ public class Settings extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         PNL_BodyBelow = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        TF_OldPassword = new javax.swing.JTextField();
+        TF_Title = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        TF_NewPassword = new javax.swing.JTextField();
+        JC_CreditHours = new javax.swing.JComboBox();
         jPanel18 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        TF_ConfirmPassword = new javax.swing.JTextField();
+        JC_Category = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 550));
 
         PNL_Wrapper.setBackground(new java.awt.Color(255, 255, 255));
         PNL_Wrapper.setLayout(new java.awt.BorderLayout());
@@ -87,25 +82,12 @@ public class Settings extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Settings");
+        jLabel2.setText("Courses");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Student Teacher Portal");
-
-        jPanel1.setBackground(new java.awt.Color(13, 56, 247));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 57, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 123, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout PNL_HeaderLayout = new javax.swing.GroupLayout(PNL_Header);
         PNL_Header.setLayout(PNL_HeaderLayout);
@@ -118,40 +100,27 @@ public class Settings extends javax.swing.JFrame {
                 .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 673, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(794, Short.MAX_VALUE))
         );
         PNL_HeaderLayout.setVerticalGroup(
             PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                        .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addGap(5, 5, 5))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PNL_HeaderLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 26, Short.MAX_VALUE))
-                    .addGroup(PNL_HeaderLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PNL_HeaderLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         PNL_Wrapper.add(PNL_Header, java.awt.BorderLayout.PAGE_START);
 
         PNL_Footer.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel6.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel6.setLayout(new java.awt.GridLayout(1, 7));
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         BTN_Back.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Back.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -165,71 +134,37 @@ public class Settings extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-
-        jPanel6.add(jPanel7);
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-
-        BTN_Change.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Change.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Change.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Change.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Ok_20px_1.png"))); // NOI18N
-        BTN_Change.setText("  Update");
-        BTN_Change.setBorder(null);
-        BTN_Change.setMinimumSize(new java.awt.Dimension(83, 21));
-        BTN_Change.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Create.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Create.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Create.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
+        BTN_Create.setText("  Create");
+        BTN_Create.setBorder(null);
+        BTN_Create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_ChangeActionPerformed(evt);
+                BTN_CreateActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(352, Short.MAX_VALUE)
-                .addComponent(BTN_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BTN_Change, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-        );
-
-        jPanel6.add(jPanel12);
 
         javax.swing.GroupLayout PNL_FooterLayout = new javax.swing.GroupLayout(PNL_Footer);
         PNL_Footer.setLayout(PNL_FooterLayout);
         PNL_FooterLayout.setHorizontalGroup(
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 669, Short.MAX_VALUE)
+                .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
         PNL_FooterLayout.setVerticalGroup(
             PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_FooterLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addGroup(PNL_FooterLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         PNL_Wrapper.add(PNL_Footer, java.awt.BorderLayout.PAGE_END);
@@ -244,7 +179,7 @@ public class Settings extends javax.swing.JFrame {
         );
         PNL_LeftPaneLayout.setVerticalGroup(
             PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
@@ -259,7 +194,7 @@ public class Settings extends javax.swing.JFrame {
         );
         PNL_RightPaneLayout.setVerticalGroup(
             PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
@@ -273,7 +208,7 @@ public class Settings extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(13, 56, 247));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Change Password");
+        jLabel4.setText("Create Course");
 
         javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
@@ -281,7 +216,7 @@ public class Settings extends javax.swing.JFrame {
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNL_BodyTopLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PNL_BodyTopLayout.setVerticalGroup(
@@ -300,6 +235,9 @@ public class Settings extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new java.awt.GridLayout(1, 1));
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 1));
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
@@ -307,17 +245,16 @@ public class Settings extends javax.swing.JFrame {
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel19.setText("Old Password");
+        jLabel19.setText("Title");
 
         jSeparator16.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_OldPassword.setBackground(new java.awt.Color(255, 255, 255));
-        TF_OldPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_OldPassword.setForeground(new java.awt.Color(51, 51, 51));
-        TF_OldPassword.setBorder(null);
-        TF_OldPassword.addActionListener(new java.awt.event.ActionListener() {
+        TF_Title.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Title.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Title.setBorder(null);
+        TF_Title.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_OldPasswordActionPerformed(evt);
+                TF_TitleActionPerformed(evt);
             }
         });
 
@@ -328,17 +265,18 @@ public class Settings extends javax.swing.JFrame {
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TF_OldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(jSeparator16)))
+                    .addComponent(TF_Title, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                    .addComponent(jSeparator16))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel28Layout.createSequentialGroup()
                 .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_OldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -348,19 +286,13 @@ public class Settings extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel6.setText("New Password");
+        jLabel6.setText("Type");
 
         jSeparator2.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_NewPassword.setBackground(new java.awt.Color(255, 255, 255));
-        TF_NewPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_NewPassword.setForeground(new java.awt.Color(51, 51, 51));
-        TF_NewPassword.setBorder(null);
-        TF_NewPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_NewPasswordActionPerformed(evt);
-            }
-        });
+        JC_CreditHours.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_CreditHours.setForeground(new java.awt.Color(51, 51, 51));
+        JC_CreditHours.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "2", "3", "4" }));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -369,17 +301,18 @@ public class Settings extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 32, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TF_NewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(jSeparator2)))
+                    .addComponent(jSeparator2)
+                    .addComponent(JC_CreditHours, 0, 325, Short.MAX_VALUE))
+                .addGap(6, 6, 6))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addComponent(JC_CreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -389,17 +322,16 @@ public class Settings extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel9.setText("Confirm Password");
+        jLabel9.setText("Category");
 
         jSeparator5.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_ConfirmPassword.setBackground(new java.awt.Color(255, 255, 255));
-        TF_ConfirmPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_ConfirmPassword.setForeground(new java.awt.Color(51, 51, 51));
-        TF_ConfirmPassword.setBorder(null);
-        TF_ConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
+        JC_Category.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_Category.setForeground(new java.awt.Color(51, 51, 51));
+        JC_Category.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Theory", "Theory + Lab" }));
+        JC_Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_ConfirmPasswordActionPerformed(evt);
+                JC_CategoryActionPerformed(evt);
             }
         });
 
@@ -410,17 +342,18 @@ public class Settings extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 32, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TF_ConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(jSeparator5)))
+                    .addComponent(jSeparator5)
+                    .addComponent(JC_Category, 0, 325, Short.MAX_VALUE))
+                .addGap(6, 6, 6))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addComponent(JC_Category, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -429,31 +362,33 @@ public class Settings extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 823, Short.MAX_VALUE)
+            .addGap(0, 877, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 200, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(0, 200, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGap(0, 260, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 85, Short.MAX_VALUE)
+                    .addGap(0, 71, Short.MAX_VALUE)
                     .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 84, Short.MAX_VALUE)))
+                    .addGap(0, 70, Short.MAX_VALUE)))
         );
 
-        jPanel4.add(jPanel2);
+        jPanel5.add(jPanel2);
+
+        jPanel4.add(jPanel5);
 
         PNL_BodyBelow.add(jPanel4);
 
@@ -473,77 +408,60 @@ public class Settings extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TF_OldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_OldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_OldPasswordActionPerformed
-
-    private void TF_NewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NewPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_NewPasswordActionPerformed
-
-    private void TF_ConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_ConfirmPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_ConfirmPasswordActionPerformed
-
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
-       new AdminWindow().setVisible(true);
+
+        new CoursesWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
-    private void BTN_ChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ChangeActionPerformed
-        // TODO add your handling code here:
-        String OldPassword = TF_OldPassword.getText();
-        String NewPassword = TF_NewPassword.getText();
-        String ConfirmPassword = TF_ConfirmPassword.getText();
+    private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
+             
+        String title = TF_Title.getText();
+        String creditHours = JC_CreditHours.getSelectedItem().toString();
+        String category = JC_Category.getSelectedItem().toString();
         
-        
-        if(OldPassword.isEmpty() || NewPassword.isEmpty() || ConfirmPassword.isEmpty())
+        if(title.isEmpty() || creditHours.equals("None") || category.equals("None"))
         {
             JOptionPane.showMessageDialog(null, "Fill all the Fields !");
-           
+            
         }
         else
         {
-           if(OldPassword.equals(admin.getPassword()))
-           {
-               if(NewPassword.equals(ConfirmPassword))
-                {
-                    if(NewPassword.equals(OldPassword))
-                    {
-                        JOptionPane.showMessageDialog(null, "Use Different Password !");
-                    }
-                    else
-                    {
-                            admin.setPassword(NewPassword);
-                  
-                                try {
-                                    JDBC.changeAdminPass(admin);
-                                     JOptionPane.showMessageDialog(null, "Password Changed Succesfully!");
-                                    
-                                     TF_NewPassword.setText("");
-                                     TF_ConfirmPassword.setText("");
-                                     TF_OldPassword.setText("");
-
-                                } catch (Exception ex) {
-                                    Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                    }
-                    
+            if(title.length() < 3)
+            {
+                JOptionPane.showMessageDialog(null, "Title length must be greater !");
+            }
+            else
+            {
+                Course tempCourse = new Course(title, Integer.parseInt(creditHours), category);
+                Admin.getCourses().add(tempCourse);
+                
+                try {
+                    JDBC.insertData(tempCourse);
+                } catch (Exception ex) {
+                    Logger.getLogger(CreateCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               else
-               {
-                   JOptionPane.showMessageDialog(null, "New & Confirm Passwords do not match !");
-               }
-           }
-           else
-           {
-               JOptionPane.showMessageDialog(null, "Old Password is not Correct !");
-           }
+                
+                JOptionPane.showMessageDialog(null, "Course Created Successfully !");
+                
+                TF_Title.setText("");
+                JC_CreditHours.setSelectedIndex(0);
+                JC_Category.setSelectedIndex(0);
+
+            }
         }
-    }//GEN-LAST:event_BTN_ChangeActionPerformed
+        
+    }//GEN-LAST:event_BTN_CreateActionPerformed
+
+    private void TF_TitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_TitleActionPerformed
+
+    private void JC_CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_CategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_CategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,27 +480,30 @@ public class Settings extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateCourseWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateCourseWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateCourseWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateCourseWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Settings().setVisible(true);
+                new CreateCourseWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
-    private javax.swing.JButton BTN_Change;
+    private javax.swing.JButton BTN_Create;
+    private javax.swing.JComboBox JC_Category;
+    private javax.swing.JComboBox JC_CreditHours;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
@@ -591,9 +512,7 @@ public class Settings extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_MainBodyPane;
     private javax.swing.JPanel PNL_RightPane;
     private javax.swing.JPanel PNL_Wrapper;
-    private javax.swing.JTextField TF_ConfirmPassword;
-    private javax.swing.JTextField TF_NewPassword;
-    private javax.swing.JTextField TF_OldPassword;
+    private javax.swing.JTextField TF_Title;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -601,15 +520,12 @@ public class Settings extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;

@@ -25,6 +25,7 @@ public class JDBC {
 
           private static final String dbNAme = "studentteacherportal";
           private static final String tableAdmin = "Admin";
+          private static final String tableCourses = "Courses";
           private static final String db_URL = ser_URL+dbNAme;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,12 +59,15 @@ public class JDBC {
 		return null;
 	}
           
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          
           public static void insertData(Admin admin)
                             throws Exception{
 		try{
 			
 			Connection conn = get_Connection();
-                              createTableIfNotExists(tableAdmin);
+                              createAdminTableIfNotExists();
 			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableAdmin+"" 
                               + "(userID, password, first, last, gender, phno, email,"
                               + " address, cnic, role, country, city, zipcode, accountstatus"
@@ -98,6 +102,39 @@ public class JDBC {
 		}
 	}
           
+          
+          
+          public static void insertData(Course course)
+                            throws Exception{
+		try{
+			
+			Connection conn = get_Connection();
+                              createCoursesTableIfNotExists();
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableCourses+"" 
+                              + "(courseID, title, credithours, type, category, assignstatus"
+                              + ")"
+			+"VALUES (?, ?, ?, ?, ?, ?)");
+                              
+                                stmt.setString(1, course.getId());
+                                stmt.setString(2, course.getTitle());
+                                stmt.setInt(3, course.getCreditHours());
+                                stmt.setString(4, course.getType());
+                                stmt.setString(5, course.getCategory());
+                                stmt.setBoolean(6, course.getAssignStatus());
+                              
+			stmt.executeUpdate();
+			
+			//JOptionPane.showMessageDialog(null, "Information Udated!");
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
+          
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          
                    public static void updateData(Admin admin)
                             throws Exception{
                        
@@ -127,6 +164,9 @@ public class JDBC {
 			System.out.println(e);
 		}
 	}
+                   
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
           
           public static void changeAdminPass(Admin admin)
                             throws Exception{
@@ -146,16 +186,18 @@ public class JDBC {
 			System.out.println(e);
 		}
 	}
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
           
           
-          public static void createTableIfNotExists(String tableName)throws Exception{
+          public static void createAdminTableIfNotExists()throws Exception{
 		
 		try{
 			
 			Connection conn = get_Connection();
                               createDataBaseIfNotExists(dbNAme);
 			Statement stmt = conn.createStatement();
-			String sql = "CREATE TABLE IF NOT EXISTS "+tableName+""
+			String sql = "CREATE TABLE IF NOT EXISTS "+tableAdmin+""
                                       + "(userID varchar(32) NOT NULL,"
                                       + "password varchar(32) NOT NULL,"
                                       + "first varchar(32) NOT NULL,"
@@ -179,6 +221,36 @@ public class JDBC {
 		
 		
 	}
+          
+          
+          public static void createCoursesTableIfNotExists()throws Exception{
+		
+		try{
+			
+			Connection conn = get_Connection();
+                              createDataBaseIfNotExists(dbNAme);
+			Statement stmt = conn.createStatement();
+			String sql = "CREATE TABLE IF NOT EXISTS "+tableCourses+""
+                                      + "(courseID varchar(7) NOT NULL,"
+                                      + "title varchar(64) NOT NULL,"
+                                      + "credithours INTEGER NOT NULL,"
+                                      + "type varchar(32),"
+                                      + "category varchar(32) NOT NULL,"
+                                      + "assignstatus BIT,"
+                                      + "PRIMARY KEY ( courseID ))"; 
+			stmt.executeUpdate(sql);
+			System.out.println("Table Created!");
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
+		
+	}
+          
+          
+          
+          /////////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////////
           
           public  static void createDataBaseIfNotExists(String dbName)throws Exception{
 		try{

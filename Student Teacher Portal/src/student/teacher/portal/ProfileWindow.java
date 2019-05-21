@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
  *
  * @author F2017266455
  */
-public class Profile extends javax.swing.JFrame {
+public class ProfileWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form Profile
+     * Creates new form ProfileWindow
      */
     
     Admin admin ;
@@ -27,7 +27,7 @@ public class Profile extends javax.swing.JFrame {
     boolean Passview;
     
     
-    public Profile() {
+    public ProfileWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1015,7 +1015,7 @@ public class Profile extends javax.swing.JFrame {
         try {
             JDBC.updateData(SignIn.getAdmin());
         } catch (Exception ex) {
-            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         BTN_iRole.setVisible(false);
         BTN_iUPNote.setVisible(false);
@@ -1137,20 +1137,21 @@ public class Profile extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Profile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Profile().setVisible(true);
+                new ProfileWindow().setVisible(true);
             }
         });
     }
