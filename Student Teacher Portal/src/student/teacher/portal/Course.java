@@ -26,6 +26,17 @@ public class Course {
     public Course(){}
     
     
+    
+    public Course(String id, String title, int creditHours, String type, String category, boolean assignStatus){
+        this.id = id;
+        this.title = title;
+        this.creditHours = creditHours;
+        this.type = type;
+        this.category = category;
+        this.assignStatus = assignStatus;
+    }
+    
+    
     public Course(String title, int creditHours, String category) {
         
         this.title = title;

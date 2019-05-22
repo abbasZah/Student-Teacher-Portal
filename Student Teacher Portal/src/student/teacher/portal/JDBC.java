@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -57,6 +58,26 @@ public class JDBC {
 		}
                     
 		return null;
+	}
+          
+          public static ArrayList<Course> getCourses(){
+              ArrayList<Course> courses = new ArrayList<>();
+		try{
+			Connection conn = get_Connection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableCourses);
+			while(rs.next()){
+				
+                                            Course course = new Course(rs.getString("courseID"), rs.getString("title"), 
+                                                    rs.getInt("credithours"), rs.getString("type"), rs.getString("category"), 
+                                                    rs.getBoolean("assignstatus"));
+                                            
+                                            courses.add(course);
+			}
+		}catch(Exception e){
+                        e.printStackTrace();
+		}
+                    return courses;
 	}
           
           /////////////////////////////////////////////////////////////////////////////////////////////////////

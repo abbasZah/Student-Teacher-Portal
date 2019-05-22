@@ -5,9 +5,14 @@
  */
 package student.teacher.portal;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +25,7 @@ public class CoursesWindow extends javax.swing.JFrame {
      */
    
     private ArrayList<Course> courseList ;
+    JTable j;
     
     public CoursesWindow() {
         initComponents();
@@ -30,15 +36,53 @@ public class CoursesWindow extends javax.swing.JFrame {
         setTitle("Student Teacher Portal");
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
-        TBL_ShowingCourses.setRowHeight(28);
         
         
+        courseList = Admin.getCourses();
         
         
+        Object[][] data = new Object[courseList.size()][5];
+        
+        int i =0;
+        for (Course c : courseList)
+        {
+            
+                    data[i][0]=c.getId();
+                    data[i][1]=c.getTitle();
+                    data[i][2]=c.getCreditHours();
+                    data[i][3]=c.getType();
+                    data[i][4]=c.getCategory();
+              
+            i++;
+        }
+        
+       /*Object[][] data = { 
+            { "Kundan Kumar Jha", "4031", "CSE" }, 
+            { "Anand Jha", "6014", "IT" } 
+        }; */
+  
+        // Column Names 
+        String[] columnNames = { "ID", "Title", "Credit Hours", "Type", "Category" }; 
+  
+        // Initializing the JTable 
+        j = new JTable(data, columnNames); 
+        //j.setBounds(30, 40, 200, 300); 
+  
+        
+        // Frame Visible = true 
        
+       PNL_BodyBelow.add(j.getTableHeader(), BorderLayout.PAGE_START);
+       PNL_BodyBelow.add(j, BorderLayout.CENTER);
+       
+       //TBL_ShowingCourses.setBounds(30, 40, 200, 300); 
+        
+        //PNL_BodyBelow.add(j);
+        
+        //TBL_ShowingCourses.setRowHeight(28);
         
         
-        
+        //TBL_ShowingCourses.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        //TBL_ShowingCourses.setFillsViewportHeight(true);
         
         
         //Admin.getCourses()
@@ -69,8 +113,6 @@ public class CoursesWindow extends javax.swing.JFrame {
         BTN_Remove = new javax.swing.JButton();
         BTN_Create = new javax.swing.JButton();
         PNL_BodyBelow = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TBL_ShowingCourses = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -265,29 +307,8 @@ public class CoursesWindow extends javax.swing.JFrame {
 
         PNL_MainBodyPane.add(PNL_BodyTop, java.awt.BorderLayout.PAGE_START);
 
-        PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
-        PNL_BodyBelow.setLayout(new javax.swing.BoxLayout(PNL_BodyBelow, javax.swing.BoxLayout.LINE_AXIS));
-
-        TBL_ShowingCourses.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Title", "Credit Hours", "Type", "Category"
-            }
-        ));
-        TBL_ShowingCourses.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(TBL_ShowingCourses);
-
-        PNL_BodyBelow.add(jScrollPane1);
-
+        PNL_BodyBelow.setBackground(new java.awt.Color(153, 153, 153));
+        PNL_BodyBelow.setLayout(new java.awt.BorderLayout());
         PNL_MainBodyPane.add(PNL_BodyBelow, java.awt.BorderLayout.CENTER);
 
         PNL_Wrapper.add(PNL_MainBodyPane, java.awt.BorderLayout.CENTER);
@@ -300,7 +321,7 @@ public class CoursesWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PNL_Wrapper, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+            .addComponent(PNL_Wrapper, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -379,10 +400,8 @@ public class CoursesWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_MainBodyPane;
     private javax.swing.JPanel PNL_RightPane;
     private javax.swing.JPanel PNL_Wrapper;
-    private javax.swing.JTable TBL_ShowingCourses;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

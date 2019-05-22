@@ -45,8 +45,6 @@ public class Runner {
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
         
-        
-        
     }
     
    
