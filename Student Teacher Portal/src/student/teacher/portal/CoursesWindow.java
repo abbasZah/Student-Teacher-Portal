@@ -5,14 +5,11 @@
  */
 package student.teacher.portal;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,7 +21,7 @@ public class CoursesWindow extends javax.swing.JFrame {
      * Creates new form CoursesWindow2
      */
    
-    private ArrayList<Course> courseList ;
+    
     JTable j;
     
     public CoursesWindow() {
@@ -38,56 +35,15 @@ public class CoursesWindow extends javax.swing.JFrame {
         
         
         
-        courseList = Admin.getCourses();
         
         
-        Object[][] data = new Object[courseList.size()][5];
         
-        int i =0;
-        for (Course c : courseList)
-        {
-            
-                    data[i][0]=c.getId();
-                    data[i][1]=c.getTitle();
-                    data[i][2]=c.getCreditHours();
-                    data[i][3]=c.getType();
-                    data[i][4]=c.getCategory();
-              
-            i++;
-        }
+        showTable();
         
-       /*Object[][] data = { 
-            { "Kundan Kumar Jha", "4031", "CSE" }, 
-            { "Anand Jha", "6014", "IT" } 
-        }; */
-  
-        // Column Names 
-        String[] columnNames = { "ID", "Title", "Credit Hours", "Type", "Category" }; 
-  
-        // Initializing the JTable 
-        j = new JTable(data, columnNames); 
-        //j.setBounds(30, 40, 200, 300); 
-  
-        
-        // Frame Visible = true 
+       ///PNL_BodyBelow.add(j.getTableHeader(), BorderLayout.PAGE_START);
+       ///PNL_BodyBelow.add(j, BorderLayout.CENTER);
        
-       PNL_BodyBelow.add(j.getTableHeader(), BorderLayout.PAGE_START);
-       PNL_BodyBelow.add(j, BorderLayout.CENTER);
        
-       //TBL_ShowingCourses.setBounds(30, 40, 200, 300); 
-        
-        //PNL_BodyBelow.add(j);
-        
-        //TBL_ShowingCourses.setRowHeight(28);
-        
-        
-        //TBL_ShowingCourses.setPreferredScrollableViewportSize(new Dimension(500, 70));
-        //TBL_ShowingCourses.setFillsViewportHeight(true);
-        
-        
-        //Admin.getCourses()
-        //print info in the table-----------pending
-       // TBL_ShowingCourses.add(objs);
     }
 
     /**
@@ -307,7 +263,7 @@ public class CoursesWindow extends javax.swing.JFrame {
 
         PNL_MainBodyPane.add(PNL_BodyTop, java.awt.BorderLayout.PAGE_START);
 
-        PNL_BodyBelow.setBackground(new java.awt.Color(153, 153, 153));
+        PNL_BodyBelow.setBackground(new java.awt.Color(255, 255, 255));
         PNL_BodyBelow.setLayout(new java.awt.BorderLayout());
         PNL_MainBodyPane.add(PNL_BodyBelow, java.awt.BorderLayout.CENTER);
 
@@ -335,6 +291,16 @@ public class CoursesWindow extends javax.swing.JFrame {
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
         
+        try {
+            String id = (String) j.getValueAt(j.getSelectedRow(), 0);
+            new EditCourseWindow(id).setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please select a course first !");
+        }
+        
+        //String id = "AND833";
+        
     }//GEN-LAST:event_BTN_EditActionPerformed
 
     private void BTN_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SearchActionPerformed
@@ -342,7 +308,27 @@ public class CoursesWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_SearchActionPerformed
 
     private void BTN_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RemoveActionPerformed
-        // TODO add your handling code here:
+        try {
+            
+        
+        String id = (String) j.getValueAt(j.getSelectedRow(), 0);
+        
+        for (Course course : Admin.getCourses()) {
+            if (course.getId() == id) {
+                Admin.getCourses().remove(course);
+                break;
+            }
+        }
+        //showTable();
+        
+        //remove from database as well
+        JDBC.removeCourse(id);
+        } 
+        catch (Exception e) 
+        {
+           JOptionPane.showMessageDialog(null, "Please select a course first !"); 
+        }
+        
     }//GEN-LAST:event_BTN_RemoveActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
@@ -384,6 +370,31 @@ public class CoursesWindow extends javax.swing.JFrame {
                 new CoursesWindow().setVisible(true);
             }
         });
+    }
+    
+    private void showTable(){
+        
+        Object[][] data = new Object[Admin.getCourses().size()][5];
+        
+        int i =0;
+        for (Course c : Admin.getCourses())
+        {    
+                    data[i][0]=c.getId();
+                    data[i][1]=c.getTitle();
+                    data[i][2]=c.getCreditHours();
+                    data[i][3]=c.getType();
+                    data[i][4]=c.getCategory();
+              
+            i++;
+        }
+        
+        // Column Names 
+        String[] columnNames = { "ID", "Title", "Credit Hours", "Type", "Category" }; 
+  
+        // Initializing the JTable 
+        j = new JTable(data, columnNames); 
+        JScrollPane sp = new JScrollPane(j);
+        PNL_BodyBelow.add(sp);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
