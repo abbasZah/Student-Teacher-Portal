@@ -16,8 +16,12 @@ public class Admin extends Person{
     private static ArrayList<Course> courses;
 
     
+
     
-    public Admin(){}
+    
+    public Admin(){
+        courses = JDBC.getCourses();
+    }
     
     public Admin(
             String userId, String password, String firstName, String lastName, String gender, String phoneNo, String email,
@@ -28,7 +32,7 @@ public class Admin extends Person{
                 userId, password, firstName, lastName, gender, phoneNo, email,
                 address, cnic, role, country, city, zipcode, accountStatus
         );
-        courses = new ArrayList<>();
+        courses = JDBC.getCourses();
     }
     
     
@@ -37,6 +41,8 @@ public class Admin extends Person{
     public static ArrayList<Course> getCourses() {
         return courses;
     }
-    
+    public static void setCourses(ArrayList<Course> courses) {
+        Admin.courses = courses;
+    }
 
 }

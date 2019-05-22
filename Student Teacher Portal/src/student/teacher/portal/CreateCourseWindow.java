@@ -286,7 +286,7 @@ public class CreateCourseWindow extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel6.setText("Type");
+        jLabel6.setText("Credit Hours");
 
         jSeparator2.setBackground(new java.awt.Color(13, 56, 247));
 

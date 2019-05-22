@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,10 +24,10 @@ public class JDBC {
           
         
 
-          private static final String dbNAme = "studentteacherportal";
+          private static final String dbName = "studentteacherportal";
           private static final String tableAdmin = "Admin";
           private static final String tableCourses = "Courses";
-          private static final String db_URL = ser_URL+dbNAme;
+          private static final String db_URL = ser_URL+dbName;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
           
@@ -57,6 +58,26 @@ public class JDBC {
 		}
                     
 		return null;
+	}
+          
+          public static ArrayList<Course> getCourses(){
+              ArrayList<Course> courses = new ArrayList<>();
+		try{
+			Connection conn = get_Connection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableCourses);
+			while(rs.next()){
+				
+                                            Course course = new Course(rs.getString("courseID"), rs.getString("title"), 
+                                                    rs.getInt("credithours"), rs.getString("type"), rs.getString("category"), 
+                                                    rs.getBoolean("assignstatus"));
+                                            
+                                            courses.add(course);
+			}
+		}catch(Exception e){
+                        e.printStackTrace();
+		}
+                    return courses;
 	}
           
           /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,7 +184,43 @@ public class JDBC {
 		}catch(Exception e){
 			System.out.println(e);
 		}
+                }
+                   
+                   public static void updateData(Course course)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableCourses+" SET title = ?, "
+                                      + "credithours = ?, category = ? WHERE courseID = ?");
+                                stmt.setString(1, course.getTitle());
+                                stmt.setInt(2, course.getCreditHours());
+                                stmt.setString(3, course.getCategory());
+                                stmt.setString(4, course.getId());
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
 	}
+                   
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+          /////////////////////////////////////////////////////////////////////////////////////////////////////
+         public static void removeCourse(String id){
+             try{
+                 Connection conn = get_Connection();
+                 String sql = "DELETE FROM "+tableCourses+" WHERE courseID=?";
+                 
+                 PreparedStatement stmt = conn.prepareStatement(sql);
+                 stmt.setString(1, id);
+                 
+                 stmt.executeUpdate();
+             }catch(Exception ex){
+                 System.out.println(ex);
+             }
+         }          
                    
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +252,7 @@ public class JDBC {
 		try{
 			
 			Connection conn = get_Connection();
-                              createDataBaseIfNotExists(dbNAme);
+                              createDataBaseIfNotExists(dbName);
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableAdmin+""
                                       + "(userID varchar(32) NOT NULL,"
@@ -228,7 +285,7 @@ public class JDBC {
 		try{
 			
 			Connection conn = get_Connection();
-                              createDataBaseIfNotExists(dbNAme);
+                              createDataBaseIfNotExists(dbName);
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableCourses+""
                                       + "(courseID varchar(7) NOT NULL,"
@@ -272,7 +329,7 @@ public class JDBC {
           public static Connection get_Connection()throws Exception{////////////////////
 		try{
 			Class.forName(JDBC_DRIVER);
-                              createDataBaseIfNotExists(dbNAme);
+                              createDataBaseIfNotExists(dbName);
 			Connection conn = DriverManager.getConnection(db_URL, USER, PASS);
 			System.out.println("Connection Established!");
 			return conn;

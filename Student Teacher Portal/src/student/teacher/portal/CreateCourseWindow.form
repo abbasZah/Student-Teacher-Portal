@@ -533,7 +533,7 @@
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="f7" green="38" red="d" type="rgb"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Type"/>
+                                    <Property name="text" type="java.lang.String" value="Credit Hours"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JSeparator" name="jSeparator2">
