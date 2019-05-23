@@ -734,6 +734,7 @@
                             <StringItem index="1" value="Female"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_GenderActionPerformed"/>
@@ -1075,6 +1076,7 @@
                             <StringItem index="1" value="Blocked"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1343,6 +1345,7 @@
                             <StringItem index="196" value="Zimbabwe"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_CountryActionPerformed"/>
