@@ -25,12 +25,28 @@ public class DegreeProgram {
     private double totalFee;
     
     
-    private ArrayList<Course> courseList = new ArrayList<>();
+    private ArrayList<Course> courseList;
+
+    
     
     
                 //Constructors
 
-    public DegreeProgram(String type, String name, int duration, double totalFee, ArrayList<Course>obj) {
+
+    public DegreeProgram(String type, String name, int duration,int noofQuarters, double totalFee, ArrayList<Course>obj) {
+       
+        this.type = type;
+        this.name = name;
+        this.duration = duration;
+        this.noOfQuarters = this.noOfQuarters;
+        this.totalFee = totalFee;
+        
+        courseList=obj;
+        
+        
+    }
+    
+    public DegreeProgram(String type, String name, int duration, double totalFee) {
        
         this.type = type;
         this.name = name;
@@ -38,7 +54,7 @@ public class DegreeProgram {
         this.noOfQuarters = duration*4;
         this.totalFee = totalFee;
         
-        courseList=obj;
+        //courseList
         
         
     }
@@ -91,5 +107,7 @@ public class DegreeProgram {
     }
 
    
-    
+    public ArrayList<Course> getCourseList() {
+        return courseList;
+    }
 }
