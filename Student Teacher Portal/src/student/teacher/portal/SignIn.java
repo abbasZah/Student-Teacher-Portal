@@ -228,17 +228,19 @@ public class SignIn extends javax.swing.JFrame {
      
         String username=TF_Username.getText();
         String password=new String (PF_Password.getPassword());
-        admin = JDBC.isUser(username, password);
-        if(admin != null){
-           //JOptionPane.showMessageDialog(null, "Logged In Successfully!");
+        
+        
+        if(JDBC.isUser(username, password) instanceof Admin){
+            
+            admin = JDBC.isUser(username, password);    
+            new AdminWindow().setVisible(true);
+            this.dispose();
            
+       }
+        /*else if(JDBC.isUser(username, password) instanceof Student){
            
-       
-       
-        new AdminWindow().setVisible(true);
-         this.dispose();
-           
-       }else{
+       }*/
+        else{
            JOptionPane.showMessageDialog(null, "Login Error !");
        }
         

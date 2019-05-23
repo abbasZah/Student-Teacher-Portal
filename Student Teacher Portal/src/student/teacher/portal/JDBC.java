@@ -60,6 +60,8 @@ public class JDBC {
                     
 		return null;
 	}
+
+
           
           public static ArrayList<Course> getCourses(){
               ArrayList<Course> courses = new ArrayList<>();
