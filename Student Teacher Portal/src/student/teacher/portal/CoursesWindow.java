@@ -5,11 +5,17 @@
  */
 package student.teacher.portal;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
+import javafx.scene.control.TableColumn;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -394,6 +400,7 @@ public class CoursesWindow extends javax.swing.JFrame {
             i++;
         }
         
+        
         // Column Names 
         String[] columnNames = { "ID", "Title", "Credit Hours", "Category" }; 
   
@@ -401,8 +408,23 @@ public class CoursesWindow extends javax.swing.JFrame {
         j = new JTable(data, columnNames); 
         j.setRowHeight(28);
         
+        
         JScrollPane sp = new JScrollPane(j);
         PNL_BodyBelow.add(sp);
+        
+        
+      Font f = new Font("Trebuchet MS", Font.PLAIN, 14);
+      JTableHeader header = j.getTableHeader();
+      header.setFont(f);
+              
+      Color c= new Color(13,56,247);
+      Color c2= new Color(255,255,255);
+      header.setBackground(c);
+      header.setForeground(c2);
+      
+      
+      JTableHeader th = j.getTableHeader();
+      th.setPreferredSize(new Dimension(100, 30));
         
     }
 

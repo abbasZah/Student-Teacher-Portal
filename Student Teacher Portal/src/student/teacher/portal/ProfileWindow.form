@@ -237,7 +237,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -262,7 +262,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="394" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -382,7 +382,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_FirstName" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator16" min="-2" pref="2" max="-2" attributes="0"/>
@@ -459,7 +459,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_PhoneNo" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator17" min="-2" pref="2" max="-2" attributes="0"/>
@@ -536,7 +536,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_LastName" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
@@ -613,7 +613,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_Email" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator4" min="-2" pref="2" max="-2" attributes="0"/>
@@ -680,21 +680,21 @@
                               <Component id="jLabel9" min="-2" pref="118" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator5" alignment="0" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_Gender" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jSeparator5" pref="277" max="32767" attributes="0"/>
+                                  <Component id="JC_Gender" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
-                              <Component id="TF_Gender" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                              <Component id="JC_Gender" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jSeparator5" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel9" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -720,24 +720,23 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_Gender">
+                    <Component class="javax.swing.JComboBox" name="JC_Gender">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Trebuchet MS" size="14" style="0"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="Male"/>
+                            <StringItem index="1" value="Female"/>
+                          </StringArray>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_GenderActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_GenderActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -767,7 +766,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_CNIC" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator6" min="-2" pref="2" max="-2" attributes="0"/>
@@ -947,7 +946,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_Address" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator8" min="-2" pref="2" max="-2" attributes="0"/>
@@ -1014,19 +1013,27 @@
                               <Component id="jLabel13" min="-2" pref="118" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator9" alignment="0" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_AccountStatus" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jSeparator9" pref="277" max="32767" attributes="0"/>
+                                  <Component id="JC_AccountStatus" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
-                              <Component id="TF_AccountStatus" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel13" pref="28" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="JC_AccountStatus" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <Component id="jSeparator9" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1054,25 +1061,21 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_AccountStatus">
+                    <Component class="javax.swing.JComboBox" name="JC_AccountStatus">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Trebuchet MS" size="14" style="0"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="Active"/>
+                            <StringItem index="1" value="Blocked"/>
+                          </StringArray>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_AccountStatusActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1091,21 +1094,21 @@
                               <Component id="jLabel14" min="-2" pref="118" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator10" alignment="0" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_Country" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jSeparator10" pref="277" max="32767" attributes="0"/>
+                                  <Component id="JC_Country" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
-                              <Component id="TF_Country" min="-2" pref="26" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                              <Component id="JC_Country" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jSeparator10" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel14" alignment="0" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -1131,24 +1134,218 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_Country">
+                    <Component class="javax.swing.JComboBox" name="JC_Country">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Trebuchet MS" size="14" style="0"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="null"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="197">
+                            <StringItem index="0" value="None"/>
+                            <StringItem index="1" value="Afghanistan"/>
+                            <StringItem index="2" value="Albania"/>
+                            <StringItem index="3" value="Algeria"/>
+                            <StringItem index="4" value="Andorra"/>
+                            <StringItem index="5" value="Angola"/>
+                            <StringItem index="6" value="Antigua and Barbuda"/>
+                            <StringItem index="7" value="Argentina"/>
+                            <StringItem index="8" value="Armenia"/>
+                            <StringItem index="9" value="Australia"/>
+                            <StringItem index="10" value="Austria"/>
+                            <StringItem index="11" value="Azerbaijan"/>
+                            <StringItem index="12" value="The Bahamas"/>
+                            <StringItem index="13" value="Bahrain"/>
+                            <StringItem index="14" value="Bangladesh"/>
+                            <StringItem index="15" value="Barbados"/>
+                            <StringItem index="16" value="Belarus"/>
+                            <StringItem index="17" value="Belgium"/>
+                            <StringItem index="18" value="Belize"/>
+                            <StringItem index="19" value="Benin"/>
+                            <StringItem index="20" value="Bhutan"/>
+                            <StringItem index="21" value="Bolivia"/>
+                            <StringItem index="22" value="Bosnia and Herzegovina"/>
+                            <StringItem index="23" value="Botswana"/>
+                            <StringItem index="24" value="Brazil"/>
+                            <StringItem index="25" value="Brunei"/>
+                            <StringItem index="26" value="Bulgaria"/>
+                            <StringItem index="27" value="Burkina Faso"/>
+                            <StringItem index="28" value="Burundi"/>
+                            <StringItem index="29" value="Cabo Verde"/>
+                            <StringItem index="30" value="Cambodia"/>
+                            <StringItem index="31" value="Cameroon"/>
+                            <StringItem index="32" value="Canada"/>
+                            <StringItem index="33" value="Central African Republic"/>
+                            <StringItem index="34" value="Chad"/>
+                            <StringItem index="35" value="Chile"/>
+                            <StringItem index="36" value="China"/>
+                            <StringItem index="37" value="Colombia"/>
+                            <StringItem index="38" value="Comoros"/>
+                            <StringItem index="39" value="Congo, Democratic Republic of the"/>
+                            <StringItem index="40" value="Congo, Republic of the"/>
+                            <StringItem index="41" value="Costa Rica"/>
+                            <StringItem index="42" value="C&#xf4;te d&#x2019;Ivoire"/>
+                            <StringItem index="43" value="Croatia"/>
+                            <StringItem index="44" value="Cuba"/>
+                            <StringItem index="45" value="Cyprus"/>
+                            <StringItem index="46" value="Czech Republic"/>
+                            <StringItem index="47" value="Denmark"/>
+                            <StringItem index="48" value="Djibouti"/>
+                            <StringItem index="49" value="Dominica"/>
+                            <StringItem index="50" value="Dominican Republic"/>
+                            <StringItem index="51" value="East Timor (Timor-Leste)"/>
+                            <StringItem index="52" value="Ecuador"/>
+                            <StringItem index="53" value="Egypt"/>
+                            <StringItem index="54" value="El Salvador"/>
+                            <StringItem index="55" value="Equatorial Guinea"/>
+                            <StringItem index="56" value="Eritrea"/>
+                            <StringItem index="57" value="Estonia"/>
+                            <StringItem index="58" value="Ethiopia"/>
+                            <StringItem index="59" value="Fiji"/>
+                            <StringItem index="60" value="Finland"/>
+                            <StringItem index="61" value="France"/>
+                            <StringItem index="62" value="Gabon"/>
+                            <StringItem index="63" value="The Gambia"/>
+                            <StringItem index="64" value="Georgia"/>
+                            <StringItem index="65" value="Germany"/>
+                            <StringItem index="66" value="Ghana"/>
+                            <StringItem index="67" value="Greece"/>
+                            <StringItem index="68" value="Grenada"/>
+                            <StringItem index="69" value="Guatemala"/>
+                            <StringItem index="70" value="Guinea"/>
+                            <StringItem index="71" value="Guinea-Bissau"/>
+                            <StringItem index="72" value="Guyana"/>
+                            <StringItem index="73" value="Haiti"/>
+                            <StringItem index="74" value="Honduras"/>
+                            <StringItem index="75" value="Hungary"/>
+                            <StringItem index="76" value="Iceland"/>
+                            <StringItem index="77" value="India"/>
+                            <StringItem index="78" value="Indonesia"/>
+                            <StringItem index="79" value="Iran"/>
+                            <StringItem index="80" value="Iraq"/>
+                            <StringItem index="81" value="Ireland"/>
+                            <StringItem index="82" value="Israel"/>
+                            <StringItem index="83" value="Italy"/>
+                            <StringItem index="84" value="Jamaica"/>
+                            <StringItem index="85" value="Japan"/>
+                            <StringItem index="86" value="Jordan"/>
+                            <StringItem index="87" value="Kazakhstan"/>
+                            <StringItem index="88" value="Kenya"/>
+                            <StringItem index="89" value="Kiribati"/>
+                            <StringItem index="90" value="Korea, North"/>
+                            <StringItem index="91" value="Korea, South"/>
+                            <StringItem index="92" value="Kosovo"/>
+                            <StringItem index="93" value="Kuwait"/>
+                            <StringItem index="94" value="Kyrgyzstan"/>
+                            <StringItem index="95" value="Laos"/>
+                            <StringItem index="96" value="Latvia"/>
+                            <StringItem index="97" value="Lebanon"/>
+                            <StringItem index="98" value="Lesotho"/>
+                            <StringItem index="99" value="Liberia"/>
+                            <StringItem index="100" value="Libya"/>
+                            <StringItem index="101" value="Liechtenstein"/>
+                            <StringItem index="102" value="Lithuania"/>
+                            <StringItem index="103" value="Luxembourg"/>
+                            <StringItem index="104" value="Macedonia"/>
+                            <StringItem index="105" value="Madagascar"/>
+                            <StringItem index="106" value="Malawi"/>
+                            <StringItem index="107" value="Malaysia"/>
+                            <StringItem index="108" value="Maldives"/>
+                            <StringItem index="109" value="Mali"/>
+                            <StringItem index="110" value="Malta"/>
+                            <StringItem index="111" value="Marshall Islands"/>
+                            <StringItem index="112" value="Mauritania"/>
+                            <StringItem index="113" value="Mauritius"/>
+                            <StringItem index="114" value="Mexico"/>
+                            <StringItem index="115" value="Micronesia, Federated States of"/>
+                            <StringItem index="116" value="Moldova"/>
+                            <StringItem index="117" value="Monaco"/>
+                            <StringItem index="118" value="Mongolia"/>
+                            <StringItem index="119" value="Montenegro"/>
+                            <StringItem index="120" value="Morocco"/>
+                            <StringItem index="121" value="Mozambique"/>
+                            <StringItem index="122" value="Myanmar (Burma)"/>
+                            <StringItem index="123" value="Namibia"/>
+                            <StringItem index="124" value="Nauru"/>
+                            <StringItem index="125" value="Nepal"/>
+                            <StringItem index="126" value="Netherlands"/>
+                            <StringItem index="127" value="New Zealand"/>
+                            <StringItem index="128" value="Nicaragua"/>
+                            <StringItem index="129" value="Niger"/>
+                            <StringItem index="130" value="Nigeria"/>
+                            <StringItem index="131" value="Norway"/>
+                            <StringItem index="132" value="Oman"/>
+                            <StringItem index="133" value="Pakistan"/>
+                            <StringItem index="134" value="Palau"/>
+                            <StringItem index="135" value="Panama"/>
+                            <StringItem index="136" value="Papua New Guinea"/>
+                            <StringItem index="137" value="Paraguay"/>
+                            <StringItem index="138" value="Peru"/>
+                            <StringItem index="139" value="Philippines"/>
+                            <StringItem index="140" value="Poland"/>
+                            <StringItem index="141" value="Portugal"/>
+                            <StringItem index="142" value="Qatar"/>
+                            <StringItem index="143" value="Romania"/>
+                            <StringItem index="144" value="Russia"/>
+                            <StringItem index="145" value="Rwanda"/>
+                            <StringItem index="146" value="Saint Kitts and Nevis"/>
+                            <StringItem index="147" value="Saint Lucia"/>
+                            <StringItem index="148" value="Saint Vincent and the Grenadines"/>
+                            <StringItem index="149" value="Samoa"/>
+                            <StringItem index="150" value="San Marino"/>
+                            <StringItem index="151" value="Sao Tome and Principe"/>
+                            <StringItem index="152" value="Saudi Arabia"/>
+                            <StringItem index="153" value="Senegal"/>
+                            <StringItem index="154" value="Serbia"/>
+                            <StringItem index="155" value="Seychelles"/>
+                            <StringItem index="156" value="Sierra Leone"/>
+                            <StringItem index="157" value="Singapore"/>
+                            <StringItem index="158" value="Slovakia"/>
+                            <StringItem index="159" value="Slovenia"/>
+                            <StringItem index="160" value="Solomon Islands"/>
+                            <StringItem index="161" value="Somalia"/>
+                            <StringItem index="162" value="South Africa"/>
+                            <StringItem index="163" value="Spain"/>
+                            <StringItem index="164" value="Sri Lanka"/>
+                            <StringItem index="165" value="Sudan"/>
+                            <StringItem index="166" value="Sudan, South"/>
+                            <StringItem index="167" value="Suriname"/>
+                            <StringItem index="168" value="Swaziland"/>
+                            <StringItem index="169" value="Sweden"/>
+                            <StringItem index="170" value="Switzerland"/>
+                            <StringItem index="171" value="Syria"/>
+                            <StringItem index="172" value="Taiwan"/>
+                            <StringItem index="173" value="Tajikistan"/>
+                            <StringItem index="174" value="Tanzania"/>
+                            <StringItem index="175" value="Thailand"/>
+                            <StringItem index="176" value="Togo"/>
+                            <StringItem index="177" value="Tonga"/>
+                            <StringItem index="178" value="Trinidad and Tobago"/>
+                            <StringItem index="179" value="Tunisia"/>
+                            <StringItem index="180" value="Turkey"/>
+                            <StringItem index="181" value="Turkmenistan"/>
+                            <StringItem index="182" value="Tuvalu"/>
+                            <StringItem index="183" value="Uganda"/>
+                            <StringItem index="184" value="Ukraine"/>
+                            <StringItem index="185" value="United Arab Emirates"/>
+                            <StringItem index="186" value="United Kingdom"/>
+                            <StringItem index="187" value="United States"/>
+                            <StringItem index="188" value="Uruguay"/>
+                            <StringItem index="189" value="Uzbekistan"/>
+                            <StringItem index="190" value="Vanuatu"/>
+                            <StringItem index="191" value="Vatican City"/>
+                            <StringItem index="192" value="Venezuela"/>
+                            <StringItem index="193" value="Vietnam"/>
+                            <StringItem index="194" value="Yemen"/>
+                            <StringItem index="195" value="Zambia"/>
+                            <StringItem index="196" value="Zimbabwe"/>
+                          </StringArray>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_CountryActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_CountryActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1281,7 +1478,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_City" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator12" min="-2" pref="2" max="-2" attributes="0"/>
@@ -1461,7 +1658,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                               <Component id="TF_ZipCode" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator14" min="-2" pref="2" max="-2" attributes="0"/>

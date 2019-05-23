@@ -5,6 +5,8 @@
  */
 package student.teacher.portal;
 
+import java.awt.Toolkit;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,19 @@ public class DegreeWindow extends javax.swing.JFrame {
     
     public DegreeWindow() {
         initComponents();
+        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
+        setLocation(150, 10);
+        setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -215,8 +230,8 @@ public class DegreeWindow extends javax.swing.JFrame {
         BTN_Create1.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Create1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_Create1.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Create1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
-        BTN_Create1.setText("Courses");
+        BTN_Create1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Invoice_20px.png"))); // NOI18N
+        BTN_Create1.setText("  Courses");
         BTN_Create1.setBorder(null);
         BTN_Create1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

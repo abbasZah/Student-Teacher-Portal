@@ -280,7 +280,7 @@ public class AdminWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Profile");
 
@@ -304,7 +304,7 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_Student.setBackground(new java.awt.Color(220, 220, 220));
 
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Student");
 
@@ -346,7 +346,7 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_Teacher.setBackground(new java.awt.Color(220, 220, 220));
 
-        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Teacher");
 
@@ -388,7 +388,7 @@ public class AdminWindow extends javax.swing.JFrame {
 
         PNL_DegreeProgram.setBackground(new java.awt.Color(220, 220, 220));
 
-        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Degree Program");
 
@@ -432,7 +432,7 @@ public class AdminWindow extends javax.swing.JFrame {
 
         BTN_AssignCourses.setBackground(new java.awt.Color(220, 220, 220));
         BTN_AssignCourses.setForeground(new java.awt.Color(13, 56, 247));
-        BTN_AssignCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/Life Cycle_52px.png"))); // NOI18N
+        BTN_AssignCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Invoice_47px.png"))); // NOI18N
         BTN_AssignCourses.setBorder(null);
         BTN_AssignCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -448,7 +448,7 @@ public class AdminWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Courses");
 
@@ -490,7 +490,7 @@ public class AdminWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Requests");
 
