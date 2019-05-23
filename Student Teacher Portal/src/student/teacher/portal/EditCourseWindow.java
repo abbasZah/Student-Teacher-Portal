@@ -5,6 +5,8 @@
  */
 package student.teacher.portal;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -13,23 +15,33 @@ import javax.swing.JOptionPane;
  *
  * @author Shahrukh
  */
+
 public class EditCourseWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form EditCourseWindow
      */
+    
+    
     private String id;
+    
+    
+    
     public EditCourseWindow(String id) {
         initComponents();
         this.id = id;
         for (Course course : Admin.getCourses()) {
             if(course.getId() == id){
+                
                 TF_Title.setText(course.getTitle());
                 JC_CreditHours.setSelectedItem(Integer.toString(course.getCreditHours()));
                 JC_Category.setSelectedItem(course.getCategory());
                 break;
             }
         }
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -145,22 +157,39 @@ public class EditCourseWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_TitleActionPerformed
 
     private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
+        
+        
         for (Course course : Admin.getCourses()) {
             if(course.getId() == id){
-                course.setTitle(TF_Title.getText());
-                course.setCreditHours(Integer.parseInt(JC_CreditHours.getSelectedItem().toString()));
-                course.setCategory(JC_Category.getSelectedItem().toString());
                 
-                try {
-                    //Update in database
-                    JDBC.updateData(course);
-                } catch (Exception ex) {
-                    Logger.getLogger(EditCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
+                if(!course.getTitle().equals(TF_Title.getText()) || course.getCreditHours()!=Integer.parseInt(JC_CreditHours.getSelectedItem().toString()) || 
+                        !course.getCategory().equals(JC_Category.getSelectedItem().toString()))
+                {
+                                course.setTitle(TF_Title.getText());
+                                course.setCreditHours(Integer.parseInt(JC_CreditHours.getSelectedItem().toString()));
+                                course.setCategory(JC_Category.getSelectedItem().toString());
+
+
+
+                                try {
+                                    //Update in database
+                                    JDBC.updateData(course);
+                                } catch (Exception ex) {
+                                    Logger.getLogger(EditCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
+                                JOptionPane.showMessageDialog(null, "Course Updated Successfully !");
+                                break;
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Please Change Something!");
                 }
                 
-                JOptionPane.showMessageDialog(null, "Course Updated Successfully !");
-                break;
-            }
+                    
+                
+           }
         }
         
         

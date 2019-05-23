@@ -30,17 +30,15 @@ public class DegreeProgram {
     
                 //Constructors
 
-    public DegreeProgram(String type, String name, int duration, int noOfQuarters, double totalFee, ArrayList<Course>obj) {
+    public DegreeProgram(String type, String name, int duration, double totalFee, ArrayList<Course>obj) {
        
         this.type = type;
         this.name = name;
         this.duration = duration;
-        this.noOfQuarters = noOfQuarters;
+        this.noOfQuarters = duration*4;
         this.totalFee = totalFee;
         
-        for (Course course : obj) {
-            courseList.add(course);
-        }
+        courseList=obj;
         
         
     }
