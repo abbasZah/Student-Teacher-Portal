@@ -14,8 +14,7 @@ import java.util.ArrayList;
 public class Admin extends Person{
     
     private static ArrayList<Course> courses;
-
-    
+    private static ArrayList<DegreeProgram> degrees;
 
     
     
@@ -41,8 +40,11 @@ public class Admin extends Person{
     public static ArrayList<Course> getCourses() {
         return courses;
     }
-    public static void setCourses(ArrayList<Course> courses) {
-        Admin.courses = courses;
+    
+    public static ArrayList<DegreeProgram> getDegrees() {
+        return degrees;
     }
+
+    
 
 }

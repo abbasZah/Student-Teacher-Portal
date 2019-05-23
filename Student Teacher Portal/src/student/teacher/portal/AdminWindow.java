@@ -543,7 +543,8 @@ public class AdminWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_TeacherActionPerformed
 
     private void BTN_DegreeProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramActionPerformed
-        // TODO add your handling code here:
+        new DegreeWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_DegreeProgramActionPerformed
 
     private void BTN_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_LogOutActionPerformed

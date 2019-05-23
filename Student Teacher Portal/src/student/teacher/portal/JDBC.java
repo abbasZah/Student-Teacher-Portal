@@ -27,6 +27,7 @@ public class JDBC {
           private static final String dbName = "studentteacherportal";
           private static final String tableAdmin = "Admin";
           private static final String tableCourses = "Courses";
+          private static final String tableDegrees = "Degrees";
           private static final String db_URL = ser_URL+dbName;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,6 +65,7 @@ public class JDBC {
               ArrayList<Course> courses = new ArrayList<>();
 		try{
 			Connection conn = get_Connection();
+                              createCoursesTableIfNotExists();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableCourses);
 			while(rs.next()){
@@ -301,6 +303,26 @@ public class JDBC {
 			System.out.println(e);
 		}
 		
+		
+	}
+          public static void createDegreeTableIfNotExists()throws Exception{
+		
+		try{
+			
+			Connection conn = get_Connection();
+                              createDataBaseIfNotExists(dbName);
+			Statement stmt = conn.createStatement();
+			String sql = "CREATE TABLE IF NOT EXISTS "+tableDegrees+""
+                                      + "(type varchar(32) NOT NULL,"
+                                      
+                                      + "coursesId varchar ARRAY[] NOT NULL,"
+                                      + "PRIMARY KEY(type) )";
+			stmt.executeUpdate(sql);
+			System.out.println("Table "+tableDegrees+"Created!");
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		//String type, String name, int duration, noofquaters, double totalFee, ArrayList<Course>obj
 		
 	}
           
