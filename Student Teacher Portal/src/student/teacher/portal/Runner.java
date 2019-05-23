@@ -32,10 +32,10 @@ public class Runner {
                 "123 home, K Town, Lahore",
                 "2233344556967",
                 "Admin",
-                "Dubai",
+                "Pakistan",
                 "Lahore",
                 "54000",
-                "Blocked"
+                "Active"
                 
         );
         
@@ -44,6 +44,7 @@ public class Runner {
         
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
+        //JDBC.createDegreeTableIfNotExists();
         
     }
     

@@ -50,18 +50,19 @@ public class ProfileWindow extends javax.swing.JFrame {
         
         TF_FirstName.setText(admin.getFirstName());
         TF_LastName.setText(admin.getLastName());
-        TF_Gender.setText(admin.getGender());
+        JC_Gender.setSelectedItem(admin.getGender());
         TF_Role.setText(admin.getRole());
-        TF_AccountStatus.setText(admin.getAccountStatus());
+        JC_AccountStatus.setSelectedItem(admin.getAccountStatus());
         TF_Username.setText(admin.getUserId());
         TF_PhoneNo.setText(admin.getPhoneNo());
         TF_Email.setText(admin.getEmail());
         TF_CNIC.setText(admin.getCnic());
         TF_Address.setText(admin.getAddress());
-        TF_Country.setText(admin.getCountry());
+        JC_Country.setSelectedItem(admin.getCountry());
         TF_City.setText(admin.getCity());
         TF_ZipCode.setText(admin.getZipcode());
         TF_Password.setText(".....");
+        
     }
 
     /**
@@ -104,7 +105,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        TF_Gender = new javax.swing.JTextField();
+        JC_Gender = new javax.swing.JComboBox();
         jPanel19 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -121,11 +122,11 @@ public class ProfileWindow extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
-        TF_AccountStatus = new javax.swing.JTextField();
+        JC_AccountStatus = new javax.swing.JComboBox();
         jPanel23 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        TF_Country = new javax.swing.JTextField();
+        JC_Country = new javax.swing.JComboBox();
         jPanel26 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
@@ -255,7 +256,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         );
         PNL_LeftPaneLayout.setVerticalGroup(
             PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
@@ -270,7 +271,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         );
         PNL_RightPaneLayout.setVerticalGroup(
             PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
@@ -349,7 +350,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel28Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -393,7 +394,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel29Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_PhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -437,7 +438,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -481,7 +482,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -498,14 +499,12 @@ public class ProfileWindow extends javax.swing.JFrame {
 
         jSeparator5.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_Gender.setEditable(false);
-        TF_Gender.setBackground(new java.awt.Color(255, 255, 255));
-        TF_Gender.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_Gender.setForeground(new java.awt.Color(51, 51, 51));
-        TF_Gender.setBorder(null);
-        TF_Gender.addActionListener(new java.awt.event.ActionListener() {
+        JC_Gender.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_Gender.setForeground(new java.awt.Color(51, 51, 51));
+        JC_Gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
+        JC_Gender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_GenderActionPerformed(evt);
+                JC_GenderActionPerformed(evt);
             }
         });
 
@@ -519,16 +518,16 @@ public class ProfileWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_Gender)))
+                    .addComponent(JC_Gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PNL_BodyBelow.add(jPanel18);
@@ -569,7 +568,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_CNIC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -673,7 +672,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel21Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -690,16 +689,9 @@ public class ProfileWindow extends javax.swing.JFrame {
 
         jSeparator9.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_AccountStatus.setEditable(false);
-        TF_AccountStatus.setBackground(new java.awt.Color(255, 255, 255));
-        TF_AccountStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_AccountStatus.setForeground(new java.awt.Color(51, 51, 51));
-        TF_AccountStatus.setBorder(null);
-        TF_AccountStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_AccountStatusActionPerformed(evt);
-            }
-        });
+        JC_AccountStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_AccountStatus.setForeground(new java.awt.Color(51, 51, 51));
+        JC_AccountStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Active", "Blocked" }));
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -711,15 +703,20 @@ public class ProfileWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_AccountStatus)))
+                    .addComponent(JC_AccountStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_AccountStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JC_AccountStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -734,14 +731,12 @@ public class ProfileWindow extends javax.swing.JFrame {
 
         jSeparator10.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_Country.setEditable(false);
-        TF_Country.setBackground(new java.awt.Color(255, 255, 255));
-        TF_Country.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_Country.setForeground(new java.awt.Color(51, 51, 51));
-        TF_Country.setBorder(null);
-        TF_Country.addActionListener(new java.awt.event.ActionListener() {
+        JC_Country.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_Country.setForeground(new java.awt.Color(51, 51, 51));
+        JC_Country.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Côte d’Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor (Timor-Leste)", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "The Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia, Federated States of", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Sudan, South", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" }));
+        JC_Country.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_CountryActionPerformed(evt);
+                JC_CountryActionPerformed(evt);
             }
         });
 
@@ -755,16 +750,16 @@ public class ProfileWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_Country)))
+                    .addComponent(JC_Country, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(TF_Country, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addComponent(JC_Country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PNL_BodyBelow.add(jPanel23);
@@ -865,7 +860,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_City, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -969,7 +964,7 @@ public class ProfileWindow extends javax.swing.JFrame {
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 28, Short.MAX_VALUE)
                 .addComponent(TF_ZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -996,33 +991,55 @@ public class ProfileWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
-        admin.setFirstName(TF_FirstName.getText());
-        admin.setLastName(TF_LastName.getText());
-        admin.setGender(TF_Gender.getText());
-        admin.setAccountStatus(TF_AccountStatus.getText());
-        admin.setPhoneNo(TF_PhoneNo.getText());
-        admin.setEmail(TF_Email.getText());
-        admin.setCnic(TF_CNIC.getText());
-        admin.setAddress(TF_Address.getText());
-        admin.setCountry(TF_Country.getText());
-        admin.setCity(TF_City.getText());
-        admin.setZipcode(TF_ZipCode.getText());
-        TF_Password.setText(".....");
         
-        BTN_Update.setVisible(false);
+         if(!admin.getFirstName().equals(TF_FirstName.getText()) ||
+                 !admin.getLastName().equals(TF_LastName.getText()) ||
+                 !admin.getGender().equals(JC_Gender.getSelectedItem().toString()) ||
+                 !admin.getAccountStatus().equals(JC_AccountStatus.getSelectedItem().toString()) ||
+                 !admin.getPhoneNo().equals(TF_PhoneNo.getText()) ||
+                 !admin.getEmail().equals(TF_Email.getText()) ||
+                 !admin.getCnic().equals(TF_CNIC.getText()) ||
+                 !admin.getAddress().equals(TF_Address.getText()) ||
+                 !admin.getCountry().equals(JC_Country.getSelectedItem().toString()) ||
+                 !admin.getCity().equals(TF_City.getText()) ||
+                 !admin.getZipcode().equals(TF_ZipCode.getText())
+                 )
+             
+                {
+                            admin.setFirstName(TF_FirstName.getText());
+                            admin.setLastName(TF_LastName.getText());
+                            admin.setGender(JC_Gender.getSelectedItem().toString());
+                            admin.setAccountStatus(JC_AccountStatus.getSelectedItem().toString());
+                            admin.setPhoneNo(TF_PhoneNo.getText());
+                            admin.setEmail(TF_Email.getText());
+                            admin.setCnic(TF_CNIC.getText());
+                            admin.setAddress(TF_Address.getText());
+                            admin.setCountry(JC_Country.getSelectedItem().toString());
+                            admin.setCity(TF_City.getText());
+                            admin.setZipcode(TF_ZipCode.getText());
+                            TF_Password.setText(".....");
+
+                            BTN_Update.setVisible(false);
+
+
+                            try {
+                                JDBC.updateData(SignIn.getAdmin());
+                            } catch (Exception ex) {
+                                Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            BTN_iRole.setVisible(false);
+                            BTN_iUPNote.setVisible(false);
+
+                           JOptionPane.showMessageDialog(null, "Profile Updated Succesfully!");
+
+                            setFeildsEditAble(false);
+                }
+         else
+         {
+              JOptionPane.showMessageDialog(null, "Please Change Something!");
+         }
         
         
-        try {
-            JDBC.updateData(SignIn.getAdmin());
-        } catch (Exception ex) {
-            Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        BTN_iRole.setVisible(false);
-        BTN_iUPNote.setVisible(false);
-        
-       JOptionPane.showMessageDialog(null, "Profile Updated Succesfully!");
-       
-        setFeildsEditAble(false);
         
         
     }//GEN-LAST:event_BTN_UpdateActionPerformed
@@ -1047,14 +1064,6 @@ public class ProfileWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_AddressActionPerformed
 
-    private void TF_AccountStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_AccountStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_AccountStatusActionPerformed
-
-    private void TF_CountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CountryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_CountryActionPerformed
-
     private void TF_CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_CityActionPerformed
@@ -1068,10 +1077,6 @@ public class ProfileWindow extends javax.swing.JFrame {
         new AdminWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
-
-    private void TF_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_GenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_GenderActionPerformed
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
     BTN_Update.setVisible(true);
@@ -1120,6 +1125,14 @@ public class ProfileWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "You can change Password from Settings !");
     }//GEN-LAST:event_BTN_iUPNoteActionPerformed
 
+    private void JC_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_GenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_GenderActionPerformed
+
+    private void JC_CountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_CountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_CountryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1162,16 +1175,16 @@ public class ProfileWindow extends javax.swing.JFrame {
         
         TF_FirstName.setEditable(bool);
         TF_PhoneNo.setEditable(bool);
-        TF_Gender.setEditable(bool);
+        JC_Gender.setEnabled(bool);
         //TF_Role.setEditable(bool);
-        TF_AccountStatus.setEditable(bool);
+        JC_AccountStatus.setEnabled(bool);
         //TF_Username.setEditable(true);
         //TF_Password.setEditable(true);
         TF_LastName.setEditable(bool);
         TF_Email.setEditable(bool);
         TF_CNIC.setEditable(bool);
         TF_Address.setEditable(bool);
-        TF_Country.setEditable(bool);
+        JC_Country.setEnabled(bool);
         TF_City.setEditable(bool);
         TF_ZipCode.setEditable(bool);
         
@@ -1179,8 +1192,11 @@ public class ProfileWindow extends javax.swing.JFrame {
         /*TF_Role.setSelectedTextColor(DisbleColor);
         TF_Username.setSelectedTextColor(DisbleColor);
         TF_Password.setSelectedTextColor(DisbleColor);*/
-    
+            
+       
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
@@ -1189,6 +1205,9 @@ public class ProfileWindow extends javax.swing.JFrame {
     private javax.swing.JButton BTN_View;
     private javax.swing.JButton BTN_iRole;
     private javax.swing.JButton BTN_iUPNote;
+    private javax.swing.JComboBox JC_AccountStatus;
+    private javax.swing.JComboBox JC_Country;
+    private javax.swing.JComboBox JC_Gender;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
@@ -1197,14 +1216,11 @@ public class ProfileWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_MainBodyPane;
     private javax.swing.JPanel PNL_RightPane;
     private javax.swing.JPanel PNL_Wrapper;
-    private javax.swing.JTextField TF_AccountStatus;
     private javax.swing.JTextField TF_Address;
     private javax.swing.JTextField TF_CNIC;
     private javax.swing.JTextField TF_City;
-    private javax.swing.JTextField TF_Country;
     private javax.swing.JTextField TF_Email;
     private javax.swing.JTextField TF_FirstName;
-    private javax.swing.JTextField TF_Gender;
     private javax.swing.JTextField TF_LastName;
     private javax.swing.JTextField TF_Password;
     private javax.swing.JTextField TF_PhoneNo;
