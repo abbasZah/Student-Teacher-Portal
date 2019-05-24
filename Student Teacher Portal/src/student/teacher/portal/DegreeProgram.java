@@ -7,6 +7,7 @@
 package student.teacher.portal;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -15,6 +16,10 @@ import java.util.ArrayList;
 public class DegreeProgram {
     
      //all attributes are in cammelCase Letters;
+    
+    
+    private String id;
+
     
     private String type;
     private String name;
@@ -25,20 +30,37 @@ public class DegreeProgram {
     private double totalFee;
     
     
-    private ArrayList<Course> courseList = new ArrayList<>();
+    private ArrayList<Course> courseList;
+
+    
     
     
                 //Constructors
 
-    public DegreeProgram(String type, String name, int duration, double totalFee, ArrayList<Course>obj) {
+
+    public DegreeProgram(String type, String name, int duration,int noofQuarters, double totalFee, ArrayList<Course>obj, String id) {
+       
+        this.type = type;
+        this.name = name;
+        this.duration = duration;
+        this.noOfQuarters = this.noOfQuarters;
+        this.totalFee = totalFee;
+        this.id= id;
+        courseList=obj;
+        
+        
+    }
+    
+    public DegreeProgram(String type, String name, int duration, double totalFee) {
        
         this.type = type;
         this.name = name;
         this.duration = duration;
         this.noOfQuarters = duration*4;
         this.totalFee = totalFee;
+        id= idGenrator(name);
         
-        courseList=obj;
+        //courseList
         
         
     }
@@ -91,5 +113,33 @@ public class DegreeProgram {
     }
 
    
+    public ArrayList<Course> getCourseList() {
+        return courseList;
+    }
     
+    private String idGenrator(String name){
+        String alpha = "";
+        int beta = 0;
+        int i = 0;
+        while(i < 3){
+            alpha += name.charAt(i);
+            i++;
+        }
+        alpha = alpha.toUpperCase();
+        Random rand = new Random();
+        beta = rand.nextInt(100);
+        
+        String res = alpha + beta;
+        return res;
+    }
+    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }

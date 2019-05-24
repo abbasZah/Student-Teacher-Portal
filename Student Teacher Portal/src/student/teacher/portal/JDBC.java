@@ -60,6 +60,8 @@ public class JDBC {
                     
 		return null;
 	}
+
+
           
           public static ArrayList<Course> getCourses(){
               ArrayList<Course> courses = new ArrayList<>();
@@ -80,6 +82,44 @@ public class JDBC {
                         e.printStackTrace();
 		}
                     return courses;
+	}
+          
+          
+          public static ArrayList<DegreeProgram> getDegrees(){
+              ArrayList<DegreeProgram> degrees = new ArrayList<>();
+		try{
+			Connection conn = get_Connection();
+                              createDegreeTableIfNotExists();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableDegrees);
+			while(rs.next()){
+			
+                                String coursesStr = rs.getString("courses");
+                                String[] coursesIDArr = coursesStr.split("-");
+                                ArrayList<Course> courseslist = new ArrayList<>();
+                                for (String id : coursesIDArr) {
+                                    System.out.println(id);
+                                    for (Course course : Admin.getCourses()) {
+                                        if(course.getId() == id){
+                                            courseslist.add(course);
+                                            break;
+                                            }
+                                        }
+                                    }
+                                        
+                                DegreeProgram dp = new DegreeProgram(rs.getString("type"), rs.getString("name"),
+                                        rs.getInt("duration"), rs.getInt("noofquarters"),rs.getDouble("totalfee"),
+                                        courseslist, rs.getString("id"));
+                                
+                                
+                               
+                                degrees.add(dp);
+                                            
+			}
+		}catch(Exception e){
+                        e.printStackTrace();
+		}
+                    return degrees;
 	}
           
           /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,6 +184,48 @@ public class JDBC {
                                 stmt.setString(4, course.getType());
                                 stmt.setString(5, course.getCategory());
                                 stmt.setBoolean(6, course.getAssignStatus());
+                              
+			stmt.executeUpdate();
+			
+			//JOptionPane.showMessageDialog(null, "Information Udated!");
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
+          
+          public static void insertData(DegreeProgram degree)
+                            throws Exception{
+              String coursesStr = "";
+              
+              try {
+              
+              for (Course course: degree.getCourseList()) {
+                  coursesStr += course.getId()+"-";
+              }
+              
+              } 
+              catch (NullPointerException e) 
+              {
+                  coursesStr = "";
+              }
+		try{
+			
+			Connection conn = get_Connection();
+                        createCoursesTableIfNotExists();
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableDegrees+"" 
+                              + "(id, type, name, duration, noofquarters, totalfee, courses"
+                              + ")"
+			+"VALUES (?,?, ?, ?, ?, ?, ?)");
+                              
+                                stmt.setString(1, degree.getId());
+                                stmt.setString(2, degree.getType());
+                                stmt.setString(3, degree.getName());
+                                stmt.setInt(4, degree.getDuration());
+                                stmt.setInt(5, degree.getNoOfQuarters());
+                                stmt.setDouble(6, degree.getTotalFee());
+                                stmt.setString(7, coursesStr);
                               
 			stmt.executeUpdate();
 			
@@ -222,7 +304,21 @@ public class JDBC {
              }catch(Exception ex){
                  System.out.println(ex);
              }
-         }          
+         }
+         
+         public static void removeDegree(String id){
+             try{
+                 Connection conn = get_Connection();
+                 String sql = "DELETE FROM "+tableDegrees+" WHERE id=?";
+                 
+                 PreparedStatement stmt = conn.prepareStatement(sql);
+                 stmt.setString(1, id);
+                 
+                 stmt.executeUpdate();
+             }catch(Exception ex){
+                 System.out.println(ex);
+             }
+         }
                    
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -313,16 +409,19 @@ public class JDBC {
                               createDataBaseIfNotExists(dbName);
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableDegrees+""
-                                      + "(type varchar(32) NOT NULL,"
-                                      
-                                      + "coursesId varchar ARRAY[] NOT NULL,"
-                                      + "PRIMARY KEY(type) )";
+                                      + "(id varchar(8) NOT NULL,"
+                                      + "type varchar(32) NOT NULL,"
+                                      + "name varchar(64) NOT NULL,"
+                                      + "duration INTEGER NOT NULL,"
+                                      + "noofquarters INTEGER NOT NULL,"
+                                      + "totalfee DOUBLE NOT NULL,"
+                                      + "courses varchar(255),"
+                                      + "PRIMARY KEY(id) )";
 			stmt.executeUpdate(sql);
 			System.out.println("Table "+tableDegrees+"Created!");
 		}catch(Exception e){
 			System.out.println(e);
 		}
-		//String type, String name, int duration, noofquaters, double totalFee, ArrayList<Course>obj
 		
 	}
           
