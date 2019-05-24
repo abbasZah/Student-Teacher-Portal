@@ -332,7 +332,7 @@ public class CoursesWindow extends javax.swing.JFrame {
                 break;
             }
         }
-        //showTable();
+       
         
         //remove from database as well
         JDBC.removeCourse(id);

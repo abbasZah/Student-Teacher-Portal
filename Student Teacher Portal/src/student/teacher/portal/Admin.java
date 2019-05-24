@@ -20,6 +20,7 @@ public class Admin extends Person{
     
     public Admin(){
         courses = JDBC.getCourses();
+        degrees = JDBC.getDegrees();
     }
     
     public Admin(
@@ -32,6 +33,7 @@ public class Admin extends Person{
                 address, cnic, role, country, city, zipcode, accountStatus
         );
         courses = JDBC.getCourses();
+        degrees = JDBC.getDegrees();
     }
     
     
