@@ -86,8 +86,10 @@ public class JDBC {
           
           
           public static ArrayList<DegreeProgram> getDegrees(){
+              
               ArrayList<DegreeProgram> degrees = new ArrayList<>();
-		try{
+	
+              try{
 			Connection conn = get_Connection();
                               createDegreeTableIfNotExists();
 			Statement stmt = conn.createStatement();
@@ -97,11 +99,13 @@ public class JDBC {
                                 String coursesStr = rs.getString("courses");
                                 String[] coursesIDArr = coursesStr.split("-");
                                 ArrayList<Course> courseslist = new ArrayList<>();
-                                for (String id : coursesIDArr) {
-                                    System.out.println(id);
+                                for (int i = 0; i < coursesIDArr.length; i++) {
+                                    //System.err.println(coursesIDArr[i]);
                                     for (Course course : Admin.getCourses()) {
-                                        if(course.getId() == id){
+                                         //System.out.println(course.getId());
+                                        if(course.getId().equals(coursesIDArr[i])){
                                             courseslist.add(course);
+                                           //System.out.println(course.getId());
                                             break;
                                             }
                                         }
@@ -111,7 +115,9 @@ public class JDBC {
                                         rs.getInt("duration"), rs.getInt("noofquarters"),rs.getDouble("totalfee"),
                                         courseslist, rs.getString("id"));
                                 
-                                
+                                  /*for (Course course : courseslist) {
+                                      System.out.println(course.getId());
+                                  }*/
                                
                                 degrees.add(dp);
                                             
@@ -277,17 +283,57 @@ public class JDBC {
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableCourses+" SET title = ?, "
-                                      + "credithours = ?, category = ? WHERE courseID = ?");
+                                      + "credithours = ?, category = ?, type = ? WHERE courseID = ?");
                                 stmt.setString(1, course.getTitle());
                                 stmt.setInt(2, course.getCreditHours());
                                 stmt.setString(3, course.getCategory());
-                                stmt.setString(4, course.getId());
+                                stmt.setString(4, course.getType());
+                                stmt.setString(5, course.getId());
                               
 			stmt.executeUpdate();
 			
 		}catch(Exception e){
 			System.out.println(e);
 		}
+                    
+                    
+	}
+                  
+          public static void updateData(DegreeProgram degree)
+                            throws Exception{
+              String coursesStr = "";
+              
+              try {
+              
+              for (Course course: degree.getCourseList()) {
+                  coursesStr += course.getId()+"-";
+              }
+              
+              } 
+              catch (NullPointerException e) 
+              {
+                  coursesStr = "";
+              }
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableDegrees+" SET name = ?, "
+                                      + "duration = ?, type = ?, totalfee = ? WHERE id = ?");
+                                stmt.setString(1, degree.getName());
+                                stmt.setInt(2, degree.getDuration());
+                                stmt.setString(3, degree.getType());
+                                stmt.setDouble(4, degree.getTotalFee());
+                                stmt.setString(5, coursesStr);
+                                stmt.setString(6, degree.getId());
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+                    
+                    
 	}
                    
           /////////////////////////////////////////////////////////////////////////////////////////////////////

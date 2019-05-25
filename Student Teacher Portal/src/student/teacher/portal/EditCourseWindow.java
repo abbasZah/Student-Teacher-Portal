@@ -71,7 +71,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         PNL_Footer = new javax.swing.JPanel();
         BTN_Back = new javax.swing.JButton();
-        BTN_Create = new javax.swing.JButton();
+        BTN_Update = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -158,15 +158,15 @@ public class EditCourseWindow extends javax.swing.JFrame {
             }
         });
 
-        BTN_Create.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Create.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Create.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Ok_20px_1.png"))); // NOI18N
-        BTN_Create.setText("  Update");
-        BTN_Create.setBorder(null);
-        BTN_Create.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Ok_20px_1.png"))); // NOI18N
+        BTN_Update.setText("  Update");
+        BTN_Update.setBorder(null);
+        BTN_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_CreateActionPerformed(evt);
+                BTN_UpdateActionPerformed(evt);
             }
         });
 
@@ -178,7 +178,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 669, Short.MAX_VALUE)
-                .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
         PNL_FooterLayout.setVerticalGroup(
@@ -187,7 +187,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -441,7 +441,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
-    private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
+    private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
          
         
         for (Course course : Admin.getCourses()) {
@@ -478,7 +478,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
         }
         
        
-    }//GEN-LAST:event_BTN_CreateActionPerformed
+    }//GEN-LAST:event_BTN_UpdateActionPerformed
 
     private void TF_TitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TitleActionPerformed
         // TODO add your handling code here:
@@ -495,7 +495,7 @@ public class EditCourseWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
-    private javax.swing.JButton BTN_Create;
+    private javax.swing.JButton BTN_Update;
     private javax.swing.JComboBox JC_Category;
     private javax.swing.JComboBox JC_CreditHours;
     private javax.swing.JPanel PNL_BodyBelow;

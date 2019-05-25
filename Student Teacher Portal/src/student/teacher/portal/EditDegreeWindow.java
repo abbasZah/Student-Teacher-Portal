@@ -1,29 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package student.teacher.portal;
 
-import com.mysql.cj.util.StringUtils;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.lang.Object;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
- * @author Abbas Zaheer
+ * @author F2017266455
  */
-public class CreateDegreeWindow extends javax.swing.JFrame {
+public class EditDegreeWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form CreateDegreeWindow2
+     * Creates new form EditDegreeWindow
      */
-    public CreateDegreeWindow() {
+    
+    private String id;
+    
+    public EditDegreeWindow(String id) {
         initComponents();
         
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
@@ -34,9 +36,23 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
         
+        this.id = id;
+        for (DegreeProgram degree : Admin.getDegrees()) {
+            if(degree.getId() == id){
+                
+                JC_Type.setSelectedItem(degree.getType());
+                JC_Duration.setSelectedItem(Integer.toString(degree.getDuration()));
+                TF_Name.setText(degree.getName());
+                TF_TotalFee.setText(Double.toString(degree.getTotalFee()));
+                
+                break;
+            }
+        }
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+        
     }
 
     /**
@@ -53,7 +69,7 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         PNL_Footer = new javax.swing.JPanel();
         BTN_Back = new javax.swing.JButton();
-        BTN_Create = new javax.swing.JButton();
+        BTN_Update = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -142,15 +158,15 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
             }
         });
 
-        BTN_Create.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Create.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Create.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
-        BTN_Create.setText("  Create");
-        BTN_Create.setBorder(null);
-        BTN_Create.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Ok_20px_1.png"))); // NOI18N
+        BTN_Update.setText("  Update");
+        BTN_Update.setBorder(null);
+        BTN_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_CreateActionPerformed(evt);
+                BTN_UpdateActionPerformed(evt);
             }
         });
 
@@ -162,7 +178,7 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 783, Short.MAX_VALUE)
-                .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
         PNL_FooterLayout.setVerticalGroup(
@@ -171,7 +187,7 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -216,7 +232,7 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(13, 56, 247));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Create Degree Program");
+        jLabel4.setText("Edit Degree Program");
 
         javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
@@ -437,43 +453,50 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new DegreeWindow().setVisible(true);
+       new DegreeWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
-    private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
-   if(JC_Type.getSelectedItem().toString() != "None" || !TF_Name.getText().isEmpty()
-               || JC_Duration.getSelectedItem().toString() != "None" || !TF_TotalFee.getText().isEmpty())
-        {
-            try {
-                DegreeProgram dp = new DegreeProgram(
-                    JC_Type.getSelectedItem().toString(), 
-                    TF_Name.getText(),
-                    Integer.parseInt(JC_Duration.getSelectedItem().toString()),
-                    Double.parseDouble(TF_TotalFee.getText()));
+    private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
+ 
+        for (DegreeProgram degree : Admin.getDegrees()) {
+            if(degree.getId() == id){
+                
+                if(!degree.getName().equals(TF_Name.getText()) || degree.getDuration()!=Integer.parseInt(JC_Duration.getSelectedItem().toString()) || 
+                        degree.getTotalFee()!=(Double.parseDouble(TF_TotalFee.getText().toString())) || !degree.getType().equals(JC_Type.getSelectedItem().toString()))
+                {
+                               degree.setType(JC_Type.getSelectedItem().toString());
+                                degree.setName(TF_Name.getText());
+                                degree.setDuration(Integer.parseInt(JC_Duration.getSelectedItem().toString()));
+                                degree.setTotalFee(Double.parseDouble(TF_TotalFee.getText().toString()));
 
-                    Admin.getDegrees().add(dp);
-                     
-                    JDBC.insertData(dp);
+
+
+                                try {
+                                    //Update in database
+                                    JDBC.updateData(degree);
+                                } catch (Exception ex) {
+                                    Logger.getLogger(EditCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+
+                                JOptionPane.showMessageDialog(null, "Degree Updated Successfully !");
+                                break;
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Please Change Something!");
+                }
+                
                     
-                    JOptionPane.showMessageDialog(null, "Degree Created Successfully!");
-                    //Set Fields empty
-                    JC_Duration.setSelectedIndex(0);
-                    JC_Type.setSelectedIndex(0);
-                    TF_Name.setText("");
-                    TF_TotalFee.setText("");
-                    
-            }catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Something might be wrong !");
-            } 
-            catch (Exception ex) {
-                Logger.getLogger(CreateDegreeWindow.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Fill all the feilds !");
+                
+           }
         }
+        
        
-    }//GEN-LAST:event_BTN_CreateActionPerformed
+        
+
+    }//GEN-LAST:event_BTN_UpdateActionPerformed
 
     private void TF_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_NameActionPerformed
         // TODO add your handling code here:
@@ -486,51 +509,11 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateDegreeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateDegreeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateDegreeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateDegreeWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CreateDegreeWindow().setVisible(true);
-            }
-        });
-    }
-    
-    private static boolean isNumeric(String str) { 
-        try {  
-          Double.parseDouble(str);  
-          return true;
-        } catch(NumberFormatException e){  
-          return false;  
-        }  
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
-    private javax.swing.JButton BTN_Create;
+    private javax.swing.JButton BTN_Update;
     private javax.swing.JComboBox JC_Duration;
     private javax.swing.JComboBox JC_Type;
     private javax.swing.JPanel PNL_BodyBelow;
