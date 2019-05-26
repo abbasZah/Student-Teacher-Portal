@@ -483,6 +483,7 @@ public class CreateCourseWindow extends javax.swing.JFrame {
                 TF_Title.setText("");
                 JC_CreditHours.setSelectedIndex(0);
                 JC_Type.setSelectedIndex(0);
+                JC_Category.setSelectedIndex(0);
 
             }
         }
