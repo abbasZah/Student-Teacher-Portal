@@ -307,6 +307,7 @@ public class JDBC {
               
               for (Course course: degree.getCourseList()) {
                   coursesStr += course.getId()+"-";
+                  System.out.println(course.getId());
               }
               
               } 
@@ -327,8 +328,8 @@ public class JDBC {
                                 stmt.setString(5, coursesStr);
                                 stmt.setString(6, degree.getId());
                               
-			stmt.executeUpdate();
-			
+                                stmt.executeUpdate();
+                              
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -435,7 +436,7 @@ public class JDBC {
                                       + "(courseID varchar(7) NOT NULL,"
                                       + "title varchar(64) NOT NULL,"
                                       + "credithours INTEGER NOT NULL,"
-                                      + "type varchar(32),"
+                                      + "type varchar(32) NOT NULL,"
                                       + "category varchar(32) NOT NULL,"
                                       + "assignstatus BIT,"
                                       + "PRIMARY KEY ( courseID ))"; 

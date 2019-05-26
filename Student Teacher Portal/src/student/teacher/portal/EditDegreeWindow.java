@@ -459,7 +459,21 @@ public class EditDegreeWindow extends javax.swing.JFrame {
 
     private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
  
-        for (DegreeProgram degree : Admin.getDegrees()) {
+        
+                            String name = TF_Name.getText();
+                            String duration = JC_Duration.getSelectedItem().toString();
+                            String type = JC_Type.getSelectedItem().toString();
+                            String totalFee = TF_TotalFee.getText();
+        
+        if(type.equals("None")  || name.isEmpty()
+               || duration.equals("None") || totalFee.isEmpty())
+        {
+             JOptionPane.showMessageDialog(null, "Fill all the feilds !");
+        }
+        else{
+            
+            
+            for (DegreeProgram degree : Admin.getDegrees()) {
             if(degree.getId() == id){
                 
                 if(!degree.getName().equals(TF_Name.getText()) || degree.getDuration()!=Integer.parseInt(JC_Duration.getSelectedItem().toString()) || 
@@ -492,6 +506,13 @@ public class EditDegreeWindow extends javax.swing.JFrame {
                 
            }
         }
+           
+        }
+        
+            
+        
+        
+        
         
        
         

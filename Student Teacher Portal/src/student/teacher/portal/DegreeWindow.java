@@ -420,6 +420,9 @@ private void showTable()
         j.setRowHeight(28);
         
         
+        javax.swing.table.TableColumn column = j.getColumnModel().getColumn(2);
+        column.setMinWidth(200);
+        
         JScrollPane sp = new JScrollPane(j);
         PNL_BodyBelow.add(sp);
         
