@@ -5,12 +5,14 @@
  */
 package student.teacher.portal;
 
+import com.mysql.cj.util.StringUtils;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.lang.Object;
 
 /**
  *
@@ -440,8 +442,8 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
-   if(JC_Type.getSelectedItem().toString() != "None" || !TF_Name.getText().isEmpty()
-               || JC_Duration.getSelectedItem().toString() != "None" || !TF_TotalFee.getText().isEmpty())
+   if(!JC_Type.getSelectedItem().toString().equals("None")  || !TF_Name.getText().isEmpty()
+               || !JC_Duration.getSelectedItem().toString().equals("None") || !TF_TotalFee.getText().isEmpty())
         {
             try {
                 DegreeProgram dp = new DegreeProgram(
@@ -462,7 +464,7 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
                     TF_TotalFee.setText("");
                     
             }catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Enter total fee in numbers.");
+                JOptionPane.showMessageDialog(null, "Something might be wrong !");
             } 
             catch (Exception ex) {
                 Logger.getLogger(CreateDegreeWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -515,6 +517,15 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
                 new CreateDegreeWindow().setVisible(true);
             }
         });
+    }
+    
+    private static boolean isNumeric(String str) { 
+        try {  
+          Double.parseDouble(str);  
+          return true;
+        } catch(NumberFormatException e){  
+          return false;  
+        }  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

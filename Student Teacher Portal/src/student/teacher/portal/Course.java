@@ -37,10 +37,11 @@ public class Course {
     }
     
     
-    public Course(String title, int creditHours, String category) {
+    public Course(String title, int creditHours, String type, String category) {
         
         this.title = title;
         this.creditHours = creditHours;
+        this.type=type;
         this.category = category;
         id= idGenrator(title);
         assignStatus = false;

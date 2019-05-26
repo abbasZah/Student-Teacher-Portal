@@ -70,7 +70,7 @@ public class DegreeWindow extends javax.swing.JFrame {
         BTN_Search = new javax.swing.JButton();
         BTN_Remove = new javax.swing.JButton();
         BTN_Create = new javax.swing.JButton();
-        BTN_Create2 = new javax.swing.JButton();
+        BTN_Courses = new javax.swing.JButton();
         PNL_BodyBelow = new javax.swing.JPanel();
 
         BTN_Create1.setBackground(new java.awt.Color(13, 56, 247));
@@ -251,15 +251,15 @@ public class DegreeWindow extends javax.swing.JFrame {
             }
         });
 
-        BTN_Create2.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Create2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Create2.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Create2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Invoice_20px.png"))); // NOI18N
-        BTN_Create2.setText("  Courses");
-        BTN_Create2.setBorder(null);
-        BTN_Create2.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Courses.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Courses.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Courses.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Courses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Invoice_20px.png"))); // NOI18N
+        BTN_Courses.setText("  Courses");
+        BTN_Courses.setBorder(null);
+        BTN_Courses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_Create2ActionPerformed(evt);
+                BTN_CoursesActionPerformed(evt);
             }
         });
 
@@ -270,7 +270,7 @@ public class DegreeWindow extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_BodyTopLayout.createSequentialGroup()
                 .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
-                .addComponent(BTN_Create2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -287,7 +287,7 @@ public class DegreeWindow extends javax.swing.JFrame {
                     .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Create2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -320,7 +320,14 @@ public class DegreeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
-
+         try {
+            String id = (String) j.getValueAt(j.getSelectedRow(), 0);
+            new EditDegreeWindow(id).setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please select a degree first !");
+        }
+                          
     }//GEN-LAST:event_BTN_EditActionPerformed
 
     private void BTN_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SearchActionPerformed
@@ -364,20 +371,21 @@ public class DegreeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_CreateActionPerformed
 
     private void BTN_Create1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_Create1ActionPerformed
-         
-        try {
-            /*String id = (String) j.getValueAt(j.getSelectedRow(), 0);
-            new EditCourseWindow(id).setVisible(true);
-            this.dispose();*/
+      
+    }//GEN-LAST:event_BTN_Create1ActionPerformed
+
+    private void BTN_CoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CoursesActionPerformed
+        
+         try {
+            String id = (String) j.getValueAt(j.getSelectedRow(), 0);
+            new AssignDegreeCoursesWindow(id).setVisible(true);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Please select a degree first !");
         }
         
-    }//GEN-LAST:event_BTN_Create1ActionPerformed
-
-    private void BTN_Create2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_Create2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BTN_Create2ActionPerformed
+       
+    }//GEN-LAST:event_BTN_CoursesActionPerformed
 private void showTable()
 {
         
@@ -403,6 +411,9 @@ private void showTable()
         j = new JTable(data, columnNames); 
         j.setRowHeight(28);
         
+        
+        javax.swing.table.TableColumn column = j.getColumnModel().getColumn(2);
+        column.setMinWidth(200);
         
         JScrollPane sp = new JScrollPane(j);
         PNL_BodyBelow.add(sp);
@@ -460,9 +471,9 @@ private void showTable()
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
+    private javax.swing.JButton BTN_Courses;
     private javax.swing.JButton BTN_Create;
     private javax.swing.JButton BTN_Create1;
-    private javax.swing.JButton BTN_Create2;
     private javax.swing.JButton BTN_Edit;
     private javax.swing.JButton BTN_Remove;
     private javax.swing.JButton BTN_Search;

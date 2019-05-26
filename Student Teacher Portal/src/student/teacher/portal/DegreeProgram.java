@@ -47,6 +47,9 @@ public class DegreeProgram {
         this.totalFee = totalFee;
         this.id= id;
         courseList=obj;
+        /*for (Course course : obj) {
+            System.out.println(course.getId());
+        }*/
         
         
     }
@@ -121,9 +124,16 @@ public class DegreeProgram {
         String alpha = "";
         int beta = 0;
         int i = 0;
-        while(i < 3){
-            alpha += name.charAt(i);
-            i++;
+        
+        try {
+            
+            while(i < 3){
+                alpha += name.charAt(i);
+                i++;
+            }
+        } 
+        catch (StringIndexOutOfBoundsException e) {
+            alpha = name;
         }
         alpha = alpha.toUpperCase();
         Random rand = new Random();
