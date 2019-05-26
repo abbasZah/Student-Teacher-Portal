@@ -397,16 +397,16 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="260" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
                                           <Component id="jPanel28" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                           <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                           <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -511,12 +511,15 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
-                                          <Component id="JC_CreditHours" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel6" max="32767" attributes="0"/>
+                                              <Component id="JC_CreditHours" pref="26" max="32767" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -601,7 +604,7 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator6" min="-2" pref="2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="JC_Category" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                               <Component id="jLabel10" alignment="3" pref="28" max="32767" attributes="0"/>

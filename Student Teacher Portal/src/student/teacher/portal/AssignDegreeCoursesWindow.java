@@ -5,6 +5,7 @@
  */
 package student.teacher.portal;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -16,8 +17,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -32,7 +38,6 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
     JTable RightTable;
     JTable LeftTable;
     String id;
-    
     
     
     public AssignDegreeCoursesWindow(String id) {
@@ -51,6 +56,7 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
         showLeftTable();
         showRightTable();
         
+        
         for (DegreeProgram degree : Admin.getDegrees()) 
                             {
                                 if(degree.getId().equals(id))
@@ -58,6 +64,8 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
                                     jLabel4.setText(degree.getName());
                                 }
                             }
+        
+        
         
     }
 
@@ -84,7 +92,7 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
         BTN_Remove = new javax.swing.JButton();
         BTN_Add = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtfFilter = new javax.swing.JTextField();
         PNL_BodyBelow = new javax.swing.JPanel();
         PNL_Left = new javax.swing.JPanel();
         PNL_Right = new javax.swing.JPanel();
@@ -250,7 +258,7 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
         BTN_Add.setBackground(new java.awt.Color(13, 56, 247));
         BTN_Add.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         BTN_Add.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
+        BTN_Add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Double_Left_20px.png"))); // NOI18N
         BTN_Add.setText("  Include");
         BTN_Add.setBorder(null);
         BTN_Add.addActionListener(new java.awt.event.ActionListener() {
@@ -273,12 +281,12 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
                 .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BTN_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(BTN_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtfFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PNL_BodyTopLayout.setVerticalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +297,7 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
                     .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -332,6 +340,36 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
 
     private void BTN_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RemoveActionPerformed
         
+        try {
+            
+        String courseID = (String) LeftTable.getValueAt(LeftTable.getSelectedRow(), 0);
+        
+        for (DegreeProgram degree : Admin.getDegrees()) 
+         {
+                  if(degree.getId().equals(id))
+                  {
+                            for (Course course : degree.getCourseList()) 
+                                    {
+                                        if(course.getId().equals(courseID))
+                                        { 
+                                            degree.getCourseList().remove(course);
+                                            break;
+                                        }
+                                        
+                                    }   
+                            break;
+                                    
+                  }
+        }
+        
+        PNL_Left.removeAll();
+        PNL_Left.updateUI();
+        showLeftTable();
+                              
+        
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Please select a course first !");
+        } 
     }//GEN-LAST:event_BTN_RemoveActionPerformed
 
     private void BTN_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AddActionPerformed
@@ -407,12 +445,7 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_AddActionPerformed
 
     private void BTN_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SearchActionPerformed
-          /*String text = jTextField1.getText();
-          if (text.trim().length() == 0) {
-             rowSorter.setRowFilter(null);
-          } else {
-             rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
-          }*/
+        
     }//GEN-LAST:event_BTN_SearchActionPerformed
 
     private void BTN_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SaveActionPerformed
@@ -421,6 +454,8 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
                             {
                                 try {
                                     JDBC.updateData(degree);
+                                    
+                                    JOptionPane.showMessageDialog(null, "Courses saved successfully !");
                                 } catch (Exception ex) {
                                     Logger.getLogger(AssignDegreeCoursesWindow.class.getName()).log(Level.SEVERE, null, ex);
                                 }
@@ -511,11 +546,6 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
         // Column Names 
         String[] columnNames = { "ID", "Title", "Cr. Hr", "Type", "Category" }; 
   
-      
-       // DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        
-  
-        // Initializing the JTable 
         RightTable = new JTable(data, columnNames); 
         RightTable.setRowHeight(28);
         
@@ -564,6 +594,6 @@ public class AssignDegreeCoursesWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jtfFilter;
     // End of variables declaration//GEN-END:variables
 }

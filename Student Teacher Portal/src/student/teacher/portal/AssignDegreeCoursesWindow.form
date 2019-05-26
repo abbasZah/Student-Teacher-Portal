@@ -297,12 +297,12 @@
                           <Component id="BTN_Remove" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="282" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BTN_Search" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="156" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                           <Component id="BTN_Add" min="-2" pref="104" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jtfFilter" min="-2" pref="173" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="BTN_Search" min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -315,7 +315,7 @@
                               <Component id="BTN_Remove" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="BTN_Add" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jtfFilter" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -381,7 +381,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/student/teacher/portal/images/icons8_Plus_20px.png"/>
+                      <Image iconType="3" name="/student/teacher/portal/images/icons8_Double_Left_20px.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="  Include"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -407,7 +407,7 @@
                     <Property name="text" type="java.lang.String" value="Degree Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="jtfFilter">
                 </Component>
               </SubComponents>
             </Container>

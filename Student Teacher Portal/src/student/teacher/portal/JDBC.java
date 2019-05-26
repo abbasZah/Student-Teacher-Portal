@@ -307,7 +307,7 @@ public class JDBC {
               
               for (Course course: degree.getCourseList()) {
                   coursesStr += course.getId()+"-";
-                  System.out.println(course.getId());
+                  //System.out.println(course.getId());
               }
               
               } 
@@ -320,7 +320,7 @@ public class JDBC {
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableDegrees+" SET name = ?, "
-                                      + "duration = ?, type = ?, totalfee = ? WHERE id = ?");
+                                      + "duration = ?, type = ?, totalfee = ?, courses = ? WHERE id = ?");
                                 stmt.setString(1, degree.getName());
                                 stmt.setInt(2, degree.getDuration());
                                 stmt.setString(3, degree.getType());
