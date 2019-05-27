@@ -442,8 +442,8 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
-   if(JC_Type.getSelectedItem().toString() != "None" || !TF_Name.getText().isEmpty()
-               || JC_Duration.getSelectedItem().toString() != "None" || !TF_TotalFee.getText().isEmpty())
+   if(!JC_Type.getSelectedItem().toString().equals("None")  || !TF_Name.getText().isEmpty()
+               || !JC_Duration.getSelectedItem().toString().equals("None") || !TF_TotalFee.getText().isEmpty())
         {
             try {
                 DegreeProgram dp = new DegreeProgram(

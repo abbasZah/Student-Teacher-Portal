@@ -371,15 +371,7 @@ public class DegreeWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_CreateActionPerformed
 
     private void BTN_Create1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_Create1ActionPerformed
-         
-        try {
-            /*String id = (String) j.getValueAt(j.getSelectedRow(), 0);
-            new EditCourseWindow(id).setVisible(true);
-            this.dispose();*/
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please select a degree first !");
-        }
-        
+      
     }//GEN-LAST:event_BTN_Create1ActionPerformed
 
     private void BTN_CoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CoursesActionPerformed
@@ -419,6 +411,9 @@ private void showTable()
         j = new JTable(data, columnNames); 
         j.setRowHeight(28);
         
+        
+        javax.swing.table.TableColumn column = j.getColumnModel().getColumn(2);
+        column.setMinWidth(200);
         
         JScrollPane sp = new JScrollPane(j);
         PNL_BodyBelow.add(sp);

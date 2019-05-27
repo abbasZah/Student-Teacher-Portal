@@ -307,6 +307,7 @@ public class JDBC {
               
               for (Course course: degree.getCourseList()) {
                   coursesStr += course.getId()+"-";
+                  //System.out.println(course.getId());
               }
               
               } 
@@ -319,7 +320,7 @@ public class JDBC {
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableDegrees+" SET name = ?, "
-                                      + "duration = ?, type = ?, totalfee = ? WHERE id = ?");
+                                      + "duration = ?, type = ?, totalfee = ?, courses = ? WHERE id = ?");
                                 stmt.setString(1, degree.getName());
                                 stmt.setInt(2, degree.getDuration());
                                 stmt.setString(3, degree.getType());
@@ -327,8 +328,8 @@ public class JDBC {
                                 stmt.setString(5, coursesStr);
                                 stmt.setString(6, degree.getId());
                               
-			stmt.executeUpdate();
-			
+                                stmt.executeUpdate();
+                              
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -435,7 +436,7 @@ public class JDBC {
                                       + "(courseID varchar(7) NOT NULL,"
                                       + "title varchar(64) NOT NULL,"
                                       + "credithours INTEGER NOT NULL,"
-                                      + "type varchar(32),"
+                                      + "type varchar(32) NOT NULL,"
                                       + "category varchar(32) NOT NULL,"
                                       + "assignstatus BIT,"
                                       + "PRIMARY KEY ( courseID ))"; 

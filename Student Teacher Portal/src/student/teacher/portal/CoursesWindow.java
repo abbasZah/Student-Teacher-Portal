@@ -387,7 +387,7 @@ public class CoursesWindow extends javax.swing.JFrame {
     
     private void showTable(){
         
-        Object[][] data = new Object[Admin.getCourses().size()][4];
+        Object[][] data = new Object[Admin.getCourses().size()][5];
         
         int i =0;
         for (Course c : Admin.getCourses())
@@ -395,19 +395,22 @@ public class CoursesWindow extends javax.swing.JFrame {
                     data[i][0]=c.getId();
                     data[i][1]=c.getTitle();
                     data[i][2]=c.getCreditHours();
-                    data[i][3]=c.getCategory();
+                    data[i][3]=c.getType();
+                    data[i][4]=c.getCategory();
               
             i++;
         }
         
         
         // Column Names 
-        String[] columnNames = { "ID", "Title", "Credit Hours", "Category" }; 
+        String[] columnNames = { "ID", "Title", "Credit Hours", "Type", "Category" }; 
   
         // Initializing the JTable 
         j = new JTable(data, columnNames); 
         j.setRowHeight(28);
         
+        javax.swing.table.TableColumn column = j.getColumnModel().getColumn(1);
+        column.setMinWidth(200);
         
         JScrollPane sp = new JScrollPane(j);
         PNL_BodyBelow.add(sp);
