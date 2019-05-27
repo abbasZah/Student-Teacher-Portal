@@ -535,7 +535,8 @@ public class AdminWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTN_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_StudentActionPerformed
-        // TODO add your handling code here:
+        new StudentWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_StudentActionPerformed
 
     private void BTN_TeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_TeacherActionPerformed
