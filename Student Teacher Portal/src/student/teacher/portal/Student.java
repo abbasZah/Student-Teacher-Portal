@@ -11,6 +11,7 @@ package student.teacher.portal;
  */
 public class Student extends Person{
     
+    
     public Student(){}
     
     public Student(String userId, String password, String firstName, String lastName, String gender,
