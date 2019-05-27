@@ -62,7 +62,7 @@ public class DegreeProgram {
         this.noOfQuarters = duration*4;
         this.totalFee = totalFee;
         id= idGenrator(name);
-        
+        courseList = new ArrayList<>();
         //courseList
         
         
