@@ -51,6 +51,7 @@ public class StudentWindow extends javax.swing.JFrame {
         BTN_Search = new javax.swing.JButton();
         BTN_Remove = new javax.swing.JButton();
         BTN_Create = new javax.swing.JButton();
+        BTN_UserInfo = new javax.swing.JButton();
         PNL_BodyBelow = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -219,13 +220,27 @@ public class StudentWindow extends javax.swing.JFrame {
             }
         });
 
+        BTN_UserInfo.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_UserInfo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_UserInfo.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_UserInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Info_20px.png"))); // NOI18N
+        BTN_UserInfo.setText("  User Info");
+        BTN_UserInfo.setBorder(null);
+        BTN_UserInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_UserInfoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
         PNL_BodyTopLayout.setHorizontalGroup(
             PNL_BodyTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNL_BodyTopLayout.createSequentialGroup()
                 .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BTN_UserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
                 .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,7 +255,8 @@ public class StudentWindow extends javax.swing.JFrame {
                     .addComponent(BTN_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_UserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -273,7 +289,8 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
-        
+        new EditStudentWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_EditActionPerformed
 
     private void BTN_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SearchActionPerformed
@@ -285,8 +302,13 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_RemoveActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
-        
+        new CreateStudentWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_CreateActionPerformed
+
+    private void BTN_UserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UserInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_UserInfoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
@@ -294,6 +316,7 @@ public class StudentWindow extends javax.swing.JFrame {
     private javax.swing.JButton BTN_Edit;
     private javax.swing.JButton BTN_Remove;
     private javax.swing.JButton BTN_Search;
+    private javax.swing.JButton BTN_UserInfo;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;

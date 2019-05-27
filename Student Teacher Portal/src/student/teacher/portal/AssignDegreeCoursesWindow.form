@@ -296,11 +296,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="BTN_Remove" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" pref="282" max="-2" attributes="0"/>
-                          <EmptySpace pref="26" max="32767" attributes="0"/>
-                          <Component id="BTN_Add" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="213" max="-2" attributes="0"/>
+                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <Component id="jLabel5" min="-2" pref="182" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jtfFilter" min="-2" pref="173" max="-2" attributes="0"/>
+                          <Component id="BTN_Add" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="BTN_Search" min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
@@ -315,7 +315,7 @@
                               <Component id="BTN_Remove" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="BTN_Add" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="jtfFilter" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -407,7 +407,20 @@
                     <Property name="text" type="java.lang.String" value="Degree Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtfFilter">
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Trebuchet MS" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f7" green="38" red="d" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="Available Courses"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
