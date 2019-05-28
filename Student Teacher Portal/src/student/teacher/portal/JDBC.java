@@ -28,6 +28,7 @@ public class JDBC {
           private static final String tableAdmin = "Admin";
           private static final String tableCourses = "Courses";
           private static final String tableDegrees = "Degrees";
+          private static final String tableStudent = "Student";
           private static final String db_URL = ser_URL+dbName;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +129,31 @@ public class JDBC {
                     return degrees;
 	}
           
+          
+          public static ArrayList<Student> getStudents(){
+              ArrayList<Student> students = new ArrayList<>();
+		try{
+			Connection conn = get_Connection();
+                              createStudentTableIfNotExists();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableStudent);
+			while(rs.next()){
+				
+                                            Student student = new Student(rs.getString("userID"), rs.getString("password"), 
+                                                    rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
+                                                    rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
+                                                    rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
+                                                    rs.getString("city"), rs.getString("zipcode"), 
+                                                    rs.getString("accountstatus"));
+                                            
+                                            students.add(student);
+			}
+		}catch(Exception e){
+                        e.printStackTrace();
+		}
+                    return students;
+	}
+          
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           
@@ -157,6 +183,46 @@ public class JDBC {
                                 stmt.setString(12, admin.getCity());
                                 stmt.setString(13, admin.getZipcode());
                                 stmt.setString(14, admin.getAccountStatus());
+                              
+                              
+                              
+                              
+			stmt.executeUpdate();
+			
+			//JOptionPane.showMessageDialog(null, "Information Udated!");
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
+          
+          public static void insertData(Student student)
+                            throws Exception{
+		try{
+			
+			Connection conn = get_Connection();
+                              createStudentTableIfNotExists();
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableStudent+"" 
+                              + "(userID, password, first, last, gender, phno, email,"
+                              + "address, role, cnic, country, city, zipcode, accountstatus"
+                              + ")"
+			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                              
+                                stmt.setString(1, student.getUserId());
+                                stmt.setString(2, student.getPassword());
+                                stmt.setString(3, student.getFirstName());
+                                stmt.setString(4, student.getLastName());
+                                stmt.setString(5, student.getGender());
+                                stmt.setString(6, student.getPhoneNo());
+                                stmt.setString(7, student.getEmail());
+                                stmt.setString(8, student.getAddress());
+                                stmt.setString(9, student.getCnic());
+                                stmt.setString(10, student.getRole());
+                                stmt.setString(11, student.getCountry());
+                                stmt.setString(12, student.getCity());
+                                stmt.setString(13, student.getZipcode());
+                                stmt.setString(14, student.getAccountStatus());
                               
                               
                               
@@ -276,6 +342,29 @@ public class JDBC {
 		}
                 }
                    
+                   public static void updateData(Student stu)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableStudent+" SET first = ?, last = ?,"
+                                      + "userID = ?, gender = ?, accountstatus = ? WHERE userID = ?");
+                                stmt.setString(1, stu.getFirstName());
+                                stmt.setString(2, stu.getLastName());
+                                stmt.setString(3, stu.getUserId());
+                                stmt.setString(4, stu.getGender());
+                                stmt.setString(5, stu.getAccountStatus());
+                                stmt.setString(6, stu.getUserId());
+                              
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+                }
+                   
                    public static void updateData(Course course)
                             throws Exception{
                        
@@ -357,6 +446,20 @@ public class JDBC {
              try{
                  Connection conn = get_Connection();
                  String sql = "DELETE FROM "+tableDegrees+" WHERE id=?";
+                 
+                 PreparedStatement stmt = conn.prepareStatement(sql);
+                 stmt.setString(1, id);
+                 
+                 stmt.executeUpdate();
+             }catch(Exception ex){
+                 System.out.println(ex);
+             }
+         }
+         
+         public static void removeStudent(String id){
+             try{
+                 Connection conn = get_Connection();
+                 String sql = "DELETE FROM "+tableStudent+" WHERE userID=?";
                  
                  PreparedStatement stmt = conn.prepareStatement(sql);
                  stmt.setString(1, id);
@@ -469,6 +572,40 @@ public class JDBC {
 		}catch(Exception e){
 			System.out.println(e);
 		}
+		
+	}
+          
+          
+          public static void createStudentTableIfNotExists()throws Exception{
+		
+		try{
+			
+			Connection conn = get_Connection();
+                              createDataBaseIfNotExists(dbName);
+			Statement stmt = conn.createStatement();
+			String sql = "CREATE TABLE IF NOT EXISTS "+tableStudent+""
+                                      + "(userID varchar(32) NOT NULL,"
+                                      + "password varchar(32) NOT NULL,"
+                                      + "first varchar(32) NOT NULL,"
+                                      + "last varchar(32) NOT NULL,"
+                                      + "gender varchar(6) NOT NULL,"
+                                      + "phno varchar(32),"
+                                      + "email varchar(32),"
+                                      + "address varchar(128),"
+                                      + "cnic varchar(32),"
+                                      + "role varchar(32),"
+                                      + "country varchar(32),"
+                                      + "city varchar(32),"
+                                      + "zipcode varchar(16),"
+                                      + "accountstatus varchar(16),"
+                                      + "PRIMARY KEY ( userID ))";
+			stmt.executeUpdate(sql);
+			System.out.println("Table Created!");
+                              
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
 		
 	}
           

@@ -5,6 +5,13 @@
  */
 package student.teacher.portal;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Abbas Zaheer
@@ -14,8 +21,32 @@ public class EditStudentWindow extends javax.swing.JFrame {
     /**
      * Creates new form EditStudentWindow
      */
-    public EditStudentWindow() {
+    String stuID;
+    public EditStudentWindow(String id) {
         initComponents();
+        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
+        setLocation(150, 10);
+        setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+        stuID = id;
+        
+        for (Student stu : Admin.getStudents()) {
+            if(stu.getUserId() == stuID){
+                
+                TF_FirstName.setText(stu.getFirstName());
+                TF_LastName.setText(stu.getLastName());
+                TF_Username.setText(stuID);
+                JC_Gender.setSelectedItem(stu.getGender());
+                JC_acStatus.setSelectedItem(stu.getAccountStatus());
+                break;
+            }
+        }
     }
 
     /**
@@ -32,7 +63,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         PNL_Footer = new javax.swing.JPanel();
         BTN_Back = new javax.swing.JButton();
-        BTN_Create = new javax.swing.JButton();
+        BTN_Update = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -57,7 +88,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         TF_Username = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
         jLabel20 = new javax.swing.JLabel();
-        JC_Gender1 = new javax.swing.JComboBox();
+        JC_acStatus = new javax.swing.JComboBox();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
 
@@ -125,15 +156,15 @@ public class EditStudentWindow extends javax.swing.JFrame {
             }
         });
 
-        BTN_Create.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Create.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Create.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
-        BTN_Create.setText("  Create");
-        BTN_Create.setBorder(null);
-        BTN_Create.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
+        BTN_Update.setText("Update");
+        BTN_Update.setBorder(null);
+        BTN_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_CreateActionPerformed(evt);
+                BTN_UpdateActionPerformed(evt);
             }
         });
 
@@ -145,7 +176,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 669, Short.MAX_VALUE)
-                .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
         PNL_FooterLayout.setVerticalGroup(
@@ -154,7 +185,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -350,12 +381,12 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(13, 56, 247));
         jLabel20.setText("Username");
 
-        JC_Gender1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        JC_Gender1.setForeground(new java.awt.Color(51, 51, 51));
-        JC_Gender1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Banned" }));
-        JC_Gender1.addActionListener(new java.awt.event.ActionListener() {
+        JC_acStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_acStatus.setForeground(new java.awt.Color(51, 51, 51));
+        JC_acStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Banned" }));
+        JC_acStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JC_Gender1ActionPerformed(evt);
+                JC_acStatusActionPerformed(evt);
             }
         });
 
@@ -379,7 +410,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JC_Gender1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JC_acStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(TF_Username)
                         .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -404,7 +435,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JC_Gender1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JC_acStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,13 +496,74 @@ public class EditStudentWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new CoursesWindow().setVisible(true);
+        new StudentWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
-    private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
+    private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
+            
+        String first = TF_FirstName.getText();
+        String last = TF_LastName.getText();
+        String id = TF_Username.getText();
+        String gender = JC_Gender.getSelectedItem().toString();
+        String acStatus = JC_acStatus.getSelectedItem().toString();
+                            
+        
+                            
+        if(first.isEmpty() || last.isEmpty() || id.isEmpty() || gender.equals("None") || acStatus.equals("None"))
+            {
+                JOptionPane.showMessageDialog(null, "Fill all the Fields !");
 
-    }//GEN-LAST:event_BTN_CreateActionPerformed
+            }
+            else
+            {
+                            
+        for (Student stu : Admin.getStudents()) {
+            if(stu.getUserId() == stuID){
+                
+                
+                
+                if(!stu.getFirstName().equals(TF_FirstName.getText()) 
+                        || !stu.getLastName().equals(TF_LastName.getText()) 
+                        ||!stu.getUserId().equals(TF_Username.getText()) 
+                        || !stu.getGender().equals(JC_Gender.getSelectedItem().toString()) 
+                        || !stu.getAccountStatus().equals(JC_acStatus.getSelectedItem().toString()))
+                {
+                    
+                    stu.setFirstName(TF_FirstName.getText());
+                    stu.setLastName(TF_LastName.getText());
+                    stu.setUserId(TF_Username.getText());
+                    stu.setGender(JC_Gender.getSelectedItem().toString());
+                    stu.setAccountStatus(JC_acStatus.getSelectedItem().toString());
+
+
+                    try {
+                            //Update in database
+                            JDBC.updateData(stu);
+                        } catch (Exception ex) {
+                            Logger.getLogger(EditCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    JOptionPane.showMessageDialog(null, "Student Updated Successfully !");
+                    
+                    break;
+
+                            
+                                
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Please Change Something!");
+                }
+                
+                    
+                
+           }
+        }
+                            }
+        
+       
+    }//GEN-LAST:event_BTN_UpdateActionPerformed
 
     private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
         // TODO add your handling code here:
@@ -489,50 +581,14 @@ public class EditStudentWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_UsernameActionPerformed
 
-    private void JC_Gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_Gender1ActionPerformed
+    private void JC_acStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_acStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JC_Gender1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditStudentWindow().setVisible(true);
-            }
-        });
-    }
-
+    }//GEN-LAST:event_JC_acStatusActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
-    private javax.swing.JButton BTN_Create;
+    private javax.swing.JButton BTN_Update;
     private javax.swing.JComboBox JC_Gender;
-    private javax.swing.JComboBox JC_Gender1;
+    private javax.swing.JComboBox JC_acStatus;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
