@@ -147,7 +147,7 @@
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="BTN_Back" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace pref="669" max="32767" attributes="0"/>
-                      <Component id="BTN_Create" min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="BTN_Update" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -158,7 +158,7 @@
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BTN_Back" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="BTN_Create" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="BTN_Update" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
@@ -189,7 +189,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_BackActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BTN_Create">
+            <Component class="javax.swing.JButton" name="BTN_Update">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f7" green="38" red="d" type="rgb"/>
@@ -203,13 +203,13 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/student/teacher/portal/images/icons8_Plus_20px.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Create"/>
+                <Property name="text" type="java.lang.String" value="Update"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_CreateActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_UpdateActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -586,7 +586,7 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jSeparator6" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
-                                              <Component id="JC_Gender1" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
+                                              <Component id="JC_acStatus" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="TF_Username" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jSeparator17" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
@@ -617,7 +617,7 @@
                                           <Component id="jSeparator5" min="-2" pref="2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="JC_Gender1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="JC_acStatus" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                               <Component id="jLabel11" alignment="3" pref="28" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -706,7 +706,7 @@
                                     <Property name="text" type="java.lang.String" value="Username"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="JC_Gender1">
+                                <Component class="javax.swing.JComboBox" name="JC_acStatus">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Trebuchet MS" size="14" style="0"/>
@@ -723,7 +723,7 @@
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_Gender1ActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_acStatusActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="javax.swing.JSeparator" name="jSeparator6">

@@ -342,6 +342,29 @@ public class JDBC {
 		}
                 }
                    
+                   public static void updateData(Student stu)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableStudent+" SET first = ?, last = ?,"
+                                      + "userID = ?, gender = ?, accountstatus = ? WHERE userID = ?");
+                                stmt.setString(1, stu.getFirstName());
+                                stmt.setString(2, stu.getLastName());
+                                stmt.setString(3, stu.getUserId());
+                                stmt.setString(4, stu.getGender());
+                                stmt.setString(5, stu.getAccountStatus());
+                                stmt.setString(6, stu.getUserId());
+                              
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+                }
+                   
                    public static void updateData(Course course)
                             throws Exception{
                        
@@ -423,6 +446,20 @@ public class JDBC {
              try{
                  Connection conn = get_Connection();
                  String sql = "DELETE FROM "+tableDegrees+" WHERE id=?";
+                 
+                 PreparedStatement stmt = conn.prepareStatement(sql);
+                 stmt.setString(1, id);
+                 
+                 stmt.executeUpdate();
+             }catch(Exception ex){
+                 System.out.println(ex);
+             }
+         }
+         
+         public static void removeStudent(String id){
+             try{
+                 Connection conn = get_Connection();
+                 String sql = "DELETE FROM "+tableStudent+" WHERE userID=?";
                  
                  PreparedStatement stmt = conn.prepareStatement(sql);
                  stmt.setString(1, id);

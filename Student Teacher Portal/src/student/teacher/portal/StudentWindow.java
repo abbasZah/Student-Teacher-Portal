@@ -5,8 +5,15 @@
  */
 package student.teacher.portal;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -17,6 +24,8 @@ public class StudentWindow extends javax.swing.JFrame {
     /**
      * Creates new form StudentWindow
      */
+    JTable stuTable;
+    
     public StudentWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
@@ -27,6 +36,7 @@ public class StudentWindow extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         
+        showTable();
     }
 
     /**
@@ -289,8 +299,13 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
-        new EditStudentWindow().setVisible(true);
-        this.dispose();
+        try {
+            String id = (String) stuTable.getValueAt(stuTable.getSelectedRow(), 0);
+            new EditStudentWindow(id).setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please select a student first !");
+        }
     }//GEN-LAST:event_BTN_EditActionPerformed
 
     private void BTN_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_SearchActionPerformed
@@ -298,6 +313,34 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_SearchActionPerformed
 
     private void BTN_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RemoveActionPerformed
+        
+         try {
+            
+        
+                String id = (String) stuTable.getValueAt(stuTable.getSelectedRow(), 0);
+
+                for (Student stu : Admin.getStudents()) {
+                    if (stu.getUserId() == id) {
+                        Admin.getStudents().remove(stu);
+
+                        PNL_BodyBelow.removeAll(); 
+                        PNL_BodyBelow.updateUI();
+                        showTable();
+
+                        JOptionPane.showMessageDialog(null, "Student Removed !");
+
+                        break;
+                    }
+                }
+
+
+                //remove from database as well
+                JDBC.removeStudent(id);
+        } 
+        catch (Exception e) 
+        {
+           JOptionPane.showMessageDialog(null, "Please select a student first !"); 
+        }
         
     }//GEN-LAST:event_BTN_RemoveActionPerformed
 
@@ -310,6 +353,53 @@ public class StudentWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_UserInfoActionPerformed
 
+    
+    private void showTable(){
+        
+        Object[][] data = new Object[Admin.getStudents().size()][4];
+        
+        int i =0;
+        for (Student s : Admin.getStudents())
+        {    
+                    data[i][0]=s.getUserId();
+                    data[i][1]=s.getFirstName()+" "+s.getLastName();
+                    data[i][2]=s.getAccountStatus();
+                    data[i][3]=s.getEmail();
+                    
+              
+            i++;
+        }
+        
+        
+        // Column Names 
+        String[] columnNames = { "ID", "Name", "Account Status", "Email" }; 
+  
+        // Initializing the JTable 
+        stuTable = new JTable(data, columnNames); 
+        stuTable.setRowHeight(28);
+        
+        javax.swing.table.TableColumn column = stuTable.getColumnModel().getColumn(1);
+        column.setMinWidth(200);
+        
+        JScrollPane sp = new JScrollPane(stuTable);
+        PNL_BodyBelow.add(sp);
+        
+        
+      Font f = new Font("Trebuchet MS", Font.PLAIN, 14);
+      JTableHeader header = stuTable.getTableHeader();
+      header.setFont(f);
+              
+      Color c= new Color(13,56,247);
+      Color c2= new Color(255,255,255);
+      header.setBackground(c);
+      header.setForeground(c2);
+      
+      
+      JTableHeader th = stuTable.getTableHeader();
+      th.setPreferredSize(new Dimension(100, 30));
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Create;
