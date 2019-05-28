@@ -5,6 +5,13 @@
  */
 package student.teacher.portal;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import sun.util.spi.CalendarProvider;
+
 /**
  *
  * @author Abbas Zaheer
@@ -345,7 +352,7 @@ public class CreateStudentWindow extends javax.swing.JFrame {
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel20.setText("Username");
+        jLabel20.setText("Username/ID");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -437,12 +444,28 @@ public class CreateStudentWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new CoursesWindow().setVisible(true);
+        new StudentWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
+        
+        if(TF_FirstName.getText().isEmpty() || TF_LastName.getText().isEmpty() || TF_Username.getText().isEmpty() ||
+                JC_Gender.getSelectedItem().toString().equals("None")){
+            JOptionPane.showMessageDialog(this, "Fill all the fields !");
+        }else{
+            Student newStudent = new Student(TF_Username.getText(), "RandomPass", TF_FirstName.getText(), TF_LastName.getText(),
+                    JC_Gender.getSelectedItem().toString(), "", "", "", "Student", "", "", "", "", "Active");
 
+            Admin.getStudents().add(newStudent);
+
+            try {
+                JDBC.insertData(newStudent);
+                JOptionPane.showMessageDialog(this, "Student Created Successfully !");
+            } catch (Exception ex) {
+                Logger.getLogger(CreateStudentWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
 
     }//GEN-LAST:event_BTN_CreateActionPerformed
@@ -462,42 +485,6 @@ public class CreateStudentWindow extends javax.swing.JFrame {
     private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_LastNameActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CreateStudentWindow().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Create;
