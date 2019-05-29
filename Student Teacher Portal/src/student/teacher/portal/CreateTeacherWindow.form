@@ -109,7 +109,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Students"/>
+                <Property name="text" type="java.lang.String" value="Teacher"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -147,7 +147,7 @@
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="BTN_Back" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace pref="669" max="32767" attributes="0"/>
-                      <Component id="BTN_Update" min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="BTN_Create" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -158,7 +158,7 @@
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BTN_Back" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="BTN_Update" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="BTN_Create" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                   </Group>
@@ -189,7 +189,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_BackActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BTN_Update">
+            <Component class="javax.swing.JButton" name="BTN_Create">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f7" green="38" red="d" type="rgb"/>
@@ -203,13 +203,13 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/student/teacher/portal/images/icons8_Plus_20px.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Update"/>
+                <Property name="text" type="java.lang.String" value="  Create"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_UpdateActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_CreateActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -234,7 +234,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="401" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -259,7 +259,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="401" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -323,7 +323,7 @@
                       <Color blue="f7" green="38" red="d" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Edit Student"/>
+                    <Property name="text" type="java.lang.String" value="Create Teacher"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -397,16 +397,16 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="328" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
                                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
                                           <Component id="jPanel28" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                           <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                           <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -580,37 +580,39 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel10" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                                              <Component id="jLabel11" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jSeparator6" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
-                                              <Component id="JC_acStatus" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="TF_Username" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jSeparator17" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
+                                              </Group>
                                               <Component id="jSeparator5" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
                                               <Component id="JC_Gender" alignment="0" min="-2" pref="325" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="TF_Username" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="3" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jSeparator17" min="-2" pref="2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="JC_Gender" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                               <Component id="jLabel10" alignment="3" pref="28" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator5" min="-2" pref="2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="JC_acStatus" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                              <Component id="jLabel11" alignment="3" pref="28" max="32767" attributes="0"/>
-                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jSeparator6" min="-2" pref="2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -657,7 +659,7 @@
                                     <Property name="text" type="java.lang.String" value="Gender"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JComboBox" name="JC_acStatus">
+                                <Component class="javax.swing.JTextField" name="TF_Username">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Trebuchet MS" size="14" style="0"/>
@@ -665,26 +667,22 @@
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="33" green="33" red="33" type="rgb"/>
                                     </Property>
-                                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                      <StringArray count="3">
-                                        <StringItem index="0" value="None"/>
-                                        <StringItem index="1" value="Active"/>
-                                        <StringItem index="2" value="Banned"/>
-                                      </StringArray>
+                                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                      <Border info="null"/>
                                     </Property>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_acStatusActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_UsernameActionPerformed"/>
                                   </Events>
                                 </Component>
-                                <Component class="javax.swing.JSeparator" name="jSeparator6">
+                                <Component class="javax.swing.JSeparator" name="jSeparator17">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="f7" green="38" red="d" type="rgb"/>
                                     </Property>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JLabel" name="jLabel11">
+                                <Component class="javax.swing.JLabel" name="jLabel20">
                                   <Properties>
                                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -695,7 +693,7 @@
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="f7" green="38" red="d" type="rgb"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Account Status"/>
+                                    <Property name="text" type="java.lang.String" value="Username/ID"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>

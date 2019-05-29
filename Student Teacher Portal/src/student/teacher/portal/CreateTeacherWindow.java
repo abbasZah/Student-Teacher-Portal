@@ -16,15 +16,13 @@ import javax.swing.JOptionPane;
  *
  * @author Abbas Zaheer
  */
-public class EditStudentWindow extends javax.swing.JFrame {
+public class CreateTeacherWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form EditStudentWindow
+     * Creates new form CreateTeacherWindow
      */
-    String stuID;
-    public EditStudentWindow(String id) {
-        initComponents();
-        
+    public CreateTeacherWindow() {
+       initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
@@ -33,19 +31,6 @@ public class EditStudentWindow extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        
-        stuID = id;
-        
-        for (Student stu : Admin.getStudents()) {
-            if(stu.getUserId() == stuID){
-                
-                TF_FirstName.setText(stu.getFirstName());
-                TF_LastName.setText(stu.getLastName());
-                JC_Gender.setSelectedItem(stu.getGender());
-                JC_acStatus.setSelectedItem(stu.getAccountStatus());
-                break;
-            }
-        }
     }
 
     /**
@@ -62,7 +47,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         PNL_Footer = new javax.swing.JPanel();
         BTN_Back = new javax.swing.JButton();
-        BTN_Update = new javax.swing.JButton();
+        BTN_Create = new javax.swing.JButton();
         PNL_LeftPane = new javax.swing.JPanel();
         PNL_RightPane = new javax.swing.JPanel();
         PNL_MainBodyPane = new javax.swing.JPanel();
@@ -84,9 +69,9 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         JC_Gender = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        JC_acStatus = new javax.swing.JComboBox();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel11 = new javax.swing.JLabel();
+        TF_Username = new javax.swing.JTextField();
+        jSeparator17 = new javax.swing.JSeparator();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +85,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Students");
+        jLabel2.setText("Teacher");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -152,15 +137,15 @@ public class EditStudentWindow extends javax.swing.JFrame {
             }
         });
 
-        BTN_Update.setBackground(new java.awt.Color(13, 56, 247));
-        BTN_Update.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        BTN_Update.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
-        BTN_Update.setText("Update");
-        BTN_Update.setBorder(null);
-        BTN_Update.addActionListener(new java.awt.event.ActionListener() {
+        BTN_Create.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Create.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Create.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Plus_20px.png"))); // NOI18N
+        BTN_Create.setText("  Create");
+        BTN_Create.setBorder(null);
+        BTN_Create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_UpdateActionPerformed(evt);
+                BTN_CreateActionPerformed(evt);
             }
         });
 
@@ -172,7 +157,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 669, Short.MAX_VALUE)
-                .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
         PNL_FooterLayout.setVerticalGroup(
@@ -181,7 +166,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addGroup(PNL_FooterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTN_Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -197,7 +182,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         );
         PNL_LeftPaneLayout.setVerticalGroup(
             PNL_LeftPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_LeftPane, java.awt.BorderLayout.LINE_START);
@@ -212,7 +197,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         );
         PNL_RightPaneLayout.setVerticalGroup(
             PNL_RightPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         PNL_Wrapper.add(PNL_RightPane, java.awt.BorderLayout.LINE_END);
@@ -226,7 +211,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(13, 56, 247));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Edit Student");
+        jLabel4.setText("Create Teacher");
 
         javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
@@ -361,21 +346,21 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(13, 56, 247));
         jLabel10.setText("Gender");
 
-        JC_acStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        JC_acStatus.setForeground(new java.awt.Color(51, 51, 51));
-        JC_acStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Banned" }));
-        JC_acStatus.addActionListener(new java.awt.event.ActionListener() {
+        TF_Username.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Username.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Username.setBorder(null);
+        TF_Username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JC_acStatusActionPerformed(evt);
+                TF_UsernameActionPerformed(evt);
             }
         });
 
-        jSeparator6.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator17.setBackground(new java.awt.Color(13, 56, 247));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel11.setText("Account Status");
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel20.setText("Username/ID");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -385,31 +370,32 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JC_acStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TF_Username)
+                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JC_acStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -428,16 +414,16 @@ public class EditStudentWindow extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGap(0, 301, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 39, Short.MAX_VALUE)
                     .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 39, Short.MAX_VALUE)))
         );
 
         jPanel5.add(jPanel2);
@@ -466,71 +452,35 @@ public class EditStudentWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new StudentWindow().setVisible(true);
+        new TeacherWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
-    private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
-            
-        String first = TF_FirstName.getText();
-        String last = TF_LastName.getText();
-        String gender = JC_Gender.getSelectedItem().toString();
-        String acStatus = JC_acStatus.getSelectedItem().toString();
-                            
-        
-                            
-        if(first.isEmpty() || last.isEmpty() || gender.equals("None") || acStatus.equals("None"))
-            {
-                JOptionPane.showMessageDialog(null, "Fill all the Fields !");
+    private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
 
+        if(TF_FirstName.getText().isEmpty() || TF_LastName.getText().isEmpty() || TF_Username.getText().isEmpty() ||
+            JC_Gender.getSelectedItem().toString().equals("None")){
+            JOptionPane.showMessageDialog(this, "Fill all the fields !");
+        }else{
+            Teacher newTeacher = new Teacher(TF_Username.getText(), "RandomPass", TF_FirstName.getText(), TF_LastName.getText(),
+                JC_Gender.getSelectedItem().toString(), "", "", "", "Teacher", "", "", "", "", "Active");
+
+            Admin.getTeachers().add(newTeacher);
+
+            try {
+                JDBC.insertData(newTeacher);
+                TF_FirstName.setText("");
+                TF_LastName.setText("");
+                TF_Username.setText("");
+                JC_Gender.setSelectedItem("None");
+                JOptionPane.showMessageDialog(this, "Teacher Created Successfully !");
+
+            } catch (Exception ex) {
+                Logger.getLogger(CreateStudentWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-            else
-            {
-                            
-        for (Student stu : Admin.getStudents()) {
-            if(stu.getUserId() == stuID){
-                
-                
-                
-                if(!stu.getFirstName().equals(TF_FirstName.getText()) 
-                        || !stu.getLastName().equals(TF_LastName.getText()) 
-                        || !stu.getGender().equals(JC_Gender.getSelectedItem().toString()) 
-                        || !stu.getAccountStatus().equals(JC_acStatus.getSelectedItem().toString()))
-                {
-                    
-                    stu.setFirstName(TF_FirstName.getText());
-                    stu.setLastName(TF_LastName.getText());
-                    stu.setGender(JC_Gender.getSelectedItem().toString());
-                    stu.setAccountStatus(JC_acStatus.getSelectedItem().toString());
-
-
-                    try {
-                            //Update in database
-                            JDBC.updateData(stu);
-                        } catch (Exception ex) {
-                            Logger.getLogger(EditCourseWindow.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-                    JOptionPane.showMessageDialog(null, "Student Updated Successfully !");
-                    
-                    break;
-
-                            
-                                
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Please Change Something!");
-                }
-                
-                    
-                
-           }
         }
-                            }
-        
-       
-    }//GEN-LAST:event_BTN_UpdateActionPerformed
+
+    }//GEN-LAST:event_BTN_CreateActionPerformed
 
     private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
         // TODO add your handling code here:
@@ -540,19 +490,53 @@ public class EditStudentWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_LastNameActionPerformed
 
-    private void JC_acStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_acStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JC_acStatusActionPerformed
-
     private void JC_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_GenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JC_GenderActionPerformed
 
+    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_UsernameActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CreateTeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CreateTeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CreateTeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CreateTeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CreateTeacherWindow().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
-    private javax.swing.JButton BTN_Update;
+    private javax.swing.JButton BTN_Create;
     private javax.swing.JComboBox JC_Gender;
-    private javax.swing.JComboBox JC_acStatus;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
@@ -563,11 +547,12 @@ public class EditStudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_Wrapper;
     private javax.swing.JTextField TF_FirstName;
     private javax.swing.JTextField TF_LastName;
+    private javax.swing.JTextField TF_Username;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -578,8 +563,8 @@ public class EditStudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,12 +15,17 @@ public class Admin extends Person{
     
     private static ArrayList<Course> courses;
     private static ArrayList<DegreeProgram> degrees;
+    private static ArrayList<Student> students;
+    private static ArrayList<Teacher> teachers;
 
+   
     
     
     public Admin(){
         courses = JDBC.getCourses();
         degrees = JDBC.getDegrees();
+        students = JDBC.getStudents();
+        teachers = JDBC.getTeachers();
     }
     
     public Admin(
@@ -34,6 +39,8 @@ public class Admin extends Person{
         );
         courses = JDBC.getCourses();
         degrees = JDBC.getDegrees();
+        students = JDBC.getStudents();
+        teachers = JDBC.getTeachers();
     }
     
     
@@ -47,6 +54,13 @@ public class Admin extends Person{
         return degrees;
     }
 
-    
+     public static ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public static ArrayList<Teacher> getTeachers() {
+        return teachers;
+    }
+
 
 }

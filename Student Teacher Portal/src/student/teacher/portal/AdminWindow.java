@@ -542,7 +542,8 @@ public class AdminWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_StudentActionPerformed
 
     private void BTN_TeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_TeacherActionPerformed
-        // TODO add your handling code here:
+         new TeacherWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BTN_TeacherActionPerformed
 
     private void BTN_DegreeProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_DegreeProgramActionPerformed

@@ -97,7 +97,7 @@ public class DegreeWindow extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Degree Program");
+        jLabel2.setText("Degree Programs");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -115,7 +115,7 @@ public class DegreeWindow extends javax.swing.JFrame {
                 .addGroup(PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(716, Short.MAX_VALUE))
+                .addContainerGap(706, Short.MAX_VALUE))
         );
         PNL_HeaderLayout.setVerticalGroup(
             PNL_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

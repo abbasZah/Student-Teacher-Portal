@@ -38,6 +38,11 @@ public class DegreeProgram {
                 //Constructors
 
 
+    public DegreeProgram(){
+    
+        courseList = new ArrayList<>();
+    }
+    
     public DegreeProgram(String type, String name, int duration,int noofQuarters, double totalFee, ArrayList<Course>obj, String id) {
        
         this.type = type;

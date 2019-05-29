@@ -5,7 +5,7 @@
  */
 package student.teacher.portal;
 
-import com.mysql.cj.util.StringUtils;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;

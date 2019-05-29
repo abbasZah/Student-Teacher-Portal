@@ -5,6 +5,15 @@
  */
 package student.teacher.portal;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Abbas Zaheer
@@ -16,6 +25,26 @@ public class CreateStudentWindow extends javax.swing.JFrame {
      */
     public CreateStudentWindow() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
+        setLocation(150, 10);
+        setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+       
+        
+        int k=1;
+        for (DegreeProgram deg : Admin.getDegrees()) {
+            
+            String str=deg.getId()+"-"+deg.getName();
+            JC_Degree.insertItemAt(str, k);
+            k++;
+            
+        }
+        
     }
 
     /**
@@ -52,11 +81,14 @@ public class CreateStudentWindow extends javax.swing.JFrame {
         jSeparator18 = new javax.swing.JSeparator();
         jPanel18 = new javax.swing.JPanel();
         jSeparator5 = new javax.swing.JSeparator();
-        JC_Gender = new javax.swing.JComboBox();
+        JC_Season = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        TF_Username = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
         jLabel20 = new javax.swing.JLabel();
+        JC_Gender = new javax.swing.JComboBox();
+        JC_Degree = new javax.swing.JComboBox();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -317,6 +349,27 @@ public class CreateStudentWindow extends javax.swing.JFrame {
 
         jSeparator5.setBackground(new java.awt.Color(13, 56, 247));
 
+        JC_Season.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_Season.setForeground(new java.awt.Color(51, 51, 51));
+        JC_Season.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Fall", "Spring" }));
+        JC_Season.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JC_SeasonActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel10.setText("Gender");
+
+        jSeparator17.setBackground(new java.awt.Color(13, 56, 247));
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel20.setText("Season");
+
         JC_Gender.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         JC_Gender.setForeground(new java.awt.Color(51, 51, 51));
         JC_Gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Male", "Female" }));
@@ -326,26 +379,21 @@ public class CreateStudentWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel10.setText("Gender");
-
-        TF_Username.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_Username.setForeground(new java.awt.Color(51, 51, 51));
-        TF_Username.setBorder(null);
-        TF_Username.addActionListener(new java.awt.event.ActionListener() {
+        JC_Degree.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        JC_Degree.setForeground(new java.awt.Color(51, 51, 51));
+        JC_Degree.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        JC_Degree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_UsernameActionPerformed(evt);
+                JC_DegreeActionPerformed(evt);
             }
         });
 
-        jSeparator17.setBackground(new java.awt.Color(13, 56, 247));
+        jSeparator6.setBackground(new java.awt.Color(13, 56, 247));
 
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel20.setText("Username");
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(13, 56, 247));
+        jLabel21.setText("Degree");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -355,32 +403,40 @@ public class CreateStudentWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TF_Username)
-                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JC_Degree, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JC_Season, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JC_Season, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(21, 21, 21)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JC_Degree, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -402,13 +458,13 @@ public class CreateStudentWindow extends javax.swing.JFrame {
             .addGap(0, 301, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 39, Short.MAX_VALUE)
+                    .addGap(0, 2, Short.MAX_VALUE)
                     .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 39, Short.MAX_VALUE)))
+                    .addGap(0, 2, Short.MAX_VALUE)))
         );
 
         jPanel5.add(jPanel2);
@@ -437,15 +493,68 @@ public class CreateStudentWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new CoursesWindow().setVisible(true);
+        new StudentWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
+        
+        if(TF_FirstName.getText().isEmpty() || TF_LastName.getText().isEmpty() || JC_Gender.getSelectedItem().toString().equals("None") ||
+                JC_Season.getSelectedItem().toString().equals("None") || JC_Degree.getSelectedItem().toString().equals("None")){
+            JOptionPane.showMessageDialog(this, "Fill all the fields !");
+        }else{
+            
+            String[] stuIDArr = JC_Degree.getSelectedItem().toString().split("-");
+            DegreeProgram _degree = new DegreeProgram();
+            
+            for (DegreeProgram degree : Admin.getDegrees()) {
+                if(degree.getId().equals(stuIDArr[0]))
+                {
+                    _degree=degree;
+                }
+            }
+                                
+          
+                                            
+            Student newStudent = new Student(
+                    studentIdGenrator(), 
+                    studentPassGenrator(),
+                    TF_FirstName.getText(), 
+                    TF_LastName.getText(),
+                    JC_Gender.getSelectedItem().toString(),
+                    "", "", "", "Student", "", "", "", "", "Active",_degree);
 
+            Admin.getStudents().add(newStudent);
+            
+            
+
+            try {
+                JDBC.insertData(newStudent);
+                TF_FirstName.setText("");
+                TF_LastName.setText("");
+                JC_Season.setSelectedItem("None");
+                JC_Gender.setSelectedItem("None");
+                JC_Degree.setSelectedItem("None");
+                JOptionPane.showMessageDialog(this, "Student Created Successfully !");
+                
+            } catch (Exception ex) {
+                Logger.getLogger(CreateStudentWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        
+        
         
 
     }//GEN-LAST:event_BTN_CreateActionPerformed
+
+    private void JC_SeasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_SeasonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_SeasonActionPerformed
+
+    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_LastNameActionPerformed
 
     private void TF_FirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_FirstNameActionPerformed
         // TODO add your handling code here:
@@ -455,53 +564,50 @@ public class CreateStudentWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JC_GenderActionPerformed
 
-    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
+    private void JC_DegreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_DegreeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_UsernameActionPerformed
-
-    private void TF_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastNameActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateStudentWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CreateStudentWindow().setVisible(true);
-            }
-        });
+    }//GEN-LAST:event_JC_DegreeActionPerformed
+    
+     private String studentIdGenrator(){
+        
+         String id = "";
+         
+         if(JC_Gender.getSelectedItem().toString().equals("Fall"))
+             id = id + "F";
+         else
+             id = id + "S";
+         
+         int year = Calendar.getInstance().get(Calendar.YEAR);
+         id = id + year;
+         
+         for(int i = 0; i < 5; i++){
+            double randomDouble = Math.random();
+            randomDouble = randomDouble * 9 + 1;
+            int randomInt = (int) randomDouble;
+            id += randomInt;
+         }
+         
+         for (Student student : Admin.getStudents()) {
+             if(student.getUserId().equals(id)){
+                 studentIdGenrator();
+             }
+         }
+         
+         
+         
+        return id;
     }
-
+     
+    private String studentPassGenrator(){
+        return "RandPass";
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Create;
+    private javax.swing.JComboBox JC_Degree;
     private javax.swing.JComboBox JC_Gender;
+    private javax.swing.JComboBox JC_Season;
     private javax.swing.JPanel PNL_BodyBelow;
     private javax.swing.JPanel PNL_BodyTop;
     private javax.swing.JPanel PNL_Footer;
@@ -512,12 +618,12 @@ public class CreateStudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_Wrapper;
     private javax.swing.JTextField TF_FirstName;
     private javax.swing.JTextField TF_LastName;
-    private javax.swing.JTextField TF_Username;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -531,5 +637,6 @@ public class CreateStudentWindow extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
