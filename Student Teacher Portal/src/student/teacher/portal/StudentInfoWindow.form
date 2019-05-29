@@ -109,7 +109,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="User Info"/>
+                <Property name="text" type="java.lang.String" value="Student Info"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -618,7 +618,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator5" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_LastName1" max="32767" attributes="0"/>
+                                  <Component id="TF_Gender" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -627,7 +627,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="TF_LastName1" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="TF_Gender" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator5" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
@@ -657,7 +657,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_LastName1">
+                    <Component class="javax.swing.JTextField" name="TF_Gender">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -674,7 +674,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_LastName1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_GenderActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -926,7 +926,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator9" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_LastName3" max="32767" attributes="0"/>
+                                  <Component id="TF_AccountStatus" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -942,7 +942,7 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="TF_LastName3" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="TF_AccountStatus" min="-2" pref="26" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -973,7 +973,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_LastName3">
+                    <Component class="javax.swing.JTextField" name="TF_AccountStatus">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -990,7 +990,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_LastName3ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_AccountStatusActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1011,7 +1011,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator10" pref="277" max="32767" attributes="0"/>
-                                  <Component id="TF_LastName2" max="32767" attributes="0"/>
+                                  <Component id="TF_Country" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1020,7 +1020,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="TF_LastName2" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="TF_Country" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator10" min="-2" pref="2" max="-2" attributes="0"/>
                           </Group>
@@ -1050,7 +1050,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="TF_LastName2">
+                    <Component class="javax.swing.JTextField" name="TF_Country">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1067,7 +1067,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_LastName2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_CountryActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

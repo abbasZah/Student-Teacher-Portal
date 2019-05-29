@@ -29,6 +29,7 @@ public class JDBC {
           private static final String tableCourses = "Courses";
           private static final String tableDegrees = "Degrees";
           private static final String tableStudent = "Student";
+          private static final String tableTeacher = "Teacher";
           private static final String db_URL = ser_URL+dbName;
           
           ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,6 +154,29 @@ public class JDBC {
 		}
                     return students;
 	}
+          public static ArrayList<Teacher> getTeachers(){
+              ArrayList<Teacher> teachers = new ArrayList<>();
+		try{
+			Connection conn = get_Connection();
+                              createTeacherTableIfNotExists();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableTeacher);
+			while(rs.next()){
+				
+                                            Teacher teacher = new Teacher(rs.getString("userID"), rs.getString("password"), 
+                                                    rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
+                                                    rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
+                                                    rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
+                                                    rs.getString("city"), rs.getString("zipcode"), 
+                                                    rs.getString("accountstatus"));
+                                            
+                                            teachers.add(teacher);
+			}
+		}catch(Exception e){
+                        e.printStackTrace();
+		}
+                    return teachers;
+	}
           
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -237,7 +261,45 @@ public class JDBC {
 		}
 	}
           
-          
+          public static void insertData(Teacher teacher)
+                            throws Exception{
+		try{
+			
+			Connection conn = get_Connection();
+                              createStudentTableIfNotExists();
+			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableTeacher+"" 
+                              + "(userID, password, first, last, gender, phno, email,"
+                              + "address, role, cnic, country, city, zipcode, accountstatus"
+                              + ")"
+			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                              
+                                stmt.setString(1, teacher.getUserId());
+                                stmt.setString(2, teacher.getPassword());
+                                stmt.setString(3, teacher.getFirstName());
+                                stmt.setString(4, teacher.getLastName());
+                                stmt.setString(5, teacher.getGender());
+                                stmt.setString(6, teacher.getPhoneNo());
+                                stmt.setString(7, teacher.getEmail());
+                                stmt.setString(8, teacher.getAddress());
+                                stmt.setString(9, teacher.getCnic());
+                                stmt.setString(10, teacher.getRole());
+                                stmt.setString(11, teacher.getCountry());
+                                stmt.setString(12, teacher.getCity());
+                                stmt.setString(13, teacher.getZipcode());
+                                stmt.setString(14, teacher.getAccountStatus());
+                              
+                              
+                              
+                              
+			stmt.executeUpdate();
+			
+			//JOptionPane.showMessageDialog(null, "Information Udated!");
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
           
           public static void insertData(Course course)
                             throws Exception{
@@ -365,6 +427,29 @@ public class JDBC {
 		}
                 }
                    
+                   public static void updateData(Teacher teacher)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableTeacher+" SET first = ?, last = ?,"
+                                      + "userID = ?, gender = ?, accountstatus = ? WHERE userID = ?");
+                                stmt.setString(1, teacher.getFirstName());
+                                stmt.setString(2, teacher.getLastName());
+                                stmt.setString(3, teacher.getUserId());
+                                stmt.setString(4, teacher.getGender());
+                                stmt.setString(5, teacher.getAccountStatus());
+                                stmt.setString(6, teacher.getUserId());
+                              
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+                }
+                   
                    public static void updateData(Course course)
                             throws Exception{
                        
@@ -460,6 +545,19 @@ public class JDBC {
              try{
                  Connection conn = get_Connection();
                  String sql = "DELETE FROM "+tableStudent+" WHERE userID=?";
+                 
+                 PreparedStatement stmt = conn.prepareStatement(sql);
+                 stmt.setString(1, id);
+                 
+                 stmt.executeUpdate();
+             }catch(Exception ex){
+                 System.out.println(ex);
+             }
+         }
+         public static void removeTeacher(String id){
+             try{
+                 Connection conn = get_Connection();
+                 String sql = "DELETE FROM "+tableTeacher+" WHERE userID=?";
                  
                  PreparedStatement stmt = conn.prepareStatement(sql);
                  stmt.setString(1, id);
@@ -584,6 +682,39 @@ public class JDBC {
                               createDataBaseIfNotExists(dbName);
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS "+tableStudent+""
+                                      + "(userID varchar(32) NOT NULL,"
+                                      + "password varchar(32) NOT NULL,"
+                                      + "first varchar(32) NOT NULL,"
+                                      + "last varchar(32) NOT NULL,"
+                                      + "gender varchar(6) NOT NULL,"
+                                      + "phno varchar(32),"
+                                      + "email varchar(32),"
+                                      + "address varchar(128),"
+                                      + "cnic varchar(32),"
+                                      + "role varchar(32),"
+                                      + "country varchar(32),"
+                                      + "city varchar(32),"
+                                      + "zipcode varchar(16),"
+                                      + "accountstatus varchar(16),"
+                                      + "PRIMARY KEY ( userID ))";
+			stmt.executeUpdate(sql);
+			System.out.println("Table Created!");
+                              
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
+		
+	}
+          
+          public static void createTeacherTableIfNotExists()throws Exception{
+		
+		try{
+			
+			Connection conn = get_Connection();
+                              createDataBaseIfNotExists(dbName);
+			Statement stmt = conn.createStatement();
+			String sql = "CREATE TABLE IF NOT EXISTS "+tableTeacher+""
                                       + "(userID varchar(32) NOT NULL,"
                                       + "password varchar(32) NOT NULL,"
                                       + "first varchar(32) NOT NULL,"

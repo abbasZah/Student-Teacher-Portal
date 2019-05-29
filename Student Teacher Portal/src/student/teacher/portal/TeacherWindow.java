@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package student.teacher.portal;
 
 import java.awt.Color;
@@ -15,18 +10,24 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
- * @author F2017266455
+ * @author Abbas Zaheer
  */
-public class StudentWindow extends javax.swing.JFrame {
+public class TeacherWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form StudentWindow
+     * Creates new form TeacherWindow
      */
-    JTable stuTable;
+    JTable TeacherTable;
     
-    public StudentWindow() {
+    public TeacherWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,7 +77,7 @@ public class StudentWindow extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Students");
+        jLabel2.setText("Teachers");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -300,11 +301,11 @@ public class StudentWindow extends javax.swing.JFrame {
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
         try {
-            String id = (String) stuTable.getValueAt(stuTable.getSelectedRow(), 0);
-            new EditStudentWindow(id).setVisible(true);
+            String id = (String) TeacherTable.getValueAt(TeacherTable.getSelectedRow(), 0);
+            new EditTeacherWindow(id).setVisible(true);
             this.dispose();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please select a student first !");
+            JOptionPane.showMessageDialog(null, "Please select a teacher first !");
         }
     }//GEN-LAST:event_BTN_EditActionPerformed
 
@@ -313,66 +314,63 @@ public class StudentWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_SearchActionPerformed
 
     private void BTN_RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_RemoveActionPerformed
-        
-         try {
-            
-        
-                String id = (String) stuTable.getValueAt(stuTable.getSelectedRow(), 0);
 
-                for (Student stu : Admin.getStudents()) {
-                    if (stu.getUserId() == id) {
-                        Admin.getStudents().remove(stu);
+       try {
 
-                        PNL_BodyBelow.removeAll(); 
-                        PNL_BodyBelow.updateUI();
-                        showTable();
+            String id = (String) TeacherTable.getValueAt(TeacherTable.getSelectedRow(), 0);
 
-                        JOptionPane.showMessageDialog(null, "Student Removed !");
+            for (Teacher tea : Admin.getTeachers()) {
+                if (tea.getUserId() == id) {
+                    Admin.getTeachers().remove(tea);
 
-                        break;
-                    }
+                    PNL_BodyBelow.removeAll();
+                    PNL_BodyBelow.updateUI();
+                    showTable();
+
+                    JOptionPane.showMessageDialog(null, "Teacher Removed !");
+
+                    break;
                 }
+            }
 
-
-                //remove from database as well
-                JDBC.removeStudent(id);
-        } 
-        catch (Exception e) 
-        {
-           JOptionPane.showMessageDialog(null, "Please select a student first !"); 
+            //remove from database as well
+            JDBC.removeTeacher(id);
         }
-        
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a teacher first !");
+        }
+
     }//GEN-LAST:event_BTN_RemoveActionPerformed
 
     private void BTN_CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CreateActionPerformed
-        new CreateStudentWindow().setVisible(true);
+        new CreateTeacherWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_CreateActionPerformed
 
     private void BTN_UserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UserInfoActionPerformed
-       try {
-            String id = (String) stuTable.getValueAt(stuTable.getSelectedRow(), 0);
-            new StudentInfoWindow(id).setVisible(true);
+        try {
+            String id = (String) TeacherTable.getValueAt(TeacherTable.getSelectedRow(), 0);
+            new TeacherInfoWindow(id).setVisible(true);
             this.dispose();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please select a student first !");
+            JOptionPane.showMessageDialog(null, "Please select a teacher first !");
         }
     }//GEN-LAST:event_BTN_UserInfoActionPerformed
 
-    
     private void showTable(){
         
-        Object[][] data = new Object[Admin.getStudents().size()][5];
+        Object[][] data = new Object[Admin.getTeachers().size()][5];
         
         int i =0;
-        for (Student s : Admin.getStudents())
+        for (Teacher tea : Admin.getTeachers())
         {    
-                    data[i][0]=s.getUserId();
-                    data[i][1]=s.getFirstName()+" "+s.getLastName();
-                    data[i][2]=s.getGender();
+                    data[i][0]=tea.getUserId();
+                    data[i][1]=tea.getFirstName()+" "+tea.getLastName();
+                    data[i][2]=tea.getGender();
                     data[i][3]="";
                     //Degreefield
-                    data[i][4]=s.getAccountStatus();
+                    data[i][4]=tea.getAccountStatus();
                     
               
             i++;
@@ -380,21 +378,21 @@ public class StudentWindow extends javax.swing.JFrame {
         
         
         // Column Names 
-        String[] columnNames = { "ID", "Name", "Gender","Degree", "Account Status" }; 
+        String[] columnNames = { "ID", "Name", "Gender","Email", "Account Status" }; 
   
         // Initializing the JTable 
-        stuTable = new JTable(data, columnNames); 
-        stuTable.setRowHeight(28);
+        TeacherTable = new JTable(data, columnNames); 
+        TeacherTable.setRowHeight(28);
         
         //javax.swing.table.TableColumn column = stuTable.getColumnModel().getColumn(1);
         //column.setMinWidth(200);
         
-        JScrollPane sp = new JScrollPane(stuTable);
+        JScrollPane sp = new JScrollPane(TeacherTable);
         PNL_BodyBelow.add(sp);
         
         
       Font f = new Font("Trebuchet MS", Font.PLAIN, 14);
-      JTableHeader header = stuTable.getTableHeader();
+      JTableHeader header = TeacherTable.getTableHeader();
       header.setFont(f);
               
       Color c= new Color(13,56,247);
@@ -403,11 +401,45 @@ public class StudentWindow extends javax.swing.JFrame {
       header.setForeground(c2);
       
       
-      JTableHeader th = stuTable.getTableHeader();
+      JTableHeader th = TeacherTable.getTableHeader();
       th.setPreferredSize(new Dimension(100, 30));
         
     }
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TeacherWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TeacherWindow().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Create;

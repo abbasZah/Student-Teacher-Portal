@@ -5,17 +5,57 @@
  */
 package student.teacher.portal;
 
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Abbas Zaheer
  */
-public class UserInfoWindow extends javax.swing.JFrame {
+public class StudentInfoWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form UserInfoWindow
+     * Creates new form StudentInfoWindow
      */
-    public UserInfoWindow() {
+    String id;
+    public StudentInfoWindow(String id) {
         initComponents();
+        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
+        setLocation(150, 10);
+        setTitle("Student Teacher Portal");
+        setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        
+        this.id=id;
+        
+        
+        
+        for (Student stu : Admin.getStudents()) {
+            if(stu.getUserId() == id){
+                
+                TF_FirstName.setText(stu.getFirstName());
+                TF_LastName.setText(stu.getLastName());
+                TF_Gender.setText(stu.getGender());
+                
+                TF_AccountStatus.setText(stu.getAccountStatus());
+                TF_Username.setText(stu.getUserId());
+                TF_PhoneNo.setText(stu.getPhoneNo());
+                TF_Email.setText(stu.getEmail());
+                TF_CNIC.setText(stu.getCnic());
+                TF_Address.setText(stu.getAddress());
+                TF_Country.setText(stu.getCountry());
+                TF_City.setText(stu.getCity());
+                TF_ZipCode.setText(stu.getZipcode());
+                
+        
+                break;
+            }
+        }
+        
+        
+        
     }
 
     /**
@@ -56,7 +96,7 @@ public class UserInfoWindow extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        TF_LastName1 = new javax.swing.JTextField();
+        TF_Gender = new javax.swing.JTextField();
         jPanel19 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -72,11 +112,11 @@ public class UserInfoWindow extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
-        TF_LastName3 = new javax.swing.JTextField();
+        TF_AccountStatus = new javax.swing.JTextField();
         jPanel23 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        TF_LastName2 = new javax.swing.JTextField();
+        TF_Country = new javax.swing.JTextField();
         jPanel25 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
@@ -98,7 +138,7 @@ public class UserInfoWindow extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("User Info");
+        jLabel2.setText("Student Info");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -405,14 +445,14 @@ public class UserInfoWindow extends javax.swing.JFrame {
 
         jSeparator5.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_LastName1.setEditable(false);
-        TF_LastName1.setBackground(new java.awt.Color(255, 255, 255));
-        TF_LastName1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_LastName1.setForeground(new java.awt.Color(51, 51, 51));
-        TF_LastName1.setBorder(null);
-        TF_LastName1.addActionListener(new java.awt.event.ActionListener() {
+        TF_Gender.setEditable(false);
+        TF_Gender.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Gender.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Gender.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Gender.setBorder(null);
+        TF_Gender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_LastName1ActionPerformed(evt);
+                TF_GenderActionPerformed(evt);
             }
         });
 
@@ -426,13 +466,13 @@ public class UserInfoWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_LastName1)))
+                    .addComponent(TF_Gender)))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TF_LastName1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
@@ -581,14 +621,14 @@ public class UserInfoWindow extends javax.swing.JFrame {
 
         jSeparator9.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_LastName3.setEditable(false);
-        TF_LastName3.setBackground(new java.awt.Color(255, 255, 255));
-        TF_LastName3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_LastName3.setForeground(new java.awt.Color(51, 51, 51));
-        TF_LastName3.setBorder(null);
-        TF_LastName3.addActionListener(new java.awt.event.ActionListener() {
+        TF_AccountStatus.setEditable(false);
+        TF_AccountStatus.setBackground(new java.awt.Color(255, 255, 255));
+        TF_AccountStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_AccountStatus.setForeground(new java.awt.Color(51, 51, 51));
+        TF_AccountStatus.setBorder(null);
+        TF_AccountStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_LastName3ActionPerformed(evt);
+                TF_AccountStatusActionPerformed(evt);
             }
         });
 
@@ -602,7 +642,7 @@ public class UserInfoWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_LastName3)))
+                    .addComponent(TF_AccountStatus)))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,7 +654,7 @@ public class UserInfoWindow extends javax.swing.JFrame {
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TF_LastName3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_AccountStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -630,14 +670,14 @@ public class UserInfoWindow extends javax.swing.JFrame {
 
         jSeparator10.setBackground(new java.awt.Color(13, 56, 247));
 
-        TF_LastName2.setEditable(false);
-        TF_LastName2.setBackground(new java.awt.Color(255, 255, 255));
-        TF_LastName2.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_LastName2.setForeground(new java.awt.Color(51, 51, 51));
-        TF_LastName2.setBorder(null);
-        TF_LastName2.addActionListener(new java.awt.event.ActionListener() {
+        TF_Country.setEditable(false);
+        TF_Country.setBackground(new java.awt.Color(255, 255, 255));
+        TF_Country.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        TF_Country.setForeground(new java.awt.Color(51, 51, 51));
+        TF_Country.setBorder(null);
+        TF_Country.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_LastName2ActionPerformed(evt);
+                TF_CountryActionPerformed(evt);
             }
         });
 
@@ -651,13 +691,13 @@ public class UserInfoWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                    .addComponent(TF_LastName2)))
+                    .addComponent(TF_Country)))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TF_LastName2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Country, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
@@ -773,7 +813,7 @@ public class UserInfoWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new AdminWindow().setVisible(true);
+        new StudentWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
@@ -813,53 +853,22 @@ public class UserInfoWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_ZipCodeActionPerformed
 
-    private void TF_LastName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastName1ActionPerformed
+    private void TF_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_GenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastName1ActionPerformed
+    }//GEN-LAST:event_TF_GenderActionPerformed
 
-    private void TF_LastName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastName2ActionPerformed
+    private void TF_CountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_CountryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastName2ActionPerformed
+    }//GEN-LAST:event_TF_CountryActionPerformed
 
-    private void TF_LastName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_LastName3ActionPerformed
+    private void TF_AccountStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_AccountStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TF_LastName3ActionPerformed
+    }//GEN-LAST:event_TF_AccountStatusActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserInfoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserInfoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserInfoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserInfoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UserInfoWindow().setVisible(true);
-            }
-        });
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JPanel PNL_BodyBelow;
@@ -870,15 +879,15 @@ public class UserInfoWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_MainBodyPane;
     private javax.swing.JPanel PNL_RightPane;
     private javax.swing.JPanel PNL_Wrapper;
+    private javax.swing.JTextField TF_AccountStatus;
     private javax.swing.JTextField TF_Address;
     private javax.swing.JTextField TF_CNIC;
     private javax.swing.JTextField TF_City;
+    private javax.swing.JTextField TF_Country;
     private javax.swing.JTextField TF_Email;
     private javax.swing.JTextField TF_FirstName;
+    private javax.swing.JTextField TF_Gender;
     private javax.swing.JTextField TF_LastName;
-    private javax.swing.JTextField TF_LastName1;
-    private javax.swing.JTextField TF_LastName2;
-    private javax.swing.JTextField TF_LastName3;
     private javax.swing.JTextField TF_PhoneNo;
     private javax.swing.JTextField TF_Username;
     private javax.swing.JTextField TF_ZipCode;
