@@ -41,7 +41,6 @@ public class Runner {
         
         JDBC.insertData(admin);
         
-        
         SignIn signIn = new SignIn();
         signIn.setVisible(true);
         

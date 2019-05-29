@@ -139,13 +139,22 @@ public class JDBC {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableStudent);
 			while(rs.next()){
+                                  
+                                  String degID = rs.getString("degreeID");
+                                  DegreeProgram deg = new DegreeProgram();
+                                  
+                                  for (DegreeProgram degree : Admin.getDegrees()) {
+                                      if(degree.getId().equals(degID)){
+                                          deg = degree;
+                                      }
+                                  }
 				
                                             Student student = new Student(rs.getString("userID"), rs.getString("password"), 
                                                     rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
                                                     rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
                                                     rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
                                                     rs.getString("city"), rs.getString("zipcode"), 
-                                                    rs.getString("accountstatus"));
+                                                    rs.getString("accountstatus"), deg);
                                             
                                             students.add(student);
 			}
@@ -223,15 +232,16 @@ public class JDBC {
           
           public static void insertData(Student student)
                             throws Exception{
+              
 		try{
 			
 			Connection conn = get_Connection();
                               createStudentTableIfNotExists();
 			PreparedStatement stmt = conn.prepareStatement("INSERT INTO "+tableStudent+"" 
                               + "(userID, password, first, last, gender, phno, email,"
-                              + "address, role, cnic, country, city, zipcode, accountstatus"
+                              + "address, role, cnic, country, city, zipcode, accountstatus, degreeID"
                               + ")"
-			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                               
                                 stmt.setString(1, student.getUserId());
                                 stmt.setString(2, student.getPassword());
@@ -247,6 +257,9 @@ public class JDBC {
                                 stmt.setString(12, student.getCity());
                                 stmt.setString(13, student.getZipcode());
                                 stmt.setString(14, student.getAccountStatus());
+                                stmt.setString(15, student.getDegree().getId());
+                                
+                               
                               
                               
                               
@@ -696,6 +709,7 @@ public class JDBC {
                                       + "city varchar(32),"
                                       + "zipcode varchar(16),"
                                       + "accountstatus varchar(16),"
+                                      + "degreeID varchar(16),"
                                       + "PRIMARY KEY ( userID ))";
 			stmt.executeUpdate(sql);
 			System.out.println("Table Created!");
