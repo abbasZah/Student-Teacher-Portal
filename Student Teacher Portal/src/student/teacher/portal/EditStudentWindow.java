@@ -41,7 +41,6 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 
                 TF_FirstName.setText(stu.getFirstName());
                 TF_LastName.setText(stu.getLastName());
-                TF_Username.setText(stuID);
                 JC_Gender.setSelectedItem(stu.getGender());
                 JC_acStatus.setSelectedItem(stu.getAccountStatus());
                 break;
@@ -85,9 +84,6 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         JC_Gender = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        TF_Username = new javax.swing.JTextField();
-        jSeparator17 = new javax.swing.JSeparator();
-        jLabel20 = new javax.swing.JLabel();
         JC_acStatus = new javax.swing.JComboBox();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
@@ -365,22 +361,6 @@ public class EditStudentWindow extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(13, 56, 247));
         jLabel10.setText("Gender");
 
-        TF_Username.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        TF_Username.setForeground(new java.awt.Color(51, 51, 51));
-        TF_Username.setBorder(null);
-        TF_Username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_UsernameActionPerformed(evt);
-            }
-        });
-
-        jSeparator17.setBackground(new java.awt.Color(13, 56, 247));
-
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(13, 56, 247));
-        jLabel20.setText("Username");
-
         JC_acStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         JC_acStatus.setForeground(new java.awt.Color(51, 51, 51));
         JC_acStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Banned" }));
@@ -405,29 +385,19 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JC_acStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TF_Username)
-                        .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TF_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JC_Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
@@ -504,13 +474,12 @@ public class EditStudentWindow extends javax.swing.JFrame {
             
         String first = TF_FirstName.getText();
         String last = TF_LastName.getText();
-        String id = TF_Username.getText();
         String gender = JC_Gender.getSelectedItem().toString();
         String acStatus = JC_acStatus.getSelectedItem().toString();
                             
         
                             
-        if(first.isEmpty() || last.isEmpty() || id.isEmpty() || gender.equals("None") || acStatus.equals("None"))
+        if(first.isEmpty() || last.isEmpty() || gender.equals("None") || acStatus.equals("None"))
             {
                 JOptionPane.showMessageDialog(null, "Fill all the Fields !");
 
@@ -525,14 +494,12 @@ public class EditStudentWindow extends javax.swing.JFrame {
                 
                 if(!stu.getFirstName().equals(TF_FirstName.getText()) 
                         || !stu.getLastName().equals(TF_LastName.getText()) 
-                        ||!stu.getUserId().equals(TF_Username.getText()) 
                         || !stu.getGender().equals(JC_Gender.getSelectedItem().toString()) 
                         || !stu.getAccountStatus().equals(JC_acStatus.getSelectedItem().toString()))
                 {
                     
                     stu.setFirstName(TF_FirstName.getText());
                     stu.setLastName(TF_LastName.getText());
-                    stu.setUserId(TF_Username.getText());
                     stu.setGender(JC_Gender.getSelectedItem().toString());
                     stu.setAccountStatus(JC_acStatus.getSelectedItem().toString());
 
@@ -573,17 +540,14 @@ public class EditStudentWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_LastNameActionPerformed
 
+    private void JC_acStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_acStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_acStatusActionPerformed
+
     private void JC_GenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_GenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JC_GenderActionPerformed
 
-    private void TF_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_UsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TF_UsernameActionPerformed
-
-    private void JC_acStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_acStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JC_acStatusActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
     private javax.swing.JButton BTN_Update;
@@ -599,13 +563,11 @@ public class EditStudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PNL_Wrapper;
     private javax.swing.JTextField TF_FirstName;
     private javax.swing.JTextField TF_LastName;
-    private javax.swing.JTextField TF_Username;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -616,7 +578,6 @@ public class EditStudentWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator16;
-    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

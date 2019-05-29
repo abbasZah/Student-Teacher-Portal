@@ -61,6 +61,12 @@ public class Course {
         beta = rand.nextInt(1000);
         
         String res = alpha + beta;
+        
+        for (Course course : Admin.getCourses()) {
+            if(course.getId().equals(res))
+                idGenrator(title);
+        }
+        
         return res;
     }
 
