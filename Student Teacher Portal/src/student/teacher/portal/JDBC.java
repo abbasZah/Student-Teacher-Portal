@@ -171,13 +171,28 @@ public class JDBC {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableTeacher);
 			while(rs.next()){
+                                    String coursesStr = rs.getString("courses");
+                                    String[] coursesIDArr = coursesStr.split("-");
+                                    ArrayList<Course> courseslist = new ArrayList<>();
+                                    for (int i = 0; i < coursesIDArr.length; i++) {
+                                        //System.err.println(coursesIDArr[i]);
+                                        for (Course course : Admin.getCourses()) {
+                                             //System.out.println(course.getId());
+                                            if(course.getId().equals(coursesIDArr[i])){
+                                                courseslist.add(course);
+                                               //System.out.println(course.getId());
+                                                break;
+                                                }
+                                            }
+                                        }
+
 				
                                             Teacher teacher = new Teacher(rs.getString("userID"), rs.getString("password"), 
                                                     rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
                                                     rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
                                                     rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
                                                     rs.getString("city"), rs.getString("zipcode"), 
-                                                    rs.getString("accountstatus"));
+                                                    rs.getString("accountstatus"), courseslist);
                                             
                                             teachers.add(teacher);
 			}
@@ -443,18 +458,34 @@ public class JDBC {
                    public static void updateData(Teacher teacher)
                             throws Exception{
                        
+                        String coursesStr = "";
+
+                        try {
+
+                        for (Course course: teacher.getCourseList()) {
+                            coursesStr += course.getId()+"-";
+                            //System.out.println(course.getId());
+                        }
+
+                        } 
+                        catch (NullPointerException e) 
+                        {
+                            coursesStr = "";
+                        }
+                       
 		try{
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableTeacher+" SET first = ?, last = ?,"
-                                      + "userID = ?, gender = ?, accountstatus = ? WHERE userID = ?");
+                                      + "userID = ?, gender = ?, accountstatus = ?, courses = ? WHERE userID = ?");
                                 stmt.setString(1, teacher.getFirstName());
                                 stmt.setString(2, teacher.getLastName());
                                 stmt.setString(3, teacher.getUserId());
                                 stmt.setString(4, teacher.getGender());
                                 stmt.setString(5, teacher.getAccountStatus());
-                                stmt.setString(6, teacher.getUserId());
-                              
+                                stmt.setString(6, coursesStr);
+                                stmt.setString(7, teacher.getUserId());
+
                               
 			stmt.executeUpdate();
 			
@@ -470,12 +501,13 @@ public class JDBC {
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableCourses+" SET title = ?, "
-                                      + "credithours = ?, category = ?, type = ? WHERE courseID = ?");
+                                      + "credithours = ?, category = ?, type = ?, assignstatus = ? WHERE courseID = ?");
                                 stmt.setString(1, course.getTitle());
                                 stmt.setInt(2, course.getCreditHours());
                                 stmt.setString(3, course.getCategory());
                                 stmt.setString(4, course.getType());
-                                stmt.setString(5, course.getId());
+                                stmt.setBoolean(5, course.getAssignStatus());
+                                stmt.setString(6, course.getId());
                               
 			stmt.executeUpdate();
 			
@@ -743,6 +775,7 @@ public class JDBC {
                                       + "city varchar(32),"
                                       + "zipcode varchar(16),"
                                       + "accountstatus varchar(16),"
+                                      + "courses varchar(255),"
                                       + "PRIMARY KEY ( userID ))";
 			stmt.executeUpdate(sql);
 			System.out.println("Table Created!");
