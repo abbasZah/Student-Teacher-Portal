@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.lang.Object;
 
 /**
  *
@@ -261,7 +260,12 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
 
         JC_Type.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         JC_Type.setForeground(new java.awt.Color(51, 51, 51));
-        JC_Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Bachelor", "Master", "Ph.D", "M.Phil" }));
+        JC_Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Bachelor", "Master", "M.Phil", "Ph.D" }));
+        JC_Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JC_TypeActionPerformed(evt);
+            }
+        });
 
         jSeparator3.setBackground(new java.awt.Color(13, 56, 247));
 
@@ -482,6 +486,10 @@ public class CreateDegreeWindow extends javax.swing.JFrame {
     private void TF_TotalFeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_TotalFeeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TF_TotalFeeActionPerformed
+
+    private void JC_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JC_TypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JC_TypeActionPerformed
 
     /**
      * @param args the command line arguments

@@ -496,11 +496,14 @@
                                         <StringItem index="0" value="None"/>
                                         <StringItem index="1" value="Bachelor"/>
                                         <StringItem index="2" value="Master"/>
-                                        <StringItem index="3" value="Ph.D"/>
-                                        <StringItem index="4" value="M.Phil"/>
+                                        <StringItem index="3" value="M.Phil"/>
+                                        <StringItem index="4" value="Ph.D"/>
                                       </StringArray>
                                     </Property>
                                   </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JC_TypeActionPerformed"/>
+                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JSeparator" name="jSeparator3">
                                   <Properties>

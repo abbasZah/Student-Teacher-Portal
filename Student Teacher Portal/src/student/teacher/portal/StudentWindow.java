@@ -370,7 +370,7 @@ public class StudentWindow extends javax.swing.JFrame {
                     data[i][0]=s.getUserId();
                     data[i][1]=s.getFirstName()+" "+s.getLastName();
                     data[i][2]=s.getGender();
-                    data[i][3]=s.getDegree().getId()+"-"+s.getDegree().getName();
+                    data[i][3]=s.getDegree().getType() + "-" + s.getDegree().getId() + "-" + s.getDegree().getName();
                     data[i][4]=s.getAccountStatus();
                     
               
