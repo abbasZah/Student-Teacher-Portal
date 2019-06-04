@@ -170,10 +170,12 @@ public class JDBC {
                               createTeacherTableIfNotExists();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM "+tableTeacher);
-			while(rs.next()){
+			while(rs.next())
+                              {
+                                  ArrayList<Course> courseslist = new ArrayList<>();
+                                  try {
                                     String coursesStr = rs.getString("courses");
                                     String[] coursesIDArr = coursesStr.split("-");
-                                    ArrayList<Course> courseslist = new ArrayList<>();
                                     for (int i = 0; i < coursesIDArr.length; i++) {
                                         //System.err.println(coursesIDArr[i]);
                                         for (Course course : Admin.getCourses()) {
@@ -185,7 +187,7 @@ public class JDBC {
                                                 }
                                             }
                                         }
-
+                                   } catch (NullPointerException e) {}
 				
                                             Teacher teacher = new Teacher(rs.getString("userID"), rs.getString("password"), 
                                                     rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
