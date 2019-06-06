@@ -491,7 +491,7 @@ public class Settings extends javax.swing.JFrame {
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
        if(obj instanceof Admin)
         {
-            new AdminWindow().setVisible(true);
+            new AdminMenuWindow().setVisible(true);
             this.dispose();
         }else if(obj instanceof Student)
         {

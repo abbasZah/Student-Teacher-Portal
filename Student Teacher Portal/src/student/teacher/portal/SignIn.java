@@ -245,7 +245,7 @@ public class SignIn extends javax.swing.JFrame {
            
        
        
-        new AdminWindow().setVisible(true);
+        new AdminMenuWindow().setVisible(true);
         this.dispose();
         
        }else{

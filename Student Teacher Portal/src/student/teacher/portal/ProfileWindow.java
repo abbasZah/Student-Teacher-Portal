@@ -1087,7 +1087,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         
         if(obj instanceof Admin)
         {
-            new AdminWindow().setVisible(true);
+            new AdminMenuWindow().setVisible(true);
             this.dispose();
         }else if(obj instanceof Student)
         {

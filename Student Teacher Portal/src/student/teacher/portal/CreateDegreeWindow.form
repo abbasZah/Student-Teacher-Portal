@@ -622,7 +622,7 @@
                                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                       <Color blue="f7" green="38" red="d" type="rgb"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Duration"/>
+                                    <Property name="text" type="java.lang.String" value="Duration (years)"/>
                                   </Properties>
                                 </Component>
                                 <Component class="javax.swing.JComboBox" name="JC_Duration">
