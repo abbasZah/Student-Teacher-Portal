@@ -20,9 +20,9 @@ public class Settings extends javax.swing.JFrame {
     /**
      * Creates new form Settings
      */
-    Admin admin ;
+    Person obj ;
     
-    public Settings() {
+    public Settings(Person obj) {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,7 +31,7 @@ public class Settings extends javax.swing.JFrame {
         setTitle("Student Teacher Portal");
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
         
-        admin = AdminWindow.getAdmin();
+        this.obj = obj;
     }
 
     /**
@@ -489,8 +489,18 @@ public class Settings extends javax.swing.JFrame {
     }//GEN-LAST:event_TF_ConfirmPasswordActionPerformed
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
-       new AdminWindow().setVisible(true);
-        this.dispose();
+       if(obj instanceof Admin)
+        {
+            new AdminWindow().setVisible(true);
+            this.dispose();
+        }else if(obj instanceof Student)
+        {
+            new StudentMenuWindow((Student) obj).setVisible(true);
+            this.dispose();
+        }else{
+            //new TeacherMenuWindow((Techer) obj).setVisible(true);
+            //tis.dispose();
+        }
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_ChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ChangeActionPerformed
@@ -507,7 +517,7 @@ public class Settings extends javax.swing.JFrame {
         }
         else
         {
-           if(OldPassword.equals(admin.getPassword()))
+           if(OldPassword.equals(obj.getPassword()))
            {
                if(NewPassword.equals(ConfirmPassword))
                 {
@@ -517,19 +527,34 @@ public class Settings extends javax.swing.JFrame {
                     }
                     else
                     {
-                            admin.setPassword(NewPassword);
-                  
-                                try {
-                                    JDBC.changeAdminPass(admin);
-                                     JOptionPane.showMessageDialog(null, "Password Changed Succesfully!");
-                                    
-                                     TF_NewPassword.setText("");
-                                     TF_ConfirmPassword.setText("");
-                                     TF_OldPassword.setText("");
+                            obj.setPassword(NewPassword);
+                            if (obj instanceof Admin) {
+                                    try {
+                                        JDBC.changePass((Admin) obj);
+                                         JOptionPane.showMessageDialog(null, "Password Changed Succesfully!");
 
-                                } catch (Exception ex) {
-                                    Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
-                                }
+                                         TF_NewPassword.setText("");
+                                         TF_ConfirmPassword.setText("");
+                                         TF_OldPassword.setText("");
+
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                            }else if(obj instanceof Student){
+                                    try {
+                                        JDBC.changePass((Student) obj);
+                                        JOptionPane.showMessageDialog(null, "Password Changed Succesfully!");
+
+                                         TF_NewPassword.setText("");
+                                         TF_ConfirmPassword.setText("");
+                                         TF_OldPassword.setText("");
+
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                            }else{
+                                //for teacher
+                            }
                     }
                     
                 }
@@ -545,40 +570,7 @@ public class Settings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTN_ChangeActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Settings.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Settings().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
