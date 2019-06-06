@@ -363,7 +363,7 @@ public class EditStudentWindow extends javax.swing.JFrame {
 
         JC_acStatus.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         JC_acStatus.setForeground(new java.awt.Color(51, 51, 51));
-        JC_acStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Banned" }));
+        JC_acStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Active", "Blocked" }));
         JC_acStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JC_acStatusActionPerformed(evt);

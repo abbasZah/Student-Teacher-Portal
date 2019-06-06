@@ -361,19 +361,19 @@ public class JDBC {
           
           public static void insertData(DegreeProgram degree)
                             throws Exception{
-              String coursesStr = "";
-              
-              try {
-              
-              for (Course course: degree.getCourseList()) {
-                  coursesStr += course.getId()+"-";
-              }
-              
-              } 
-              catch (NullPointerException e) 
-              {
-                  coursesStr = "";
-              }
+                String coursesStr = "";
+
+                try {
+
+                for (Course course: degree.getCourseList()) {
+                    coursesStr += course.getId()+"-";
+                }
+
+                } 
+                catch (NullPointerException e) 
+                {
+                    coursesStr = "";
+                }                
 		try{
 			
 			Connection conn = get_Connection();
@@ -412,7 +412,7 @@ public class JDBC {
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableAdmin+" SET first = ?, last = ?,"
                                       + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
-                                      + "city = ?, zipcode = ?, accountstatus = ? WHERE userID = ?");
+                                      + "city = ?, accountstatus = ?, zipcode = ? WHERE userID = ?");
                                 stmt.setString(1, admin.getFirstName());
                                 stmt.setString(2, admin.getLastName());
                                 stmt.setString(3, admin.getGender());
@@ -422,8 +422,8 @@ public class JDBC {
                                 stmt.setString(7, admin.getCnic());
                                 stmt.setString(8, admin.getCountry());
                                 stmt.setString(9, admin.getCity());
-                                stmt.setString(10, admin.getZipcode());
-                                stmt.setString(11, admin.getAccountStatus());
+                                stmt.setString(10, admin.getAccountStatus());
+                                stmt.setString(11, admin.getZipcode());
                                 stmt.setString(12, admin.getUserId());
                               
                               
@@ -441,14 +441,20 @@ public class JDBC {
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableStudent+" SET first = ?, last = ?,"
-                                      + "userID = ?, gender = ?, accountstatus = ? WHERE userID = ?");
+                                      + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
+                                      + "city = ?, accountstatus = ?, zipcode = ? WHERE userID = ?");
                                 stmt.setString(1, stu.getFirstName());
                                 stmt.setString(2, stu.getLastName());
-                                stmt.setString(3, stu.getUserId());
-                                stmt.setString(4, stu.getGender());
-                                stmt.setString(5, stu.getAccountStatus());
-                                stmt.setString(6, stu.getUserId());
-                              
+                                stmt.setString(3, stu.getGender());
+                                stmt.setString(4, stu.getPhoneNo());
+                                stmt.setString(5, stu.getEmail());
+                                stmt.setString(6, stu.getAddress());
+                                stmt.setString(7, stu.getCnic());
+                                stmt.setString(8, stu.getCountry());
+                                stmt.setString(9, stu.getCity());
+                                stmt.setString(10, stu.getAccountStatus());
+                                stmt.setString(11, stu.getZipcode());
+                                stmt.setString(12, stu.getUserId());
                               
 			stmt.executeUpdate();
 			
@@ -618,7 +624,7 @@ public class JDBC {
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           /////////////////////////////////////////////////////////////////////////////////////////////////////
           
-          public static void changeAdminPass(Admin admin)
+          public static void changePass(Admin admin)
                             throws Exception{
                        
 		try{
@@ -628,6 +634,24 @@ public class JDBC {
                                       + " WHERE userID = ?");
                                 stmt.setString(1, admin.getPassword());
                                 stmt.setString(2, admin.getUserId());
+                              
+                              
+			stmt.executeUpdate();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+	}
+          public static void changePass(Student stu)
+                            throws Exception{
+                       
+		try{
+			
+			Connection conn = get_Connection();
+			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableStudent+" SET password = ?"
+                                      + " WHERE userID = ?");
+                                stmt.setString(1, stu.getPassword());
+                                stmt.setString(2, stu.getUserId());
                               
                               
 			stmt.executeUpdate();

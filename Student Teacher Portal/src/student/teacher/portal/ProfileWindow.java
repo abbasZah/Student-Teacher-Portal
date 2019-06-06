@@ -22,12 +22,12 @@ public class ProfileWindow extends javax.swing.JFrame {
      * Creates new form ProfileWindow
      */
     
-    Admin admin ;
+    Person obj;
     Color DisbleColor= new Color(153,153,153);
     boolean Passview;
     
     
-    public ProfileWindow() {
+    public ProfileWindow(Person obj) {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,24 +45,25 @@ public class ProfileWindow extends javax.swing.JFrame {
         
         
         
-        admin = AdminWindow.getAdmin();
-        
-        
-        TF_FirstName.setText(admin.getFirstName());
-        TF_LastName.setText(admin.getLastName());
-        JC_Gender.setSelectedItem(admin.getGender());
-        TF_Role.setText(admin.getRole());
-        JC_AccountStatus.setSelectedItem(admin.getAccountStatus());
-        TF_Username.setText(admin.getUserId());
-        TF_PhoneNo.setText(admin.getPhoneNo());
-        TF_Email.setText(admin.getEmail());
-        TF_CNIC.setText(admin.getCnic());
-        TF_Address.setText(admin.getAddress());
-        JC_Country.setSelectedItem(admin.getCountry());
-        TF_City.setText(admin.getCity());
-        TF_ZipCode.setText(admin.getZipcode());
-        TF_Password.setText(".....");
-        
+        this.obj = obj;
+        try {
+
+            TF_FirstName.setText(obj.getFirstName());
+            TF_LastName.setText(obj.getLastName());
+            JC_Gender.setSelectedItem(obj.getGender());
+            TF_Role.setText(obj.getRole());
+            JC_AccountStatus.setSelectedItem(obj.getAccountStatus());
+            TF_Username.setText(obj.getUserId());
+            TF_PhoneNo.setText(obj.getPhoneNo());
+            TF_Email.setText(obj.getEmail());
+            TF_CNIC.setText(obj.getCnic());
+            TF_Address.setText(obj.getAddress());
+            JC_Country.setSelectedItem(obj.getCountry());
+            TF_City.setText(obj.getCity());
+            TF_ZipCode.setText(obj.getZipcode());
+            TF_Password.setText(".....");
+        } 
+        catch (NullPointerException e) {}
     }
 
     /**
@@ -995,40 +996,47 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void BTN_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_UpdateActionPerformed
         
-         if(!admin.getFirstName().equals(TF_FirstName.getText()) ||
-                 !admin.getLastName().equals(TF_LastName.getText()) ||
-                 !admin.getGender().equals(JC_Gender.getSelectedItem().toString()) ||
-                 !admin.getAccountStatus().equals(JC_AccountStatus.getSelectedItem().toString()) ||
-                 !admin.getPhoneNo().equals(TF_PhoneNo.getText()) ||
-                 !admin.getEmail().equals(TF_Email.getText()) ||
-                 !admin.getCnic().equals(TF_CNIC.getText()) ||
-                 !admin.getAddress().equals(TF_Address.getText()) ||
-                 !admin.getCountry().equals(JC_Country.getSelectedItem().toString()) ||
-                 !admin.getCity().equals(TF_City.getText()) ||
-                 !admin.getZipcode().equals(TF_ZipCode.getText())
+         if(!obj.getFirstName().equals(TF_FirstName.getText()) ||
+                 !obj.getLastName().equals(TF_LastName.getText()) ||
+                 !obj.getGender().equals(JC_Gender.getSelectedItem().toString()) ||
+                 !obj.getPhoneNo().equals(TF_PhoneNo.getText()) ||
+                 !obj.getEmail().equals(TF_Email.getText()) ||
+                 !obj.getCnic().equals(TF_CNIC.getText()) ||
+                 !obj.getAddress().equals(TF_Address.getText()) ||
+                 !obj.getCountry().equals(JC_Country.getSelectedItem().toString()) ||
+                 !obj.getCity().equals(TF_City.getText()) ||
+                 !obj.getZipcode().equals(TF_ZipCode.getText())
                  )
              
                 {
-                            admin.setFirstName(TF_FirstName.getText());
-                            admin.setLastName(TF_LastName.getText());
-                            admin.setGender(JC_Gender.getSelectedItem().toString());
-                            admin.setAccountStatus(JC_AccountStatus.getSelectedItem().toString());
-                            admin.setPhoneNo(TF_PhoneNo.getText());
-                            admin.setEmail(TF_Email.getText());
-                            admin.setCnic(TF_CNIC.getText());
-                            admin.setAddress(TF_Address.getText());
-                            admin.setCountry(JC_Country.getSelectedItem().toString());
-                            admin.setCity(TF_City.getText());
-                            admin.setZipcode(TF_ZipCode.getText());
+                            obj.setFirstName(TF_FirstName.getText());
+                            obj.setLastName(TF_LastName.getText());
+                            obj.setGender(JC_Gender.getSelectedItem().toString());
+                            obj.setPhoneNo(TF_PhoneNo.getText());
+                            obj.setEmail(TF_Email.getText());
+                            obj.setCnic(TF_CNIC.getText());
+                            obj.setAddress(TF_Address.getText());
+                            obj.setCountry(JC_Country.getSelectedItem().toString());
+                            obj.setCity(TF_City.getText());
+                            obj.setZipcode(TF_ZipCode.getText());
                             TF_Password.setText(".....");
 
                             BTN_Update.setVisible(false);
 
-
-                            try {
-                                JDBC.updateData(SignIn.getAdmin());
-                            } catch (Exception ex) {
-                                Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
+                            if(obj instanceof Admin){
+                                try {
+                                    JDBC.updateData((Admin) obj);
+                                } catch (Exception ex) {
+                                    Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }else if(obj instanceof Student){
+                                try {
+                                    JDBC.updateData((Student) obj);
+                                } catch (Exception ex) {
+                                    Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }else{
+                                ///for teacher
                             }
                             BTN_iRole.setVisible(false);
                             BTN_iUPNote.setVisible(false);
@@ -1077,8 +1085,18 @@ public class ProfileWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
         
-        new AdminWindow().setVisible(true);
-        this.dispose();
+        if(obj instanceof Admin)
+        {
+            new AdminWindow().setVisible(true);
+            this.dispose();
+        }else if(obj instanceof Student)
+        {
+            new StudentMenuWindow((Student) obj).setVisible(true);
+            this.dispose();
+        }else{
+            //new TeacherMenuWindow((Techer) obj).setVisible(true);
+            //tis.dispose();
+        }
     }//GEN-LAST:event_BTN_BackActionPerformed
 
     private void BTN_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_EditActionPerformed
@@ -1113,7 +1131,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         
         
          if(Passview==true)
-           TF_Password.setText(admin.getPassword());
+           TF_Password.setText(obj.getPassword());
        else
            TF_Password.setText(".....");
         
@@ -1136,41 +1154,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JC_CountryActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProfileWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProfileWindow().setVisible(true);
-            }
-        });
-    }
     
     void setFeildsEditAble(boolean bool){
         
@@ -1180,7 +1164,7 @@ public class ProfileWindow extends javax.swing.JFrame {
         TF_PhoneNo.setEditable(bool);
         JC_Gender.setEnabled(bool);
         //TF_Role.setEditable(bool);
-        JC_AccountStatus.setEnabled(bool);
+        //JC_AccountStatus.setEnabled(bool);
         //TF_Username.setEditable(true);
         //TF_Password.setEditable(true);
         TF_LastName.setEditable(bool);
