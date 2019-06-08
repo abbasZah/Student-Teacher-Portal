@@ -273,7 +273,7 @@ public class SignIn extends javax.swing.JFrame {
             {
                 for(Teacher teacher: Admin.getTeachers()){
                 if(teacher.getUserId().equals(username) && teacher.getPassword().equals(password)){
-                    //new TeacherMenuWindow().setVisible(true);
+                    new TeacherMenuWindow(teacher).setVisible(true);
                     flag = true;
                     this.dispose();
                    }

@@ -396,8 +396,7 @@ public class TeacherWindow extends javax.swing.JFrame {
                     data[i][0]=tea.getUserId();
                     data[i][1]=tea.getFirstName()+" "+tea.getLastName();
                     data[i][2]=tea.getGender();
-                    data[i][3]="";
-                    //Degreefield
+                    data[i][3]=tea.getEmail();
                     data[i][4]=tea.getAccountStatus();
                     
               

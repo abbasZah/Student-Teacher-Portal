@@ -51,7 +51,7 @@ public class AssignTeacherCoursesWindow extends javax.swing.JFrame {
                             {
                                 if(teacher.getUserId().equals(teacherID))
                                 {
-                                    jLabel4.setText(teacher.getFirstName()+ teacher.getLastName()+" Courses");
+                                    jLabel4.setText(teacher.getFirstName()+ " "+ teacher.getLastName()+" Courses");
                                 }
                             }
     }

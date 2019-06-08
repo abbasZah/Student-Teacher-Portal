@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -35,6 +36,9 @@ public class ProfileWindow extends javax.swing.JFrame {
         setLocation(150, 10);
         setTitle("Student Teacher Portal");
         setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        
+       
+        
         
         BTN_Update.setVisible(false);
         BTN_iRole.setVisible(false);
@@ -1036,7 +1040,11 @@ public class ProfileWindow extends javax.swing.JFrame {
                                     Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }else{
-                                ///for teacher
+                                 try {
+                                    JDBC.updateData((Teacher) obj);
+                                } catch (Exception ex) {
+                                    Logger.getLogger(ProfileWindow.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
                             BTN_iRole.setVisible(false);
                             BTN_iUPNote.setVisible(false);
@@ -1094,8 +1102,8 @@ public class ProfileWindow extends javax.swing.JFrame {
             new StudentMenuWindow((Student) obj).setVisible(true);
             this.dispose();
         }else{
-            //new TeacherMenuWindow((Techer) obj).setVisible(true);
-            //tis.dispose();
+           new TeacherMenuWindow((Teacher) obj).setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_BTN_BackActionPerformed
 
