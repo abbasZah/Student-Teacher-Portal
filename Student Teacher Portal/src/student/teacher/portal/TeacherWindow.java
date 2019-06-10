@@ -63,6 +63,7 @@ public class TeacherWindow extends javax.swing.JFrame {
         BTN_Remove = new javax.swing.JButton();
         BTN_Create = new javax.swing.JButton();
         BTN_UserInfo = new javax.swing.JButton();
+        BTN_Courses = new javax.swing.JButton();
         PNL_BodyBelow = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,6 +244,18 @@ public class TeacherWindow extends javax.swing.JFrame {
             }
         });
 
+        BTN_Courses.setBackground(new java.awt.Color(13, 56, 247));
+        BTN_Courses.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BTN_Courses.setForeground(new java.awt.Color(255, 255, 255));
+        BTN_Courses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student/teacher/portal/images/icons8_Invoice_20px.png"))); // NOI18N
+        BTN_Courses.setText("  Courses");
+        BTN_Courses.setBorder(null);
+        BTN_Courses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_CoursesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PNL_BodyTopLayout = new javax.swing.GroupLayout(PNL_BodyTop);
         PNL_BodyTop.setLayout(PNL_BodyTopLayout);
         PNL_BodyTopLayout.setHorizontalGroup(
@@ -251,7 +264,9 @@ public class TeacherWindow extends javax.swing.JFrame {
                 .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BTN_UserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addComponent(BTN_Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,7 +282,8 @@ public class TeacherWindow extends javax.swing.JFrame {
                     .addComponent(BTN_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Remove, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BTN_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_UserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN_UserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -358,6 +374,18 @@ public class TeacherWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BTN_UserInfoActionPerformed
 
+    private void BTN_CoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CoursesActionPerformed
+
+        try {
+            String id = (String) TeacherTable.getValueAt(TeacherTable.getSelectedRow(), 0);
+            new AssignTeacherCoursesWindow(id).setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please select a teacher first !");
+        }
+
+    }//GEN-LAST:event_BTN_CoursesActionPerformed
+
     private void showTable(){
         
         Object[][] data = new Object[Admin.getTeachers().size()][5];
@@ -442,6 +470,7 @@ public class TeacherWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTN_Back;
+    private javax.swing.JButton BTN_Courses;
     private javax.swing.JButton BTN_Create;
     private javax.swing.JButton BTN_Edit;
     private javax.swing.JButton BTN_Remove;

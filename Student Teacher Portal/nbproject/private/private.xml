@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/SignIn.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/StudentWindow.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/Admin.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/DegreeProgram.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/CreateDegreeWindow.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/JDBC.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/CreateCourseWindow.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/Student.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/CreateStudentWindow.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/Person.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/AdminWindow.java</file>
-            <file>file:/Z:/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/AssignDegreeCoursesWindow.java</file>
+            <file>file:/C:/Users/shahr/OneDrive/Desktop/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/AdminWindow.java</file>
+            <file>file:/C:/Users/shahr/OneDrive/Desktop/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/Admin.java</file>
+            <file>file:/C:/Users/shahr/OneDrive/Desktop/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/SignIn.java</file>
+            <file>file:/C:/Users/shahr/OneDrive/Desktop/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/JDBC.java</file>
+            <file>file:/C:/Users/shahr/OneDrive/Desktop/DSA%20Project/Student-Teacher-Portal/Student%20Teacher%20Portal/src/student/teacher/portal/StudentMenuWindow.java</file>
         </group>
     </open-files>
 </project-private>

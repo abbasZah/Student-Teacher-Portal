@@ -246,11 +246,43 @@ public class SignIn extends javax.swing.JFrame {
        
        
         new AdminWindow().setVisible(true);
-         this.dispose();
-           
+        this.dispose();
+        
        }else{
-           JOptionPane.showMessageDialog(null, "Login Error !");
+            
+            boolean flag = false;
+            
+            
+            for(Student stu: Admin.getStudents())
+            {
+                if(stu.getUserId().equals(username) && stu.getPassword().equals(password))
+                {
+                    if(stu.getAccountStatus().equals("Active"))
+                    {
+                        new StudentMenuWindow(stu).setVisible(true);
+                        flag = true;
+                        this.dispose();
+                        break;
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Your account have been blocked ! \nPlease contact admin.");
+                        flag = true;
+                    }
+                }
+            }
+            if(!flag)
+            {
+                for(Teacher teacher: Admin.getTeachers()){
+                if(teacher.getUserId().equals(username) && teacher.getPassword().equals(password)){
+                    //new TeacherMenuWindow().setVisible(true);
+                    flag = true;
+                    this.dispose();
+                   }
+                }
+            }
+            if(!flag)
+                JOptionPane.showMessageDialog(null, "Login Error !");
        }
+       
         
     }//GEN-LAST:event_BTN_SignInActionPerformed
 
