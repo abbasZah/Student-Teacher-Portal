@@ -311,7 +311,7 @@ public class TeacherWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new AdminWindow().setVisible(true);
+        new AdminMenuWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
@@ -396,8 +396,7 @@ public class TeacherWindow extends javax.swing.JFrame {
                     data[i][0]=tea.getUserId();
                     data[i][1]=tea.getFirstName()+" "+tea.getLastName();
                     data[i][2]=tea.getGender();
-                    data[i][3]="";
-                    //Degreefield
+                    data[i][3]=tea.getEmail();
                     data[i][4]=tea.getAccountStatus();
                     
               

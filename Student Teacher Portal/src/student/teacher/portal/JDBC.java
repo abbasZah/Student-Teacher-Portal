@@ -465,35 +465,25 @@ public class JDBC {
                    
                    public static void updateData(Teacher teacher)
                             throws Exception{
-                       
-                        String coursesStr = "";
-
-                        try {
-
-                        for (Course course: teacher.getCourseList()) {
-                            coursesStr += course.getId()+"-";
-                            //System.out.println(course.getId());
-                        }
-
-                        } 
-                        catch (NullPointerException e) 
-                        {
-                            coursesStr = "";
-                        }
-                       
+                         
 		try{
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableTeacher+" SET first = ?, last = ?,"
-                                      + "userID = ?, gender = ?, accountstatus = ?, courses = ? WHERE userID = ?");
+                                      + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
+                                      + "city = ?, accountstatus = ?, zipcode = ? WHERE userID = ?");
                                 stmt.setString(1, teacher.getFirstName());
                                 stmt.setString(2, teacher.getLastName());
-                                stmt.setString(3, teacher.getUserId());
-                                stmt.setString(4, teacher.getGender());
-                                stmt.setString(5, teacher.getAccountStatus());
-                                stmt.setString(6, coursesStr);
-                                stmt.setString(7, teacher.getUserId());
-
+                                stmt.setString(3, teacher.getGender());
+                                stmt.setString(4, teacher.getPhoneNo());
+                                stmt.setString(5, teacher.getEmail());
+                                stmt.setString(6, teacher.getAddress());
+                                stmt.setString(7, teacher.getCnic());
+                                stmt.setString(8, teacher.getCountry());
+                                stmt.setString(9, teacher.getCity());
+                                stmt.setString(10, teacher.getAccountStatus());
+                                stmt.setString(11, teacher.getZipcode());
+                                stmt.setString(12, teacher.getUserId());
                               
 			stmt.executeUpdate();
 			
