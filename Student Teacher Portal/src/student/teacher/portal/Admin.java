@@ -34,8 +34,8 @@ public class Admin extends Person{
     ) 
     {
         super(
-                userId, password, firstName, lastName, gender, phoneNo, email,
-                address, cnic, role, country, city, zipcode, accountStatus
+                userId, password, firstName, lastName, gender, phoneNo,
+                address, cnic, role,email, country, city, zipcode, accountStatus
         );
         courses = JDBC.getCourses();
         degrees = JDBC.getDegrees();
