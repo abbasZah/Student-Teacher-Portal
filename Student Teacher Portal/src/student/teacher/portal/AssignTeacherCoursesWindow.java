@@ -51,7 +51,7 @@ public class AssignTeacherCoursesWindow extends javax.swing.JFrame {
                             {
                                 if(teacher.getUserId().equals(teacherID))
                                 {
-                                    jLabel4.setText(teacher.getFirstName()+ teacher.getLastName()+" Courses");
+                                    jLabel4.setText(teacher.getFirstName()+ " "+ teacher.getLastName()+" Courses");
                                 }
                             }
     }
@@ -340,12 +340,14 @@ public class AssignTeacherCoursesWindow extends javax.swing.JFrame {
                                     
                                     for (Course course : Admin.getCourses()) {
                                         JDBC.updateData(course);
+                                        //break;
                                     }
                                     
                                     JOptionPane.showMessageDialog(null, "Courses saved successfully !");
                                 } catch (Exception ex) {
                                     Logger.getLogger(AssignDegreeCoursesWindow.class.getName()).log(Level.SEVERE, null, ex);
                                 }
+                                break;
                             }
         }
     }//GEN-LAST:event_BTN_SaveActionPerformed

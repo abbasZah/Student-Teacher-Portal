@@ -15,10 +15,10 @@ import javax.swing.JFrame;
  *
  * @author Abbas Zaheer
  */
-public class AdminWindow extends javax.swing.JFrame {
+public class AdminMenuWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminWindow
+     * Creates new form AdminMenuWindow
      */
   
     private static Admin admin;
@@ -27,7 +27,7 @@ public class AdminWindow extends javax.swing.JFrame {
    Color OnEnteredColor;
    Color OnExitedColor;
         
-        public AdminWindow() {
+        public AdminMenuWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_Student_Male_50px.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

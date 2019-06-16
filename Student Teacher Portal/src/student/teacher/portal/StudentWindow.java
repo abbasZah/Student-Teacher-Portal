@@ -294,7 +294,7 @@ public class StudentWindow extends javax.swing.JFrame {
 
     private void BTN_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_BackActionPerformed
 
-        new AdminWindow().setVisible(true);
+        new AdminMenuWindow().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTN_BackActionPerformed
 
@@ -385,8 +385,8 @@ public class StudentWindow extends javax.swing.JFrame {
         stuTable = new JTable(data, columnNames); 
         stuTable.setRowHeight(28);
         
-        //javax.swing.table.TableColumn column = stuTable.getColumnModel().getColumn(1);
-        //column.setMinWidth(200);
+        javax.swing.table.TableColumn column = stuTable.getColumnModel().getColumn(3);
+        column.setMinWidth(200);
         
         JScrollPane sp = new JScrollPane(stuTable);
         PNL_BodyBelow.add(sp);

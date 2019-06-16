@@ -151,8 +151,8 @@ public class JDBC {
 				
                                             Student student = new Student(rs.getString("userID"), rs.getString("password"), 
                                                     rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
-                                                    rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
-                                                    rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
+                                                    rs.getString("phno"), rs.getString("address"), rs.getString("cnic"), 
+                                                    rs.getString("role"), rs.getString("email"), rs.getString("country"), 
                                                     rs.getString("city"), rs.getString("zipcode"), 
                                                     rs.getString("accountstatus"), deg);
                                             
@@ -191,8 +191,8 @@ public class JDBC {
 				
                                             Teacher teacher = new Teacher(rs.getString("userID"), rs.getString("password"), 
                                                     rs.getString("first"), rs.getString("last"), rs.getString("gender"), 
-                                                    rs.getString("phno"), rs.getString("email"), rs.getString("address"), 
-                                                    rs.getString("cnic"), rs.getString("role"), rs.getString("country"), 
+                                                    rs.getString("phno"), rs.getString("address"), rs.getString("cnic"), 
+                                                    rs.getString("role"), rs.getString("email"), rs.getString("country"), 
                                                     rs.getString("city"), rs.getString("zipcode"), 
                                                     rs.getString("accountstatus"), courseslist);
                                             
@@ -466,34 +466,40 @@ public class JDBC {
                    public static void updateData(Teacher teacher)
                             throws Exception{
                        
-                        String coursesStr = "";
-
-                        try {
-
-                        for (Course course: teacher.getCourseList()) {
-                            coursesStr += course.getId()+"-";
-                            //System.out.println(course.getId());
-                        }
-
-                        } 
-                        catch (NullPointerException e) 
-                        {
-                            coursesStr = "";
-                        }
-                       
+                       String coursesStr = "";
+              
+              try {
+              
+              for (Course course: teacher.getCourseList()) {
+                  coursesStr += course.getId()+"-";
+                  //System.out.println(course.getId());
+              }
+              
+              } 
+              catch (NullPointerException e) 
+              {
+                  coursesStr = "";
+              }
+                         
 		try{
 			
 			Connection conn = get_Connection();
 			PreparedStatement stmt = conn.prepareStatement("UPDATE "+tableTeacher+" SET first = ?, last = ?,"
-                                      + "userID = ?, gender = ?, accountstatus = ?, courses = ? WHERE userID = ?");
+                                      + "gender = ?, phno = ?, email = ?, address = ?, cnic = ?, country = ?,"
+                                      + "city = ?, accountstatus = ?, zipcode = ?, courses = ? WHERE userID = ?");
                                 stmt.setString(1, teacher.getFirstName());
                                 stmt.setString(2, teacher.getLastName());
-                                stmt.setString(3, teacher.getUserId());
-                                stmt.setString(4, teacher.getGender());
-                                stmt.setString(5, teacher.getAccountStatus());
-                                stmt.setString(6, coursesStr);
-                                stmt.setString(7, teacher.getUserId());
-
+                                stmt.setString(3, teacher.getGender());
+                                stmt.setString(4, teacher.getPhoneNo());
+                                stmt.setString(5, teacher.getEmail());
+                                stmt.setString(6, teacher.getAddress());
+                                stmt.setString(7, teacher.getCnic());
+                                stmt.setString(8, teacher.getCountry());
+                                stmt.setString(9, teacher.getCity());
+                                stmt.setString(10, teacher.getAccountStatus());
+                                stmt.setString(11, teacher.getZipcode());
+                                stmt.setString(12, coursesStr);
+                                stmt.setString(13, teacher.getUserId());
                               
 			stmt.executeUpdate();
 			
