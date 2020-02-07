@@ -5,9 +5,9 @@
 
 ![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/2.jpg)
 
-![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/3.jpg)
+![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/3.png)
 
-![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/4.jpg)
+![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/4.png)
 
 ![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/Screenshots/5.jpg)
 
