@@ -1,5 +1,10 @@
 # Student-Teacher-Portal
 
+Language: Java
+Database: JDBC
+UIs:  Java Swing
+
+
 
 ![alt text](https://raw.githubusercontent.com/abbasZah/Student-Teacher-Portal/master/STP.png)
 
